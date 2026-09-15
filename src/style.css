@@ -159,3 +159,14 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  .atlas-hover .hover-runners>div{flex-wrap:wrap;row-gap:2px}
  .map-topline span{font-size:10px;padding:3px 5px}
 }
+
+/* Give a pair of maps the full width; supporting data follows below. */
+.atlas-workspace:has(.maps.compare),
+#controls:has(.release-notice)+#workspace .atlas-workspace:has(.maps.compare){grid-template-columns:minmax(0,1fr);height:auto;min-height:0}
+.atlas-workspace:has(.maps.compare)>.map-area{height:clamp(620px,82dvh,1000px);min-height:0}
+.atlas-workspace:has(.maps.compare)>.side-panel{border-left:0;border-top:1px solid var(--line);max-height:none;margin-top:0;overflow:visible}
+.atlas-workspace:has(.maps.compare) #panel-content{max-width:1200px;margin-inline:auto;padding:22px 28px 32px}
+@media(max-width:760px){
+ .atlas-workspace:has(.maps.compare)>.map-area{height:82dvh;min-height:480px}
+ .atlas-workspace:has(.maps.compare) #panel-content{padding:8px 20px 28px}
+}
