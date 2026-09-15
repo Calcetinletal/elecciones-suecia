@@ -94,7 +94,7 @@ for ax, (code, label, accent) in zip(axes.flat, CONFIG):
              'y_definition': '100 * sum(selected party vote counts) / valid_votes',
              'notes': 'Equal district weights; no significance tests. Dashed line is OLS, not a Spearman fit. Spatial estimates; no individual-vote inference.'}
     with (OUT / f'{STEM}-{code}.csv').open('w', encoding='utf-8', newline='') as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
     assert 0 <= y.min() <= y.max() <= ymax and 0 <= x.min() <= x.max() <= 70
@@ -127,6 +127,8 @@ fig.text(.073, .035, 'Sources: Valmyndigheten + SCB · votes: 14 Sep 2026 · pop
 fig.text(.073, .014, 'Birthplace, not citizenship. District association does not identify how individuals voted.', fontsize=11, color=MUTED)
 fig.savefig(OUT / f'{STEM}.png', dpi=240)
 fig.savefig(OUT / f'{STEM}.svg', metadata={'Date': None, 'Creator': '@Calcetinletal', 'Description': json.dumps(summaries)})
+svg_path = OUT / f'{STEM}.svg'
+svg_path.write_text('\n'.join(line.rstrip() for line in svg_path.read_text().splitlines()) + '\n')
 fig.savefig(OUT / f'{STEM}.pdf', metadata={'Title': 'Sweden 2026 | Votes and birthplace', 'Author': '@Calcetinletal'})
 plt.close(fig)
 (OUT / f'{STEM}-statistics.json').write_text(json.dumps(summaries, indent=2, ensure_ascii=False), encoding='utf-8')
