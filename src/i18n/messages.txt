@@ -606,3 +606,4 @@ por año|||by year|||per år
 31/12/2025, estimación espacial.|||31/12/2025, spatial estimate.|||2025-12-31, geografisk skattning.
 Denominador: todos los residentes de|||Denominator: all residents of|||Nämnare: alla invånare i
 unidades con recuento|||units counted|||räknade enheter
+Creado por|||Created by|||Skapad av

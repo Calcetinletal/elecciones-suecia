@@ -90,3 +90,10 @@
 
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv] .map[aria-busy=true]::after{content:"Läser in kartan…"}
+
+/* Persistent creator credit, separate from the link back to the atlas. */
+.brand-lockup{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0}
+.creator-signature{display:inline-flex;align-items:center;flex-wrap:wrap;gap:5px 7px;padding:4px 8px;border:1px solid #ccdde7;border-radius:7px;background:#f0f6fa;color:#173b4b;font-size:12px;line-height:1.4;text-decoration:none}
+.creator-account{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}.creator-account svg{flex:none}.creator-signature strong{font-weight:750}
+.creator-signature:hover{background:#dfeef7;border-color:#80a9c1}.creator-signature:hover strong{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.site-header .brand-lockup{flex:1;min-width:150px}.site-header .language-picker{align-self:flex-start}.creator-signature{font-size:11px;padding:3px 6px;gap:3px 5px}}
