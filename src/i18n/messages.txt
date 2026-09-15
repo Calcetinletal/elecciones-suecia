@@ -607,3 +607,4 @@ por año|||by year|||per år
 Denominador: todos los residentes de|||Denominator: all residents of|||Nämnare: alla invånare i
 unidades con recuento|||units counted|||räknade enheter
 Creado por|||Created by|||Skapad av
+Detalles|||Details|||Detaljer

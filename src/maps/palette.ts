@@ -21,7 +21,7 @@ export function label(s:State){
  if(s.metric.startsWith('delta_')&&s.view==='electoral')return 'Cambio 2022 → 2026 · '+s.metric.replace('delta_pct_','voto ').replace('delta_turnout_pct','participación');
  return s.view==='bivariate'?`Origen extranjero × voto ${s.party}`:s.view==='dominant'||s.metric==='winning_party'?'Partido ganador':s.metric==='turnout_pct'?'Participación electoral':isBirthRegionMetric(s.metric)?demographicLabel(s.metric):s.metric==='foreign_born_pct'?'Nacidos fuera de Suecia¹':s.metric==='foreign_citizens_pct'?'Ciudadanía extranjera¹':s.view==='demography'?'Origen extranjero':'Voto '+s.party;
 }
-export function legend(s:State,rows:District[]){
+function legendContent(s:State,rows:District[]){
  if(s.metric==='winning_block'||s.metric==='common_origin'){const blocks=s.metric==='winning_block';return `<b>${e(label(s))}</b><div class="categorical-legend">${(blocks?blockDefinitions:originDefinitions).map(c=>`<span><i style="background:${c.color}"></i>${e(c.name)}</span>`).join('')}<span><i style="background:#b1aabb"></i>Empate</span><span><i style="background:#7b8793"></i>Sin dato</span></div><small>${blocks?'Agrupación analítica; suma de votos.':'Dos grupos SCB; excluye Suecia. Estimación por distrito. No identifica países individuales.'}${s.view==='compare'?'<br>Mapa derecho: % voto, de 0 a 100 %.':''}</small>`;}
 
  if(s.metric.startsWith('delta_')&&s.view==='electoral')return `<b>${e(label(s))}</b><div class="scale">${[-30,-20,-10,0,10,20,30].map(v=>`<i style="background:${divergent(v)}"></i>`).join('')}</div><div class="scale-labels"><span>−30 pp</span><span>0</span><span>+30 pp</span></div><small>Solo distritos comparables. Gris: límites cambiados, unidad nueva o sin comparación.</small>`;
@@ -29,3 +29,9 @@ export function legend(s:State,rows:District[]){
  if(s.view==='dominant'||(s.view==='electoral'&&s.metric==='winning_party'))return `<b>Partido ganador</b><div class="party-legend">${parties.map(p=>`<span>${partyBadge(p.id)}${p.id==='other'?'Otros':''}</span>`).join('')}</div><small>Gris: sin resultado · Lila: empate.</small>`;
  return `<b>${e(label(s))}</b><div class="scale">${[0,10,20,30,40,50,60,70,80,90,100].map(v=>`<i style="background:${sequential(v)}"></i>`).join('')}</div><div class="scale-labels"><span>0 %</span><span>50 %</span><span>100 %</span></div><small>Gris: sin dato. Demografía: estimación espacial.${isBirthRegionMetric(s.metric)?'<br>% de residentes estimados; ver definición SCB sobre los mapas.':''}</small>`;
 }
+
+/** Keep the scale visible and secondary explanations available on demand. */
+export function compactLegend(html:string){
+ return html.replace(/<small>([\s\S]*?)<\/small>/g, '<details class="legend-notes"><summary>Detalles</summary><small>$1</small></details>');
+}
+export function legend(s:State,rows:District[]){return compactLegend(legendContent(s,rows));}
