@@ -106,3 +106,18 @@ comprobar los dos grupos de filas existentes y su apertura/cierre; volvió a pas
 Se revisaron visualmente el selector móvil en sueco y ambas evoluciones en inglés.
 También se revisaron los textos desplegados de las cinco páginas en inglés,
 incluidas notas y metodología. No se modificaron datos ni cálculos estadísticos.
+
+## Banderas y revisión general · 2026-09-15
+
+Selector con banderas SVG locales de España, Reino Unido y Suecia, tanto en el
+idioma activo como en las tres opciones. Se conservan los nombres de idioma y los
+estados accesibles; Escape cierra el menú y devuelve el foco al selector. Pulsar
+fuera también lo cierra. No depende del soporte de emojis del sistema operativo.
+
+38 pruebas unitarias y 14 pruebas de navegador superadas. Revisión adicional de
+Atlas, Análisis, Países, Evolución y Metodología en es/en/sv, a 1440 y 390 píxeles
+(30 combinaciones): sin errores JavaScript, respuestas HTTP de error, imágenes
+rotas visibles, enlaces de navegación vacíos ni desbordamiento horizontal.
+Revisión visual del menú abierto en escritorio y móvil. Las comprobaciones
+funcionales cubren filtros, dos mapas sincronizados, fichas, series, enlaces,
+descargas CSV y conservación de la vista al cambiar de idioma.

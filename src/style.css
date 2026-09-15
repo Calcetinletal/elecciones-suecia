@@ -76,11 +76,17 @@
 
 /* The language control stays visible on desktop and mobile. */
 .site-header{display:flex;flex-wrap:wrap;gap:12px}.site-header nav{flex:1;justify-content:center}
-.language-picker{display:flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid #c3d6e1;border-radius:12px;background:#f1f7fb;color:#173b4b;flex:none}
-.language-picker svg{fill:none;stroke:currentColor;stroke-width:1.5;flex:none}
-.language-picker select{font:inherit;font-size:.88rem;font-weight:650;color:inherit;background:transparent;border:0;min-height:32px;cursor:pointer;width:auto;padding:2px 20px 2px 2px}
-.language-picker:focus-within{outline:3px solid #71add2;outline-offset:3px}
-@media(max-width:760px){.site-header .brand{flex:1;min-width:150px}.site-header nav{order:3;flex-basis:100%;justify-content:flex-start;overflow-x:auto}.site-header .language-picker{margin-left:auto}.language-picker{padding:3px 7px}.language-picker select{font-size:.8rem}}
+.language-picker{position:relative;flex:none;color:#173b4b;z-index:40}
+.language-picker>summary{display:flex;align-items:center;gap:9px;min-height:44px;padding:9px 12px;list-style:none;border:1px solid #c3d6e1;border-radius:12px;background:#f1f7fb;font-size:.88rem;font-weight:650;cursor:pointer;white-space:nowrap}
+.language-picker>summary::-webkit-details-marker{display:none}
+.language-flag{display:block;flex:none;border-radius:3px;box-shadow:0 0 0 1px #183b551f;overflow:hidden}
+.language-chevron{fill:none;stroke:currentColor;stroke-width:1.6;margin-left:5px;transition:transform .15s}
+.language-picker[open] .language-chevron{transform:rotate(180deg)}
+.language-menu{position:absolute;right:0;top:calc(100% + 7px);min-width:190px;padding:6px;border:1px solid #d3e0e8;border-radius:14px;background:#fff;box-shadow:0 12px 32px #15374f26}
+.language-menu button{display:flex;align-items:center;gap:11px;width:100%;min-height:44px;padding:10px;border:0;border-radius:9px;font-size:.88rem;text-align:left}
+.language-menu button[aria-pressed=true]{background:#e8f2f9;font-weight:700;color:#164e6e}
+.language-menu button:hover{background:#f0f5f8}.language-check{margin-left:auto;color:#167196}
+@media(max-width:760px){.site-header .brand{flex:1;min-width:150px}.site-header nav{order:3;flex-basis:100%;justify-content:flex-start;overflow-x:auto}.site-header .language-picker{margin-left:auto}.language-picker>summary{font-size:.8rem;padding:8px 10px;gap:7px}}
 
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv] .map[aria-busy=true]::after{content:"Läser in kartan…"}

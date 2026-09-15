@@ -1,3 +1,4 @@
+import {languageFlag} from './flags';
 import catalog from './messages.txt?raw';
 import {readLanguage,rememberLanguage,languageNames,locales,languageUrl,type Language} from './language';
 export {readLanguage,locales,languageUrl};
@@ -13,7 +14,8 @@ export function translate(text:string,target:Language=language):string {
   return target==='es'?text:text.replace(pattern,source=>dictionary.get(source)?.[target]??source);
 }
 export function languagePicker():string {
-  return `<label class="language-picker" translate="no"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/></svg><span class="sr-only">${language==='en'?'Language':language==='sv'?'Språk':'Idioma'}</span><select id="language" aria-label="${language==='en'?'Language':language==='sv'?'Språk':'Idioma'}">${Object.entries(languageNames).map(([code,name])=>`<option lang="${code}" value="${code}" ${code===language?'selected':''}>${name}</option>`).join('')}</select></label>`;
+ const label=language==='en'?'Language':language==='sv'?'Språk':'Idioma';
+ return `<details class="language-picker" translate="no"><summary id="language" data-current-language="${language}" aria-label="${label}: ${languageNames[language]}">${languageFlag(language)}<span>${languageNames[language]}</span><svg class="language-chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary><div class="language-menu" role="group" aria-label="${label}">${Object.entries(languageNames).map(([code,name])=>`<button type="button" data-language="${code}" lang="${code}" aria-pressed="${code===language}">${languageFlag(code as Language)}<span>${name}</span><span class="language-check" aria-hidden="true">${code===language?'✓':''}</span></button>`).join('')}</div></details>`;
 }
 const attributes = ['title','aria-label','placeholder','alt','label'];
 const ignore = 'script,style,code,pre,[translate="no"]';
@@ -49,13 +51,19 @@ export function startLocalization() {
   });
   const observe=()=>observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:[...attributes,'href']});
   localizeNode(document.body);observe();
-  document.addEventListener('change',event=>{
-    const select=event.target as HTMLSelectElement;
-    if(select.id!=='language')return;
-    const next=select.value as Language;if(!Object.hasOwn(languageNames,next))return;
+  document.addEventListener('click',event=>{
+    const target=event.target as Element;
+    const button=target.closest<HTMLButtonElement>('[data-language]');
+    const picker=document.querySelector<HTMLDetailsElement>('.language-picker');
+    if(!button){if(!target.closest('.language-picker')&&picker)picker.open=false;return;}
+    const next=button.dataset.language as Language;if(!Object.hasOwn(languageNames,next))return;
+    if(next===language){if(picker)picker.open=false;document.getElementById('language')?.focus();return;}
     rememberLanguage(next);
-    // Reload the same URL so chart modules use the new number/country locale.
-    // Current district, camera, filters and historical selections are retained.
+    // Keep the current district, filters, camera and historical selections.
     location.assign(languageUrl(location.href,next));
+  });
+  document.addEventListener('keydown',event=>{
+    const picker=document.querySelector<HTMLDetailsElement>('.language-picker');
+    if(event.key==='Escape'&&picker?.open){picker.open=false;document.getElementById('language')?.focus();}
   });
 }
