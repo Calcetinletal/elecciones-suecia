@@ -135,7 +135,7 @@ export async function mountDistrictHistory(root:HTMLElement,d:District){
  const political=parties.map(p=>({code:p.id,name:p.name,color:p.color,party:true}));
  timeline(root.querySelector('[data-history-votes]')!,[voteObservation([d])],political,[],'Votos · % válidos',true,Number(d.election_year));
  const initialBirth=birthObservation([d]);timeline(root.querySelector('[data-history-origin]')!,Number.isFinite(initialBirth.year)&&initialBirth.year>=2010?[initialBirth]:[],districtBirthSeries,[],'Origen poblacional · % ≈',true);
- const municipalityRoot=root.closest('#panel-content, #analysis-card')?.querySelector<HTMLElement>('[data-municipal-context]');
+ const municipalityRoot=root.closest('#panel-content, #analysis-card, #comparison-detail-content')?.querySelector<HTMLElement>('[data-municipal-context]');
  if(municipalityRoot)void mountMunicipalContext(municipalityRoot,code,d.municipality_name);
  try{
   const archive=await districtArchive(code);if(!root.isConnected)return;
@@ -183,7 +183,7 @@ async function showDistrictArchive(root:HTMLElement){
  }catch(error){root.innerHTML=`<p>No se pudo abrir el archivo: ${e((error as Error).message)}</p>`;}
 }
 
-async function mountMunicipalContext(root:HTMLElement,code:string,municipality:string){
+export async function mountMunicipalContext(root:HTMLElement,code:string,municipality:string){
  root.innerHTML='<p class="meta" role="status">Cargando contexto municipal…</p>';
  try{
   const [index,data]=await Promise.all([historyIndex(),historyTerritory(code)]);if(!root.isConnected)return;

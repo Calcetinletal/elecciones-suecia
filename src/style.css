@@ -259,3 +259,12 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  .comparison-history .district-history-charts{gap:8px}
 }
 @media(max-width:760px){.comparison-history .timeline-svg{height:145px}.comparison-history .district-history-charts{gap:8px}.comparison-chart-data .comparison-history .series-card .series-emblem{display:none!important}}
+
+/* Municipal detail stays one click away without displacing the district charts. */
+.comparison-actions{display:flex;gap:6px;min-width:0}
+.comparison-actions .comparison-detail-button{flex:1;min-width:0;padding-inline:5px;font-size:11px}
+.comparison-actions .municipal-context-button{background:#e9e1f8;color:#573b82;border-color:#baa4dc;font-weight:700}
+#municipal-dialog{width:min(720px,calc(100vw - 32px));max-width:720px;max-height:calc(100dvh - 32px);box-sizing:border-box}
+#municipal-dialog .municipal-context{margin-top:8px;padding-top:10px;border-top:0}
+#municipal-dialog .municipal-composition{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:600px){#municipal-dialog .municipal-composition{grid-template-columns:1fr}#municipal-dialog .municipal-context-heading{flex-wrap:wrap}}

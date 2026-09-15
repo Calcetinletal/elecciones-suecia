@@ -11,10 +11,23 @@ test('comparison shows every party and birthplace group with both maps without s
     await expect(page.locator('#panel-content [data-history-votes] .series-card')).toHaveCount(9);
     await expect(page.locator('#panel-content [data-history-origin] .series-card')).toHaveCount(3);
    }else{await expect(page.locator('.comparison-party')).toHaveCount(9);await expect(page.locator('.comparison-origin-list>div')).toHaveCount(3);}
-   const bounds=await page.locator('.comparison-data, #map-left, #map-right, .comparison-party, .comparison-origin-list>div, #panel-content .timeline-svg, #panel-content .series-card, #comparison-detail').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right}}));
+   const bounds=await page.locator('.comparison-data, #map-left, #map-right, .comparison-party, .comparison-origin-list>div, #panel-content .timeline-svg, #panel-content .series-card, #comparison-detail, #municipal-context').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right}}));
    for(const r of bounds){expect(r.top).toBeGreaterThanOrEqual(0);expect(r.bottom).toBeLessThanOrEqual(height);expect(r.left).toBeGreaterThanOrEqual(0);expect(r.right).toBeLessThanOrEqual(width);}
    expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth)).toBe(true);
    expect(await page.locator('.side-panel').evaluate(el=>el.scrollHeight<=el.clientHeight)).toBe(true);
+   await page.locator('#municipal-context').click();
+   const municipal=page.locator('#municipal-dialog [data-municipal-context]');
+   await expect(municipal).toHaveAttribute('data-ready','true');
+   await expect(municipal).toHaveAttribute('data-municipality','0180');
+   await expect(municipal.locator('h3')).toHaveText('Stockholm');
+   await expect(municipal.locator('.municipal-origin-tile')).toHaveCount(6);
+   await expect(municipal.locator('[data-municipal-population]')).toContainText('2025');
+   await municipal.locator('select').selectOption('parents');
+   await expect(municipal.locator('.municipal-origin-tile')).toHaveCount(4);
+   await expect(municipal.locator('.municipal-history-link')).toHaveAttribute('href',/origin=parents/);
+   await page.locator('#close-municipal-dialog').click();
+   await expect(page.locator('#municipal-dialog')).toHaveCount(0);
+
   }
  }
  await page.locator('#comparison-detail').click();
@@ -22,6 +35,8 @@ test('comparison shows every party and birthplace group with both maps without s
  await expect(page.locator('#comparison-dialog [data-district-history]')).toHaveAttribute('data-ready','true');
  await expect(page.locator('#comparison-dialog [data-history-votes]')).toBeVisible();
  await expect(page.locator('#comparison-dialog [data-history-origin]')).toBeVisible();
+ await expect(page.locator('#comparison-dialog [data-municipal-context]')).toHaveAttribute('data-ready','true');
+ await expect(page.locator('#comparison-dialog .municipal-origin-tile')).toHaveCount(6);
  await page.keyboard.press('Escape');await expect(page.locator('#comparison-dialog')).toHaveCount(0);
  await expect(page.locator('#panel-content [data-history-votes] .timeline-svg')).toBeVisible();
  await expect(page.locator('#panel-content [data-history-origin] .timeline-svg')).toBeVisible();
