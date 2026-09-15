@@ -15,11 +15,15 @@ test('DeSO birth estimates compare on electoral polygons, with definitions and C
  await expect(page.locator('#left-caption')).toContainText('Europa excepto Suecia');
  await page.selectOption('#party','S');await expect(page.locator('#map-right')).toHaveAttribute('data-metric','pct_S');
  await page.fill('#search','01801506');await page.click('#search-results [data-district="01801506"]');
- const birthRows=page.locator('#panel-content .simple-data');await expect(birthRows).toHaveCount(2);
+ await expect(page.locator('.comparison-origin-list>div')).toHaveCount(3);
+ for(const group of await page.locator('.comparison-origin-list>div').all())await expect(group).toBeVisible();
+ await page.locator('#comparison-detail').click();
+ const birthRows=page.locator('#comparison-dialog .simple-data');await expect(birthRows).toHaveCount(2);
  for(const group of await birthRows.all())await expect(group).toBeHidden();
  await page.getByText('Población y nacimiento ≈',{exact:true}).click();
  for(const group of await birthRows.all())await expect(group).toBeVisible();
- await expect(page.locator('#panel-content')).toContainText('nacimiento · 2025 · estimaciones');
+ await expect(page.locator('#comparison-dialog')).toContainText('nacimiento · 2025 · estimaciones');
+ await page.locator('#close-comparison-dialog').click();
  await page.reload();await expect(page.locator('#metric')).toHaveValue('born_europe_ex_sweden_pct');
  await expect(page.locator('#panel-content')).toContainText('Katarina');
  const dl=page.waitForEvent('download');await page.click('#download');const stream=await (await dl).createReadStream();let csv='';for await(const chunk of stream!)csv+=chunk.toString();

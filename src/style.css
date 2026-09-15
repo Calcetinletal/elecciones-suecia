@@ -179,3 +179,40 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  #controls:has(.release-notice)+#workspace .atlas-workspace.has-district-history:has(.maps.compare){grid-template-columns:minmax(0,1fr) clamp(320px,30vw,460px)}
  .atlas-workspace.has-district-history:has(.maps.compare) .district-history-charts{grid-template-columns:minmax(0,1fr)}
 }
+
+/* Current votes and population are both visible before opening detailed history. */
+.comparison-data{display:grid;gap:10px;font-variant-numeric:tabular-nums}
+.comparison-scope{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.comparison-scope h2{font-size:15px;line-height:1.2;margin:0 0 3px;overflow-wrap:anywhere}
+.comparison-scope p{font-size:10px;line-height:1.3;margin:0;color:#627787}
+.comparison-scope button{padding:2px 7px;font-size:18px;flex:none}
+.comparison-data section{border-top:1px solid #dce6ed;padding-top:7px}
+.comparison-data section>header{display:flex;align-items:baseline;justify-content:space-between;gap:5px;margin-bottom:6px}
+.comparison-data section h3{font-size:12px;line-height:1.3;margin:0;color:#254b63}
+.comparison-data section>header>span{font-size:9px;color:#637989;white-space:nowrap}
+.comparison-party-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.comparison-party{display:flex;align-items:center;justify-content:space-between;gap:5px;min-width:0;padding:4px 5px;border-radius:5px;background:color-mix(in srgb,var(--party) 9%,white);border:1px solid color-mix(in srgb,var(--party) 25%,white)}
+.comparison-party .party-badge{width:22px;height:22px;flex-basis:22px;border-radius:5px;font-size:10px}
+.comparison-party>b{font-size:12px;white-space:nowrap;letter-spacing:-.02em}
+.comparison-inline{display:flex;justify-content:space-between;gap:5px;align-items:baseline;font-size:10px;line-height:1.3;margin-top:6px}
+.comparison-inline b{color:#1d3f56;white-space:nowrap;margin-left:3px}
+.comparison-inline small{font-size:9px;line-height:1.3;color:#617987}
+.comparison-origin-list{display:grid;gap:4px}
+.comparison-origin-list>div{display:flex;align-items:center;gap:6px;min-width:0;padding:4px 6px;border-radius:5px;background:color-mix(in srgb,var(--origin) 10%,white);font-size:11px;line-height:1.3}
+.comparison-origin-list i{height:8px;width:8px;flex:none;border-radius:3px;background:var(--origin)}
+.comparison-origin-list b{margin-left:auto;font-size:12px;white-space:nowrap}
+.comparison-definition{margin:5px 0 0;font-size:9px;line-height:1.3;color:#617787}
+.comparison-detail-button{width:100%;font-size:11px;line-height:1.3;padding:6px 8px;background:#edf5fa;color:#275b7a}
+#comparison-dialog{width:min(960px,calc(100vw - 32px));max-width:960px}
+#comparison-dialog .district-history-charts{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:761px){
+ #app:has(.maps.compare)>.site-header{padding:10px 20px}
+ #controls:has(+ #workspace .maps.compare) .toolbar{display:grid;grid-template-columns:64px repeat(5,minmax(0,1fr)) 60px 90px;padding:8px 20px;gap:9px}
+ #controls:has(+ #workspace .maps.compare) .toolbar label,#controls:has(+ #workspace .maps.compare) .toolbar .search-label{min-width:0}
+ #controls:has(+ #workspace .maps.compare) .toolbar select,#controls:has(+ #workspace .maps.compare) .toolbar input{min-height:34px;padding-top:6px;padding-bottom:6px}
+ #controls:has(+ #workspace .maps.compare) .toolbar .icon-button{height:34px}
+ .atlas-workspace:has(.maps.compare),#controls:has(.release-notice)+#workspace .atlas-workspace:has(.maps.compare){grid-template-columns:minmax(0,1fr) clamp(320px,26vw,370px)}
+ .atlas-workspace:has(.maps.compare) #panel-content{padding:10px 12px}
+ .atlas-workspace:has(.maps.compare)>.side-panel{overflow:visible}
+}
+@media(max-width:760px){#comparison-dialog .district-history-charts{grid-template-columns:1fr}}

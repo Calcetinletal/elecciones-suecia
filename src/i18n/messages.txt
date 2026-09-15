@@ -608,3 +608,10 @@ Denominador: todos los residentes de|||Denominator: all residents of|||Nämnare:
 unidades con recuento|||units counted|||räknade enheter
 Creado por|||Created by|||Skapad av
 Detalles|||Details|||Detaljer
+Ver detalle y evolución ↗|||Details and trends ↗|||Detaljer och utveckling ↗
+Media distrital|||District average|||Distriktsgenomsnitt
+% de votos válidos|||% of valid votes|||% av giltiga röster
+Datos electorales|||Election data|||Valdata
+Datos poblacionales|||Population data|||Befolkningsdata
+Detalle electoral y poblacional|||Election and population details|||Val- och befolkningsdetaljer
+Europa incluye Rusia y Turquía. Resto incluye país desconocido.|||Europe includes Russia and Turkey. Rest includes unknown birthplace.|||Europa inkluderar Ryssland och Turkiet. Övriga inkluderar okänt födelseland.
