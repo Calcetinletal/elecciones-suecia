@@ -1,0 +1,62 @@
+import {test,expect} from '@playwright/test';
+test('maps, synchronized comparison, filters, URL and CSV work with no external services',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
+ await page.goto('./?year=2022');await expect(page.locator('#map-count')).toContainText(/6[.\s]?264/,{timeout:30000});
+ await expect(page.locator('#map-left')).toBeVisible();expect((await page.locator('#map-left').boundingBox())!.height).toBeGreaterThan(300);await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});
+ await page.screenshot({path:'tests/artifacts/atlas-desktop.png'});
+ await page.selectOption('#county','01');await page.selectOption('#municipality','0180');
+ await page.click('[data-view=demography]');await expect(page.locator('#map-count')).toContainText('Origen extranjero');
+ await page.fill('#search','01801506');await page.click('#search-results [data-district="01801506"]');await expect(page.locator('#panel-content')).toContainText('Katarina 6');
+ const saved=page.url();await page.reload();await expect(page.locator('#panel-content')).toContainText('Katarina 6');expect(new URL(saved).searchParams.get('municipality')).toBe('0180');
+ await page.click('[data-view=compare]');await expect(page.locator('.maplibregl-canvas')).toHaveCount(2);await page.waitForTimeout(1200);
+ const before=new URL(page.url()).searchParams.get('zoom');await page.locator('#map-right').hover();await page.mouse.wheel(0,-250);await page.waitForTimeout(1000);expect(new URL(page.url()).searchParams.get('zoom')).not.toBe(before);
+ await page.screenshot({path:'tests/artifacts/atlas-compare.png'});
+ const cameraUrl=page.url();await page.reload();await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});for(const key of ['lng','lat','zoom'])expect(new URL(page.url()).searchParams.get(key)).toBe(new URL(cameraUrl).searchParams.get(key));
+ const downloadPromise=page.waitForEvent('download');await page.click('#download');const download=await downloadPromise;expect(download.suggestedFilename()).toBe('suecia-2022-filtrado.csv');
+ await page.locator('.more-maps>summary').click();await page.click('[data-view=bivariate]');await expect(page.locator('.biv-grid span')).toHaveCount(9);
+ expect(errors).toEqual([]);
+});
+test('analysis and methodology have real static deep links',async({page,request})=>{
+ expect((await request.get('analysis/')).status()).toBe(200);expect((await request.get('missing/')).status()).toBe(404);
+ await page.goto('analysis/?year=2022&party=SD');await expect(page.locator('.scatter circle')).toHaveCount(6264);await expect(page.locator('#deciles tbody tr')).toHaveCount(10);
+ await page.selectOption('#analysis-y','turnout');await expect(page.locator('.analysis-intro h2')).toContainText('Participación');
+ await page.selectOption('#weights','equal');await expect(page.locator('#bins tbody tr')).toHaveCount(8);
+ await page.locator('.regression summary').click();await expect(page.locator('#regression-result')).toContainText('R²');
+ await page.screenshot({path:'tests/artifacts/atlas-analysis.png',fullPage:true});
+ await page.goto('methodology/');await expect(page.locator('h1')).toContainText(['Suecia','Qué mide este atlas']);await expect(page.locator('.methodology')).toContainText('5.984');
+});
+test('mobile controls, bottom sheet and provisional 2026',async({page})=>{
+ await page.setViewportSize({width:390,height:844});await page.goto('./?year=2022&municipality=0180');await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.locator('#sheet-toggle').scrollIntoViewIfNeeded();await page.click('#sheet-toggle');await expect(page.locator('.side-panel')).toHaveClass(/collapsed/);
+ await page.waitForTimeout(1200);await page.locator('.map-area').scrollIntoViewIfNeeded();await page.screenshot({path:'tests/artifacts/atlas-mobile.png'});
+ await page.selectOption('#year','2026');await expect(page.locator('.release-notice')).toContainText('Resultados provisionales');await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:'tests/artifacts/atlas-2026-mobile.png'});await page.selectOption('#year','2022');await expect(page.locator('.maplibregl-canvas')).toBeVisible();
+});
+
+test('refreshed 2026 snapshot, formerly pending rows, comparability, demography and CSV',async({page,request})=>{
+ const manifest=await (await request.get('data/manifest.json')).json();const edition=manifest.years.find((y:{year:number})=>y.year===2026);
+ expect(edition.reported_district_count).toBe(6312);expect(edition.pending_district_count).toBe(0);
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
+ await page.goto('./');
+ await expect(page.locator('#year')).toHaveValue('2026');
+ await expect(page.locator('.release-notice')).toContainText('31/12/2025');await expect(page.locator('.release-notice summary')).toContainText('Actualizado');await expect(page.locator('.release-notice')).toContainText(edition.source_updated_at);
+ await expect(page.locator('#map-count')).toContainText(/6[.\s]?312/,{timeout:30000});
+ await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});
+ await page.screenshot({path:'tests/artifacts/atlas-2026-desktop.png'});
+ await page.fill('#search','01801507');await page.click('#search-results [data-district="01801507"]');
+ await expect(page.locator('#panel-content')).not.toContainText('Pendiente de recuento');await expect(page.locator('.election-winners .party-badge')).toHaveCount(1);
+ await page.click('[data-view=compare]');await expect(page.locator('.maplibregl-canvas')).toHaveCount(2);
+ await expect(page.locator('.map-caption').first()).toContainText('2025');
+ await page.click('[data-view=electoral]');await page.selectOption('#metric','delta_pct_SD');
+ await expect(page.locator('#legend')).toContainText('Solo distritos comparables');
+ const downloadPromise=page.waitForEvent('download');await page.click('#download');expect((await downloadPromise).suggestedFilename()).toBe('suecia-2026-filtrado.csv');
+ await page.goto('analysis/?year=2026');await expect(page.locator('.release-notice')).toContainText('provisionales');
+ await expect(page.locator('.scatter circle')).toHaveCount(edition.reported_district_count);
+ await page.locator('.regression summary').click();
+ await expect(page.locator('input[value=higher_education_pct]')).toBeDisabled();
+ await expect(page.locator('#regression-result')).toContainText('R²');
+ await page.screenshot({path:'tests/artifacts/analysis-2026.png',fullPage:true});
+ expect(errors).toEqual([]);
+});

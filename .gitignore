@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+data/raw/
+data/processed/
+*.log
+.DS_Store
+.playwright/
+test-results/
+playwright-report/
+tests/artifacts/
+
+# Local credentials and deployment tools
+.env
+.env.*
+!.env.example
+.tools/

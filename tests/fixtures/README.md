@@ -1,0 +1,1 @@
+Dos distritos del JSON provisional oficial de Valmyndigheten, descargado 2026-09-14T09:27:42Z. Fuente: https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip . Reutilización libre con atribución. Los contadores de cabecera son nacionales; valdistrikt contiene solo dos observaciones para pruebas de ausentes. No se utiliza en la web.

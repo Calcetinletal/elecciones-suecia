@@ -1,0 +1,11 @@
+[
+{"id":"S","name":"Socialdemokraterna","color":"#c73646"},
+{"id":"M","name":"Moderaterna","color":"#2475b4"},
+{"id":"SD","name":"Sverigedemokraterna","color":"#d7a800"},
+{"id":"V","name":"Vänsterpartiet","color":"#922b49"},
+{"id":"C","name":"Centerpartiet","color":"#368553"},
+{"id":"KD","name":"Kristdemokraterna","color":"#353b83"},
+{"id":"L","name":"Liberalerna","color":"#37a1c5"},
+{"id":"MP","name":"Miljöpartiet","color":"#7b9e30"},
+{"id":"other","name":"Otros partidos","color":"#73777d"}
+]

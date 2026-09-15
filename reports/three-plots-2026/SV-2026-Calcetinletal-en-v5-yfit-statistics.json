@@ -1,0 +1,51 @@
+{
+  "districts_in_source": 6312,
+  "districts_plotted": 6312,
+  "excluded": {},
+  "pearson_r_equal_district_weight": 0.7924456019442581,
+  "spearman_rho_equal_district_weight": 0.6831663056477018,
+  "ols_slope_pp_per_pp": 1.019150029626742,
+  "ols_intercept": 25.645273354784837,
+  "y_axis_limits": [
+    0,
+    100
+  ],
+  "x_min_max": [
+    0.2752293557781332,
+    63.42830440632213
+  ],
+  "y_min_max": [
+    4.220779220779221,
+    95.33333333333333
+  ],
+  "coverage_quality_counts": {
+    "high_coverage": 6312
+  },
+  "source_updated_at": [
+    "2026-09-14T18:30:03"
+  ],
+  "source_csv": "public/data/2026/joined_2026.csv",
+  "source_csv_sha256": "bcf4825d1ebae2a208c6b249ffefab0b2417c88d4b5fa85afe5ac99a7e55ee95",
+  "x_definition": "100 * born_rest_world_unknown_count / birth_regions_population",
+  "party_codes": [
+    "S",
+    "V"
+  ],
+  "y_definition": "100 * (vote_S + vote_V) / valid_votes",
+  "population_reference_date": "2025-12-31",
+  "district_geometry_year": 2026,
+  "election_status_counts": {
+    "provisional": 6312
+  },
+  "notes": [
+    "Each point is one territorial district. All districts with complete paired values are included, irrespective of coverage quality.",
+    "The x variable is SCB rest of world plus unknown birthplace. Europe includes Russia and Turkey in this classification.",
+    "Demography is a population-grid spatial estimate on 2026 district boundaries, using SCB 2025 data with CKM disclosure control.",
+    "Election results are the stored provisional snapshot, not a fresh live download. Collection districts are excluded.",
+    "Correlations are unweighted across districts and descriptive, without causal or individual-vote attribution. Spatial dependence and estimation error remain."
+  ],
+  "sources": {
+    "elections": "https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip",
+    "population": "https://www.statistikdatabasen.scb.se/pxweb/en/ssd/START__BE__BE0101__BE0101Y/FolkmDesoLandKon/"
+  }
+}

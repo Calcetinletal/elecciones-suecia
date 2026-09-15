@@ -1,0 +1,216 @@
+{
+  "valtillfalle": "Val_2026",
+  "valklass": "ordinarie val",
+  "rakningstillfalle": "preliminär",
+  "valtyp": "RD",
+  "valdatum": "2026-09-13",
+  "tidigareValdatum": "2022-09-11",
+  "senasteUppdateringstid": "2026-09-14T10:11:11",
+  "antalUppdateringar": 658,
+  "antalValdistriktRaknade": 6276,
+  "antalValdistriktSomSkaRaknas": 6626,
+  "valdistrikt": [
+    {
+      "namn": "Domkyrko 1 Gamla stan inre",
+      "valdistriktstyp": "valdistrikt",
+      "rapporteringsTid": "2026-09-13T22:22:14",
+      "totaltAntalRoster": 1077,
+      "antalRostberattigade": 1302,
+      "valdeltagandeVallokal": 82.7,
+      "valdistriktskod": "01800101",
+      "kommunkod": "0180",
+      "lankod": "01",
+      "valomradeskod": "00",
+      "kretskod": "01",
+      "kommunvalkretsNamn": "3 Norrmalm-Östermalm-Gamla Stan",
+      "kommunvalkretsKod": "018003",
+      "valdistriktskodForegaendeVal": [
+        "01800101"
+      ],
+      "totaltAntalRosterForegaendeVal": 1094,
+      "antalRostberattigadeForegaendeVal": 1378,
+      "valdeltagandeForegaendeVal": 79.4,
+      "forandringTotaltAntalRoster": -17,
+      "forandringValdeltagande": 3.3,
+      "forandringAntalRostberattigade": -76,
+      "statusJamforelse": "Kan jämföras",
+      "rostfordelning": {
+        "rosterPaverkaMandat": {
+          "antalRoster": 1069,
+          "antalRosterForegaendeVal": 1087,
+          "forandringAntalRoster": -18,
+          "partiRoster": [
+            {
+              "partibeteckning": "Moderaterna",
+              "partiforkortning": "M",
+              "partikod": "0001",
+              "fargkod": "#66BEE6",
+              "ordningsnummer": 1,
+              "antalRoster": 206,
+              "andelRoster": 19.3,
+              "antalRosterForegaendeVal": 207,
+              "andelRosterForegaendeVal": 19.0,
+              "forandringAntalRoster": -1,
+              "forandringAndelRoster": 0.2
+            },
+            {
+              "partibeteckning": "Centerpartiet",
+              "partiforkortning": "C",
+              "partikod": "0004",
+              "fargkod": "#63A91D",
+              "ordningsnummer": 2,
+              "antalRoster": 112,
+              "andelRoster": 10.5,
+              "antalRosterForegaendeVal": 84,
+              "andelRosterForegaendeVal": 7.7,
+              "forandringAntalRoster": 28,
+              "forandringAndelRoster": 2.7
+            },
+            {
+              "partibeteckning": "Liberalerna (tidigare Folkpartiet)",
+              "partiforkortning": "L",
+              "partikod": "0003",
+              "fargkod": "#3399FF",
+              "ordningsnummer": 3,
+              "antalRoster": 105,
+              "andelRoster": 9.8,
+              "antalRosterForegaendeVal": 90,
+              "andelRosterForegaendeVal": 8.3,
+              "forandringAntalRoster": 15,
+              "forandringAndelRoster": 1.5
+            },
+            {
+              "partibeteckning": "Kristdemokraterna",
+              "partiforkortning": "KD",
+              "partikod": "0068",
+              "fargkod": "#1B5CB1",
+              "ordningsnummer": 4,
+              "antalRoster": 73,
+              "andelRoster": 6.8,
+              "antalRosterForegaendeVal": 45,
+              "andelRosterForegaendeVal": 4.1,
+              "forandringAntalRoster": 28,
+              "forandringAndelRoster": 2.7
+            },
+            {
+              "partibeteckning": "Arbetarepartiet-Socialdemokraterna",
+              "partiforkortning": "S",
+              "partikod": "0002",
+              "fargkod": "#FF0000",
+              "ordningsnummer": 5,
+              "antalRoster": 239,
+              "andelRoster": 22.4,
+              "antalRosterForegaendeVal": 262,
+              "andelRosterForegaendeVal": 24.1,
+              "forandringAntalRoster": -23,
+              "forandringAndelRoster": -1.7
+            },
+            {
+              "partibeteckning": "Vänsterpartiet",
+              "partiforkortning": "V",
+              "partikod": "0005",
+              "fargkod": "#C40000",
+              "ordningsnummer": 6,
+              "antalRoster": 82,
+              "andelRoster": 7.7,
+              "antalRosterForegaendeVal": 101,
+              "andelRosterForegaendeVal": 9.3,
+              "forandringAntalRoster": -19,
+              "forandringAndelRoster": -1.6
+            },
+            {
+              "partibeteckning": "Miljöpartiet de gröna",
+              "partiforkortning": "MP",
+              "partikod": "0055",
+              "fargkod": "#008000",
+              "ordningsnummer": 7,
+              "antalRoster": 146,
+              "andelRoster": 13.7,
+              "antalRosterForegaendeVal": 152,
+              "andelRosterForegaendeVal": 14.0,
+              "forandringAntalRoster": -6,
+              "forandringAndelRoster": -0.3
+            },
+            {
+              "partibeteckning": "Sverigedemokraterna",
+              "partiforkortning": "SD",
+              "partikod": "0110",
+              "fargkod": "#4E83A3",
+              "ordningsnummer": 8,
+              "antalRoster": 90,
+              "andelRoster": 8.4,
+              "antalRosterForegaendeVal": 133,
+              "andelRosterForegaendeVal": 12.2,
+              "forandringAntalRoster": -43,
+              "forandringAndelRoster": -3.8
+            }
+          ],
+          "rosterOvrigaPartier": {
+            "antalRoster": 16,
+            "andelRoster": 1.5,
+            "antalRosterForegaendeVal": 13,
+            "andelRosterForegaendeVal": 1.2,
+            "forandringAntalRoster": 3,
+            "forandringAndelRoster": 0.3
+          }
+        },
+        "rosterEjPaverkaMandat": {
+          "antalRoster": 8,
+          "andelRosterAvTotaltAntalRoster": 0.7,
+          "antalRosterForegaendeVal": 7,
+          "andelRosterAvTotaltAntalRosterForegaendeVal": 0.6,
+          "forandringAntalRoster": 1,
+          "forandringAndelRosterAvTotaltAntalRoster": 0.1,
+          "rosterEjAnmaltDeltagande": {
+            "antalRoster": 0,
+            "andelRosterAvTotaltAntalRoster": 0.0,
+            "antalRosterForegaendeVal": 0,
+            "andelRosterAvTotaltAntalRosterForegaendeVal": 0.0,
+            "forandringAntalRoster": 0,
+            "forandringAndelRosterAvTotaltAntalRoster": 0.0
+          },
+          "blankaRoster": {
+            "antalRoster": 5,
+            "andelRosterAvTotaltAntalRoster": 0.5,
+            "antalRosterForegaendeVal": 6,
+            "andelRosterAvTotaltAntalRosterForegaendeVal": 0.5,
+            "forandringAntalRoster": -1,
+            "forandringAndelRosterAvTotaltAntalRoster": -0.1
+          },
+          "ovrigaOgiltiga": {
+            "antalRoster": 3,
+            "andelRosterAvTotaltAntalRoster": 0.3,
+            "antalRosterForegaendeVal": 1,
+            "andelRosterAvTotaltAntalRosterForegaendeVal": 0.1,
+            "forandringAntalRoster": 2,
+            "forandringAndelRosterAvTotaltAntalRoster": 0.2
+          }
+        }
+      }
+    },
+    {
+      "namn": "Katarina 7 Kv Linjalen mfl",
+      "valdistriktstyp": "valdistrikt",
+      "rapporteringsTid": "",
+      "totaltAntalRoster": 0,
+      "antalRostberattigade": 1362,
+      "valdeltagandeVallokal": 0.0,
+      "valdistriktskod": "01801507",
+      "kommunkod": "0180",
+      "lankod": "01",
+      "valomradeskod": "00",
+      "kretskod": "01",
+      "kommunvalkretsNamn": "1 Södermalm-Enskede",
+      "kommunvalkretsKod": "018001",
+      "valdistriktskodForegaendeVal": null,
+      "totaltAntalRosterForegaendeVal": null,
+      "antalRostberattigadeForegaendeVal": null,
+      "valdeltagandeForegaendeVal": null,
+      "forandringTotaltAntalRoster": null,
+      "forandringValdeltagande": null,
+      "forandringAntalRostberattigade": null,
+      "statusJamforelse": "Ej jämförbart",
+      "rostfordelning": null
+    }
+  ]
+}

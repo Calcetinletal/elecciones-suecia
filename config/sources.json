@@ -1,0 +1,36 @@
+{
+  "election_2022": "https://www.val.se/download/18.162047b519a91d0533118f4b/1764336897948/Roster-per-distrikt-slutligt-antal-roster-inklusive-totalt-valdeltagande-riksdagsvalet-2022.xlsx",
+  "boundaries_2022": [
+    "https://www.val.se/download/18.162047b519a91d053311a1f1/1662820378537/valdistrikt-vasterbottens-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a1f2/1662820378429/valdistrikt-varmlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a1f3/1662820378765/valdistrikt-vastra-gotalands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a1f4/1662820378694/valdistrikt-vastmanlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a1f5/1662820378604/valdistrikt-vasternorrlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a1f7/1662820377760/valdistrikt-norrbottens-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a1ff/1662820378349/valdistrikt-uppsala-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a201/1662820378259/valdistrikt-stockholms-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a202/1662820378175/valdistrikt-sodermanlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a203/1662820378016/valdistrikt-skane-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a204/1662820377920/valdistrikt-ostergotlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a206/1662820377828/valdistrikt-orebro-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a213/1662820376999/valdistrikt-blekinge-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a214/1662820377669/valdistrikt-kronobergs-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a215/1662820377582/valdistrikt-kalmar-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a216/1662820377456/valdistrikt-jonkopings-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a217/1662820377388/valdistrikt-jamtlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a218/1662820377293/valdistrikt-hallands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a219/1662820377252/valdistrikt-gotlands-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a21a/1662820377161/valdistrikt-gavleborgs-lan.zip",
+    "https://www.val.se/download/18.162047b519a91d053311a21b/1662820377075/valdistrikt-dalarnas-lan.zip"
+  ],
+  "deso_2018": "https://geodata.scb.se/geoserver/stat/wfs?service=WFS&REQUEST=GetFeature&version=1.1.0&outputFormat=geopackage&TYPENAMES=stat:DeSO_2018",
+  "grid_2022": "https://geodata.scb.se/geoserver/stat/wfs?service=WFS&REQUEST=GetFeature&version=1.1.0&outputFormat=geopackage&TYPENAMES=stat:befolkning_1km_2022",
+  "api_base": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/",
+  "tables": {
+    "background": "BE/BE0101/BE0101Y/FolkmDesoBakgrKon",
+    "birth": "BE/BE0101/BE0101Y/FolkmDesoLandKon",
+    "citizenship": "BE/BE0101/BE0101Y/FolkmDesoMedKon",
+    "education": "UF/UF0506/UF0506D/UtbSUNBefDesoRegso",
+    "employment": "AM/AM0207/AM0207I/BefDeSoSyssN"
+  }
+}

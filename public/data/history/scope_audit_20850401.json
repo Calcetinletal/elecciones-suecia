@@ -1,0 +1,26 @@
+{
+  "district_id": "20850401",
+  "district_name": "Fredriksberg",
+  "municipality_code": "2085",
+  "municipality_name": "Ludvika",
+  "population_year": 2025,
+  "district_population_estimate": 701.000006,
+  "district_birth_counts": {
+    "born_sweden_count": 591.000006,
+    "born_europe_ex_sweden_count": 77.0,
+    "born_rest_world_unknown_count": 27.0
+  },
+  "district_component_sum_gap": -6.0,
+  "district_foreign_born_method": "(birth_population - born_sweden_count) / birth_population * 100; independent protected cells need not add up",
+  "municipal_population": 26812,
+  "municipal_continents_pct": {
+    "REG_NON_EUROPE": 14.67253468596151,
+    "REG_AFRICA": 3.461136804415933,
+    "REG_ASIA": 10.167089362971804,
+    "REG_EUROPE_EX_SE": 5.303595405042518,
+    "REG_AMERICAS": 1.044308518573773,
+    "REG_OCEANIA": null,
+    "REG_UNASSIGNED": 1.0070117857675667
+  },
+  "finding": "Municipal percentages and district spatial estimates refer to different geographic areas. The district birth components also retain a source disclosure-control sum gap, rather than being forced to total."
+}
