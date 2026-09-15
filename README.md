@@ -306,3 +306,21 @@ npm run build
 La población anual usa límites electorales de 2010 para 2010–2013, de 2014 para 2014–2017, de 2018 para 2018–2021, de 2022 para 2022–2024 y de 2026 para 2025. Hasta 2014 solo se publican uniones prácticamente completas de DeSO; desde 2015, estimaciones con cuadrícula del año correspondiente. No se publican repartos de población uniformes por superficie. El cambio a DeSO 2025 se marca en la observación de 2024; CKM se señala en 2025. La cobertura anual detallada se publica en `public/data/history/annual_district_birth_provenance.json`.
 
 Los gráficos muestran el nombre, código y edición de los límites del año consultado, también en la tabla. Las líneas son continuas en todos los ámbitos y conectan los puntos disponibles, sin franjas ni tramos discontinuos. No se añaden observaciones, no se extrapola fuera de los puntos disponibles y los valores ausentes se mantienen en la consulta y la tabla. Con una sola observación se muestra un punto. Provisionalidad y CKM se conservan como etiquetas; las diferencias territoriales y metodológicas, como notas. Heby se agrupa en el archivo municipal actual 0331, conservando los identificadores distritales antiguos 1917; este agrupamiento no crea correspondencias distritales.
+
+## Idiomas
+
+El selector de la cabecera ofrece Español, English y Svenska en todas las rutas.
+La elección se conserva en el navegador y puede compartirse con `?lang=es`,
+`?lang=en` o `?lang=sv`; también se admiten los enlaces anteriores con `locale`.
+Cambiar de idioma conserva los parámetros de la vista (distrito, filtros, cámara
+u origen seleccionado). Los números y nombres de países usan el idioma elegido.
+
+`src/i18n/messages.txt` contiene mensajes revisados en los tres idiomas, separados
+por `|||`. La capa de presentación localiza texto y atributos accesibles de los
+paneles dinámicos y los popups, sin modificar claves, datos o geometrías. Al añadir
+texto visible, añadir también su traducción; las frases completas tienen prioridad
+sobre fragmentos que acompañan cifras o nombres. Las fuentes originales y los
+archivos de datos descargables conservan sus nombres y contenido de origen.
+
+Validación: `npm test`; `PLAYWRIGHT_BROWSERS_PATH=.playwright npx playwright test
+tests/e2e/language.spec.ts` después de compilar con `VITE_BASE_PATH=/atlas/`.

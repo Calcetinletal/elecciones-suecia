@@ -1,0 +1,608 @@
+# Spanish ||| English ||| Swedish. Longest source phrases take precedence.
+Suecia · Atlas electoral y demográfico|||Sweden · Election and population atlas|||Sverige · Val- och befolkningsatlas
+Atlas de resultados electorales y composición demográfica por distrito electoral de Suecia. Datos oficiales, estimaciones espaciales y asociaciones territoriales.|||Election results and population composition by electoral district in Sweden. Official data, spatial estimates and area-level associations.|||Valresultat och befolkningssammansättning per valdistrikt i Sverige. Officiella data, geografiska skattningar och samband mellan områden.
+Saltar al contenido|||Skip to content|||Hoppa till innehållet
+Preparando el atlas de Suecia…|||Preparing the Sweden atlas…|||Förbereder Sverigeatlasen…
+Elecciones y población|||Elections and population|||Val och befolkning
+Navegación principal|||Main navigation|||Huvudnavigering
+Análisis|||Analysis|||Analys
+Evolución|||Trends|||Utveckling
+Países|||Countries|||Länder
+Metodología|||Methodology|||Metod
+Datos de zonas, no de personas.|||Area-level data, not individual records.|||Data om områden, inte individer.
+Fuentes y método|||Sources and methods|||Källor och metod
+Cargando datos oficiales…|||Loading official data…|||Läser in officiella data…
+Cargando series históricas oficiales…|||Loading official historical data…|||Läser in officiella tidsserier…
+Cargando|||Loading|||Läser in
+Última actualización del recuento oficial, hora de Estocolmo|||Latest official count update, Stockholm time|||Senaste uppdatering av den officiella rösträkningen, Stockholmstid
+Actualizado|||Updated|||Uppdaterat
+Resultados provisionales|||Provisional results|||Preliminära resultat
+Instantánea estática; no se actualiza en directo.|||Static snapshot; not updated live.|||Statisk ögonblicksbild; uppdateras inte i realtid.
+Estocolmo|||Stockholm|||Stockholm
+sin fecha|||date unavailable|||datum saknas
+Dominante en cada distrito|||Leading in each district|||Störst i varje valdistrikt
+Voto por partido|||Vote by party|||Röster per parti
+Votos por partido|||Votes by party|||Röster per parti
+Elecciones del mapa derecho|||Election results on the right map|||Valresultat på den högra kartan
+Partido dominante|||Leading party|||Största parti
+Bloque dominante|||Leading bloc|||Största block
+Partido más votado|||Party with most votes|||Parti med flest röster
+Bloque más votado|||Bloc with most votes|||Block med flest röster
+Partido ganador|||Winning party|||Vinnande parti
+Bloque líder|||Leading bloc|||Största block
+Participación electoral|||Voter turnout|||Valdeltagande
+Participación|||Turnout|||Valdeltagande
+participación|||turnout|||valdeltagande
+Origen poblacional|||Population background|||Befolkningsbakgrund
+Resultado electoral|||Election result|||Valresultat
+Todas las regiones|||All counties|||Alla län
+Todos los municipios|||All municipalities|||Alla kommuner
+Todos los distritos|||All districts|||Alla valdistrikt
+Solo cobertura alta|||High coverage only|||Endast hög täckning
+Buscar lugar|||Find a place|||Sök plats
+Nombre o código…|||Name or code…|||Namn eller kod…
+Descargar CSV filtrado|||Download filtered CSV|||Ladda ned filtrerad CSV
+Copiar enlace de esta vista|||Copy a link to this view|||Kopiera länk till denna vy
+Compartir|||Share|||Dela
+Bloques analíticos · Ver partidos|||Analytical blocs · View parties|||Analytiska block · Visa partier
+Bloques analíticos:|||Analytical blocs:|||Analytiska block:
+. Suma de votos; otros partidos quedan fuera. No representa una candidatura o coalición oficial.|||. Combined votes; other parties are excluded. These are analytical groups, not official coalitions or joint lists.|||. Summerade röster; övriga partier ingår inte. Grupperna är analytiska, inte officiella koalitioner eller gemensamma listor.
+Tipo de mapa|||Map view|||Kartvy
+Comparar|||Compare|||Jämför
+Más mapas|||More maps|||Fler kartor
+Cruce voto y origen|||Votes and background|||Röster och bakgrund
+Ganador por origen|||Winner by background|||Vinnare efter bakgrund
+Ganadores electorales|||Election winners|||Valvinnare
+Más votos; no necesariamente mayoría absoluta|||Most votes; not necessarily an absolute majority|||Flest röster; inte nödvändigtvis egen majoritet
+S+V+MP+C frente a M+SD+KD+L; agrupaciones analíticas|||S+V+MP+C versus M+SD+KD+L; analytical groups|||S+V+MP+C jämfört med M+SD+KD+L; analytiska grupper
+Opciones|||Options|||Alternativ
+Cobertura|||Coverage|||Täckning
+Formato numérico|||Number format|||Talformat
+Ver evolución del municipio|||View municipal trends|||Visa kommunens utveckling
+Ver evolución nacional|||View national trends|||Visa utvecklingen i riket
+Ver evolución municipal|||View municipal trends|||Visa kommunens utveckling
+Votos y origen · desde 2002|||Votes and background · since 2002|||Röster och bakgrund · sedan 2002
+Número de distritos en cada categoría.|||Number of districts in each category.|||Antal valdistrikt i varje kategori.
+Distribución del indicador en diez intervalos|||Distribution across ten intervals|||Fördelning i tio intervall
+Distribución del indicador|||Indicator distribution|||Måttets fördelning
+% del ganador|||Winner's vote share|||Vinnarens röstandel
+Sin datos con estos filtros.|||No data for these filters.|||Inga data för dessa filter.
+Sin coincidencias.|||No matches.|||Inga träffar.
+No se pudieron cargar los gráficos|||Could not load the charts|||Diagrammen kunde inte läsas in
+No se pudieron cargar los datos|||Could not load the data|||Data kunde inte läsas in
+No se pudo abrir el mapa|||Could not open the map|||Kartan kunde inte öppnas
+El análisis y la descarga CSV siguen disponibles si tu navegador no admite WebGL.|||Analysis and CSV downloads remain available if your browser does not support WebGL.|||Analys och CSV-nedladdning är tillgängliga även om din webbläsare inte stöder WebGL.
+Abrir análisis|||Open analysis|||Öppna analys
+Ficha del distrito|||District details|||Information om valdistriktet
+Cerrar ficha|||Close details|||Stäng information
+Centrar mapa|||Fit map|||Centrera kartan
+Mapa interactivo de distritos electorales de Suecia|||Interactive map of Sweden's electoral districts|||Interaktiv karta över Sveriges valdistrikt
+Mapa electoral, sincronizado con el mapa de origen poblacional|||Election map, synchronized with the population background map|||Valkarta, synkroniserad med kartan över befolkningsbakgrund
+Datos, ficha y rankings|||Data, details and rankings|||Data, information och rangordning
+Datos y rankings|||Data and rankings|||Data och rangordning
+Enlace de esta vista copiado.|||Link to this view copied.|||Länken till denna vy har kopierats.
+Copia la dirección del navegador para compartir esta vista.|||Copy the browser address to share this view.|||Kopiera webbadressen för att dela denna vy.
+Reintentar|||Try again|||Försök igen
+Se necesita un navegador moderno con descompresión gzip. El proyecto incluye los datos estáticos; no necesita un servidor Python.|||A modern browser with gzip decompression is required. The site includes static data and does not require a Python server.|||En modern webbläsare med gzip-stöd krävs. Webbplatsen innehåller statiska data och behöver ingen Python-server.
+Sin denominador publicado|||No published denominator|||Publicerad nämnare saknas
+Sin dato demográfico|||No population data|||Befolkningsdata saknas
+Sin dato|||No data|||Uppgift saknas
+sin dato|||no data|||uppgift saknas
+Sin distritos|||No districts|||Inga valdistrikt
+Pendiente de recuento.|||Count pending.|||Rösträkning inväntas.
+Recuento pendiente|||Count pending|||Rösträkning inväntas
+Pendiente|||Pending|||Inväntas
+pendientes|||pending|||inväntas
+pendiente|||pending|||inväntas
+Empate en cabeza|||Tie for first place|||Delad förstaplats
+Empate|||Tie|||Lika resultat
+Provisional|||Provisional|||Preliminärt
+provisional|||provisional|||preliminärt
+definitivo|||final|||slutgiltigt
+Origen extranjero|||Foreign background|||Utländsk bakgrund
+origen extranjero|||foreign background|||utländsk bakgrund
+Nacidos fuera de Suecia|||Born outside Sweden|||Utrikes födda
+nacidos fuera de Suecia|||born outside Sweden|||utrikes födda
+Nacidos fuera|||Born abroad|||Utrikes födda
+Nacidos en Suecia · dos padres fuera|||Sweden-born · both parents born abroad|||Inrikes födda · två utrikes födda föräldrar
+Nacidos en Suecia · un padre fuera|||Sweden-born · one parent born abroad|||Inrikes födda · en utrikes född förälder
+Nacidos en Suecia · dos padres en Suecia|||Sweden-born · both parents born in Sweden|||Inrikes födda · två inrikes födda föräldrar
+Nacidos en Suecia · un progenitor nacido fuera|||Sweden-born · one parent born abroad|||Inrikes födda · en utrikes född förälder
+Nacidos en Suecia|||Born in Sweden|||Inrikes födda
+nacidos en Suecia|||born in Sweden|||inrikes födda
+Ciudadanía extranjera|||Foreign citizenship|||Utländskt medborgarskap
+ciudadanía extranjera|||foreign citizenship|||utländskt medborgarskap
+Región extranjera predominante|||Most common foreign birth region|||Vanligaste utrikes födelseregion
+Origen predominante|||Most common background|||Vanligaste bakgrund
+Europa excepto Suecia|||Europe excluding Sweden|||Europa utom Sverige
+Europa (sin Suecia)|||Europe (excluding Sweden)|||Europa (utom Sverige)
+Europa sin Suecia|||Europe excluding Sweden|||Europa utom Sverige
+Resto del mundo + desconocido|||Rest of the world + unknown|||Övriga världen + okänt
+resto del mundo + desconocido|||rest of the world + unknown|||övriga världen + okänt
+Resto + desconocido|||Rest of world + unknown|||Övriga världen + okänt
+Resto del mundo|||Rest of the world|||Övriga världen
+resto del mundo|||rest of the world|||övriga världen
+Fuera de Europa|||Outside Europe|||Utanför Europa
+Sin asignación continental|||Unassigned to a continent|||Utan kontinentindelning
+Europa|||Europe|||Europa
+África|||Africa|||Afrika
+América|||Americas|||Amerika
+Oceanía|||Oceania|||Oceanien
+País desconocido|||Unknown country|||Okänt land
+Otros países (agrupados)|||Other countries (grouped)|||Övriga länder (grupperade)
+Unión Soviética (antigua)|||Former Soviet Union|||Före detta Sovjetunionen
+Yugoslavia (antigua)|||Former Yugoslavia|||Före detta Jugoslavien
+Serbia y Montenegro (antiguo)|||Former Serbia and Montenegro|||Före detta Serbien och Montenegro
+Nacimiento propio y de los padres|||Own and parents' birthplace|||Eget och föräldrarnas födelseland
+Nacimiento propio y padres|||Own and parents' birthplace|||Eget och föräldrarnas födelseland
+Nacimiento de los padres|||Parents' birthplace|||Föräldrarnas födelseland
+Nacimiento y padres|||Birthplace and parents|||Födelseland och föräldrar
+Regiones de nacimiento|||Regions of birth|||Födelseregioner
+Países de nacimiento|||Countries of birth|||Födelseländer
+Región de nacimiento|||Region of birth|||Födelseregion
+País de nacimiento|||Country of birth|||Födelseland
+Nacidos en|||Born in|||Födda i
+Nacimiento|||Birthplace|||Födelseland
+nacimiento|||birthplace|||födelseland
+Población y nacimiento|||Population and birthplace|||Befolkning och födelseland
+Población|||Population|||Befolkning
+población total|||total population|||total befolkning
+población|||population|||befolkning
+residentes estimados|||estimated residents|||skattat antal invånare
+residentes|||residents|||invånare
+personas|||people|||personer
+Personas|||People|||Personer
+todos los residentes|||all residents|||alla invånare
+Pulsa para ver el detalle|||Click to view details|||Klicka för att se mer
+Grupo predominante; excluye Suecia.|||Leading group; Sweden excluded.|||Största gruppen; Sverige ingår inte.
+Estimación.|||Estimate.|||Skattning.
+Cobertura parcial.|||Partial coverage.|||Partiell täckning.
+SCB exacto por valdistrikt|||Exact SCB data by electoral district|||Exakta SCB-data per valdistrikt
+Estimación DeSO → valdistrikt · ponderada por población|||DeSO → electoral district estimate · population weighted|||Skattning DeSO → valdistrikt · befolkningsviktad
+Estimación DeSO → valdistrikt · por área|||DeSO → electoral district estimate · area weighted|||Skattning DeSO → valdistrikt · areaviktad
+Estimación espacial mixta|||Mixed spatial estimate|||Blandad geografisk skattning
+Por qué el desglose no suma 100 %|||Why the breakdown does not add up to 100%|||Varför fördelningen inte summerar till 100 %
+Explicación de SCB|||SCB explanation|||SCB:s förklaring
+Cambio desde 2022|||Change since 2022|||Förändring sedan 2022
+Fuentes y precisión|||Sources and precision|||Källor och precision
+Distritos comparables|||Comparable districts|||Jämförbara valdistrikt
+Comparable con dos distritos agrupados|||Comparable to two combined districts|||Jämförbart med två sammanslagna valdistrikt
+Sin comparación válida|||No valid comparison|||Giltig jämförelse saknas
+Discrepancia entre fuentes|||Sources disagree|||Källorna skiljer sig åt
+Sin comparación|||No comparison|||Jämförelse saknas
+Cobertura geométrica|||Geometric coverage|||Geometrisk täckning
+Completitud|||Completeness|||Fullständighet
+DeSO dominante|||Largest contributing DeSO|||Största bidragande DeSO
+Cobertura de asignación|||Allocation coverage|||Fördelningstäckning
+Una cobertura alta no garantiza precisión local.|||High coverage does not guarantee local accuracy.|||Hög täckning garanterar inte lokal precision.
+Electores|||Eligible voters|||Röstberättigade
+Votantes|||Voters|||Röstande
+Educación postsecundaria|||Post-secondary education|||Eftergymnasial utbildning
+Empleo|||Employment|||Sysselsättning
+Renta mediana|||Median income|||Medianinkomst
+Densidad urbana|||Urban density|||Befolkningstäthet i tätort
+Edad|||Age|||Ålder
+Estadística|||Statistics|||Statistik
+límites|||boundaries|||gränser
+Límites|||Boundaries|||Gränser
+Fuente electoral|||Election source|||Källa för valresultat
+Evolución de votos y origen poblacional|||Trends in votes and population background|||Utveckling av röster och befolkningsbakgrund
+Datos actuales del distrito|||Current district data|||Aktuella uppgifter om valdistriktet
+Composición del municipio completo|||Composition of the whole municipality|||Hela kommunens sammansättning
+Votos del distrito|||District votes|||Valdistriktets röster
+Voto medio por partido|||Mean vote share by party|||Genomsnittlig röstandel per parti
+Ponderado por votos válidos|||Weighted by valid votes|||Viktat efter giltiga röster
+Cada distrito pesa igual|||Each district has equal weight|||Varje valdistrikt väger lika
+cada distrito pesa igual|||each district has equal weight|||varje valdistrikt väger lika
+Cómo se calcula|||How it is calculated|||Så beräknas det
+Qué mide este indicador|||What this measure means|||Vad måttet visar
+Ver todas las definiciones|||View all definitions|||Visa alla definitioner
+¿África y Asia por separado?|||Africa and Asia separately?|||Afrika och Asien var för sig?
+Ver datos en tabla|||View data table|||Visa datatabell
+Cada tarjeta corresponde a una línea · pulsa para ocultarla|||Each card matches a line · click to hide it|||Varje kort motsvarar en linje · klicka för att dölja den
+Una observación disponible · todavía no muestra una evolución|||One observation available · no trend yet|||En observation finns · ingen utveckling visas ännu
+Mostrar u ocultar series|||Show or hide series|||Visa eller dölj serier
+Datos parciales · qué significa|||Partial data · what it means|||Ofullständiga data · vad det innebär
+Comparabilidad entre años|||Comparability across years|||Jämförbarhet mellan år
+Las líneas conectan los valores disponibles; no garantizan un territorio constante.|||Lines connect available values; they do not guarantee unchanged boundaries.|||Linjerna förbinder tillgängliga värden; de garanterar inte oförändrade gränser.
+comparabilidad territorial no verificada|||geographic comparability not verified|||geografisk jämförbarhet inte verifierad
+Cambio territorial|||Boundary change|||Gränsändring
+países/categorías sin dato individual|||countries/categories without individual data|||länder/kategorier utan separat uppgift
+sin desglose|||without breakdown|||utan uppdelning
+Parcial|||Partial|||Ofullständigt
+SUECIA A LO LARGO DEL TIEMPO|||SWEDEN OVER TIME|||SVERIGE ÖVER TID
+Votos y origen poblacional, año a año.|||Votes and population background, year by year.|||Röster och befolkningsbakgrund, år för år.
+% DE VOTOS VÁLIDOS|||% OF VALID VOTES|||% AV GILTIGA RÖSTER
+% DE TODOS LOS RESIDENTES|||% OF ALL RESIDENTS|||% AV ALLA INVÅNARE
+Desglose del origen poblacional|||Population background breakdown|||Fördelning av befolkningsbakgrund
+Añadir país|||Add country|||Lägg till land
+Añadir|||Add|||Lägg till
+Quitar|||Remove|||Ta bort
+Fuentes y cómo leer los gráficos|||Sources and how to read the charts|||Källor och hur diagrammen läses
+Procedencia y archivos originales|||Provenance and original files|||Ursprung och originalfiler
+Créditos de los símbolos|||Symbol credits|||Källor för symbolerna
+ARCHIVO OFICIAL|||OFFICIAL ARCHIVE|||OFFICIELLT ARKIV
+Distritos de cada elección|||Districts in each election|||Valdistrikt vid varje val
+Consulta los distritos que existían en cada año. Los nombres, códigos y límites pueden cambiar.|||Explore the districts that existed in each year. Names, codes and boundaries may change.|||Utforska de valdistrikt som fanns varje år. Namn, koder och gränser kan ändras.
+Distrito de esa edición|||District in that election|||Valdistrikt vid det valet
+Ver historia del municipio completo|||View the whole municipality's history|||Visa hela kommunens historik
+ASOCIACIONES TERRITORIALES|||AREA-LEVEL ASSOCIATIONS|||SAMBAND MELLAN OMRÅDEN
+ANÁLISIS EXPLORATORIO|||EXPLORATORY ANALYSIS|||EXPLORATIV ANALYS
+Cada punto es un distrito. Origen estimado.|||Each point is a district. Population background is estimated.|||Varje punkt är ett valdistrikt. Befolkningsbakgrunden är skattad.
+Eje Y|||Y axis|||Y-axel
+Voto al partido|||Party vote share|||Partiets röstandel
+Tamaño del punto|||Point size|||Punktstorlek
+Igual|||Equal|||Lika
+Distritos con ambos datos|||Districts with both values|||Valdistrikt med båda uppgifterna
+Pendiente OLS · pp/pp|||OLS slope · pp/pp|||OLS-lutning · procentenheter/procentenheter
+Cómo leer el gráfico|||How to read the chart|||Så läser du diagrammet
+Dispersión entre origen extranjero y|||Scatterplot of foreign background and|||Punktdiagram över utländsk bakgrund och
+No hay observaciones completas para estos filtros.|||No complete observations for these filters.|||Inga fullständiga observationer för dessa filter.
+Pulsa un punto para ver su distrito.|||Click a point to view its district.|||Klicka på en punkt för att se valdistriktet.
+Voto por composición demográfica|||Vote share by population composition|||Röstandel efter befolkningssammansättning
+Ponderación de bins y deciles|||Weighting for intervals and deciles|||Viktning av intervall och deciler
+Ponderar por votos válidos|||Weight by valid votes|||Vikta efter giltiga röster
+Cada valdistrikt pesa igual|||Each electoral district has equal weight|||Varje valdistrikt väger lika
+Cómo se agrupan los distritos|||How districts are grouped|||Så grupperas valdistrikten
+Media de voto por decil nacional de origen extranjero|||Mean vote share by national foreign-background decile|||Genomsnittlig röstandel per riksdecil för utländsk bakgrund
+Cómo se calculan los deciles|||How deciles are calculated|||Så beräknas decilerna
+Explorar asociaciones con controles socioeconómicos|||Explore associations with socioeconomic controls|||Utforska samband med socioekonomiska kontrollvariabler
+Variables explicativas · OLS, distritos con casos completos|||Explanatory variables · OLS, complete district records|||Förklarande variabler · OLS, valdistrikt med fullständiga uppgifter
+no disponible|||unavailable|||inte tillgängligt
+Barras de voto medio por intervalo de origen extranjero|||Mean vote share bars by foreign-background interval|||Staplar med genomsnittlig röstandel per intervall för utländsk bakgrund
+Coeficiente|||Coefficient|||Koefficient
+Desviación típica original|||Original standard deviation|||Ursprunglig standardavvikelse
+Intercepto (predictores centrados)|||Intercept (centred predictors)|||Intercept (centrerade prediktorer)
+Origen de los residentes|||Residents' background|||Invånarnas bakgrund
+Origen seleccionado|||Selected background|||Vald bakgrund
+Mayores subtotales|||Largest subtotals|||Största delsummor
+Países más comunes publicados|||Most common published countries|||Vanligaste publicerade födelseländer
+Ver desglose completo|||View full breakdown|||Visa hela fördelningen
+Principales orígenes publicados|||Leading published origins|||Största publicerade ursprung
+Todos los orígenes|||All origins|||Alla ursprung
+Desglose por región de nacimiento|||Breakdown by region of birth|||Fördelning efter födelseregion
+Desglose por país de nacimiento|||Breakdown by country of birth|||Fördelning efter födelseland
+Mayor subtotal regional publicado|||Largest published regional subtotal|||Största publicerade regionala delsumma
+País extranjero más común publicado|||Most common published foreign country|||Vanligaste publicerade utrikes födelseland
+Sin predominio determinable|||Leading origin cannot be determined|||Vanligaste ursprung kan inte fastställas
+Sin determinar|||Undetermined|||Inte fastställt
+Suecia excluida.|||Sweden excluded.|||Sverige ingår inte.
+Subtotales incompletos, no predominio confirmado.|||Incomplete subtotals; leading origin is unconfirmed.|||Ofullständiga delsummor; vanligaste ursprung är inte bekräftat.
+Subtotales incompletos.|||Incomplete subtotals.|||Ofullständiga delsummor.
+Clasificación por recuentos publicados.|||Ranked by published counts.|||Rangordnat efter publicerade antal.
+Subtotal de países publicados.|||Subtotal of published countries.|||Delsumma för publicerade länder.
+Gris: agrupado / sin dato.|||Grey: grouped / no data.|||Grått: grupperat / uppgift saknas.
+Gris: sin dato. Demografía: estimación espacial.|||Grey: no data. Population: spatial estimate.|||Grått: uppgift saknas. Befolkning: geografisk skattning.
+Gris: sin dato.|||Grey: no data.|||Grått: uppgift saknas.
+Gris: sin resultado · Lila: empate.|||Grey: no result · Lilac: tie.|||Grått: resultat saknas · Lila: lika resultat.
+Agrupación analítica; suma de votos.|||Analytical grouping; combined votes.|||Analytisk gruppering; summerade röster.
+Dos grupos SCB; excluye Suecia. Estimación por distrito. No identifica países individuales.|||Two SCB groups; Sweden excluded. Estimated by district. Does not identify individual countries.|||Två SCB-grupper; Sverige ingår inte. Skattning per valdistrikt. Visar inte enskilda länder.
+Mapa derecho: % voto, de 0 a 100 %.|||Right map: vote share, from 0 to 100%.|||Höger karta: röstandel, från 0 till 100 %.
+Solo distritos comparables. Gris: límites cambiados, unidad nueva o sin comparación.|||Comparable districts only. Grey: changed boundaries, new unit or no comparison.|||Endast jämförbara valdistrikt. Grått: ändrade gränser, ny enhet eller jämförelse saknas.
+Cuantiles nacionales|||National quantiles|||Nationella kvantiler
+Bajo ≤ primer corte; alto > segundo corte.|||Low ≤ first threshold; high > second threshold.|||Låg ≤ första gränsen; hög > andra gränsen.
+Gris claro: bajo en ambos; gris oscuro: sin dato.|||Light grey: low on both; dark grey: no data.|||Ljusgrått: lågt på båda; mörkgrått: uppgift saknas.
+% de residentes estimados; ver definición SCB sobre los mapas.|||% of estimated residents; see the SCB definition above the maps.|||% av skattade invånare; se SCB-definitionen ovanför kartorna.
+No se pudo cargar el desglose por países|||Could not load the country breakdown|||Fördelningen efter land kunde inte läsas in
+Denominador|||Denominator|||Nämnare
+Subtotal|||Subtotal|||Delsumma
+subtotal publicado|||published subtotal|||publicerad delsumma
+subtotales|||subtotals|||delsummor
+subtotal|||subtotal|||delsumma
+escala nacional|||national scale|||nationell skala
+estimaciones|||estimates|||skattningar
+estimación espacial|||spatial estimate|||geografisk skattning
+estimación|||estimate|||skattning
+Regiones|||Regions|||Regioner
+Región|||County|||Län
+región|||region|||region
+Municipios|||Municipalities|||Kommuner
+municipios|||municipalities|||kommuner
+Municipio|||Municipality|||Kommun
+municipio|||municipality|||kommun
+MUNICIPIO|||MUNICIPALITY|||KOMMUN
+Distrito|||District|||Valdistrikt
+Distritos|||Districts|||Valdistrikt
+distritos|||districts|||valdistrikt
+DISTRITO|||DISTRICT|||VALDISTRIKT
+Territorio|||Area|||Område
+Año|||Year|||År
+Años|||Years|||År
+Votos válidos|||Valid votes|||Giltiga röster
+votos válidos|||valid votes|||giltiga röster
+Votos|||Votes|||Röster
+Voto|||Vote share|||Röstandel
+voto|||vote share|||röstandel
+Elecciones|||Elections|||Val
+ELECCIONES|||ELECTIONS|||VAL
+Elección|||Election|||Val
+elección|||election|||val
+Demografía|||Population|||Befolkning
+DEMOGRAFÍA|||POPULATION|||BEFOLKNING
+demografía|||population|||befolkning
+Partido|||Party|||Parti
+Origen|||Background|||Bakgrund
+Otros|||Others|||Övriga
+Resto|||Other|||Övrigt
+Suecia|||Sweden|||Sverige
+SUECIA|||SWEDEN|||SVERIGE
+Fuente|||Source|||Källa
+Descarga|||Download|||Nedladdning
+Cerrar|||Close|||Stäng
+Todos|||All|||Alla
+Grupo|||Group|||Grupp
+País|||Country|||Land
+país|||country|||land
+nacional|||national|||riket
+# Definitions and explanatory text
+El grupo de nacimiento fuera de Suecia con más residentes: Europa excepto Suecia, o resto del mundo + desconocido. No exige superar el 50 % de toda la población.|||The foreign-born group with the most residents: Europe excluding Sweden, or rest of the world + unknown. It does not have to exceed 50% of the total population.|||Den utrikes födda gruppen med flest invånare: Europa utom Sverige eller övriga världen + okänt. Gruppen behöver inte utgöra över 50 % av hela befolkningen.
+Nacidos fuera de Suecia o nacidos en Suecia con ambos progenitores nacidos fuera. No incluye a los nacidos en Suecia con solo un progenitor nacido fuera.|||Born outside Sweden, or born in Sweden with both parents born abroad. Excludes Sweden-born residents with only one parent born abroad.|||Utrikes födda eller inrikes födda med två utrikes födda föräldrar. Inrikes födda med endast en utrikes född förälder ingår inte.
+Nacidos fuera de Suecia, aunque tengan ciudadanía sueca. En este indicador la fuente incluye país de nacimiento desconocido.|||Born outside Sweden, including those with Swedish citizenship. For this measure, the source includes unknown country of birth.|||Utrikes födda, även personer med svenskt medborgarskap. I detta mått inkluderar källan okänt födelseland.
+Residentes sin ciudadanía sueca, con independencia del lugar de nacimiento. La fuente incluye apátridas y ciudadanía desconocida.|||Residents without Swedish citizenship, regardless of birthplace. The source includes stateless residents and unknown citizenship.|||Invånare utan svenskt medborgarskap, oavsett födelseland. Källan inkluderar statslösa och okänt medborgarskap.
+Nacidos en Suecia, también si uno o ambos progenitores nacieron fuera.|||Born in Sweden, including those with one or both parents born abroad.|||Inrikes födda, även personer med en eller två utrikes födda föräldrar.
+Nacidos en Europa excepto Suecia. En la clasificación distrital SCB incluye Rusia y Turquía.|||Born in Europe excluding Sweden. SCB's district classification includes Russia and Turkey in Europe.|||Födda i Europa utom Sverige. SCB:s indelning för valdistrikt inkluderar Ryssland och Turkiet i Europa.
+Nacidos en el resto del mundo y personas cuyo país de nacimiento se desconoce. No separa África y Asia.|||Born in the rest of the world, plus people whose country of birth is unknown. Africa and Asia are not separated.|||Födda i övriga världen samt personer med okänt födelseland. Afrika och Asien särredovisas inte.
+Un progenitor nació en Suecia y el otro en el extranjero. SCB lo clasifica como «origen sueco». Se muestra por municipio en Nacimiento de los padres.|||One parent was born in Sweden and the other abroad. SCB classifies this as Swedish background. Shown by municipality under Parents' birthplace.|||En förälder är född i Sverige och den andra utomlands. SCB räknar detta som svensk bakgrund. Visas per kommun under Föräldrarnas födelseland.
+Ejemplo: alguien nacido en Suecia de dos padres nacidos en Siria y con ciudadanía sueca tiene origen extranjero, pero no nació fuera ni tiene ciudadanía extranjera.|||Example: a Swedish citizen born in Sweden to two Syrian-born parents has foreign background, but is neither foreign-born nor a foreign citizen.|||Exempel: en svensk medborgare född i Sverige med två föräldrar födda i Syrien har utländsk bakgrund, men är varken utrikes född eller utländsk medborgare.
+Los porcentajes usan todos los residentes de la tabla correspondiente. La demografía por distrito es una estimación espacial.|||Percentages use all residents in the relevant table. District population data are spatial estimates.|||Procenttalen beräknas på alla invånare i respektive tabell. Befolkningsdata per valdistrikt är geografiska skattningar.
+Las categorías se solapan: no se suman. Nacimiento no significa ciudadanía, etnia o religión.|||The categories overlap: do not add them together. Birthplace does not indicate citizenship, ethnicity or religion.|||Kategorierna överlappar och ska inte summeras. Födelseland visar inte medborgarskap, etnicitet eller religion.
+Están disponibles por municipio en Países y Evolución. La tabla de áreas pequeñas usada para estimar los distritos solo separa Suecia, Europa y resto del mundo; el detalle municipal no permite saber su reparto dentro de cada distrito.|||Available by municipality in Countries and Trends. The small-area table used to estimate districts only separates Sweden, Europe and the rest of the world; municipal data do not reveal the distribution within each district.|||Finns per kommun under Länder och Utveckling. Småområdestabellen som används för att skatta valdistrikt skiljer endast på Sverige, Europa och övriga världen. Kommunuppgifterna visar inte fördelningen inom varje valdistrikt.
+Estimaciones sobre los mismos distritos electorales, a partir de recuentos DeSO y cruces ponderados por población. Denominador: todos los residentes estimados en la tabla de nacimiento. Europa incluye Rusia y Turquía (SCB), no equivale a la UE ni a la clasificación ONU de la vista municipal. Resto del mundo incluye país desconocido. Las celdas protegidas pueden no sumar 100 %. Una cobertura alta no garantiza precisión local.|||Estimates for the same electoral districts, using DeSO counts and population-weighted intersections. Denominator: all estimated residents in the birthplace table. Europe includes Russia and Turkey (SCB); this is neither the EU nor the UN classification used in the municipal view. Rest of the world includes unknown birthplace. Protected cells may not sum to 100%. High coverage does not guarantee local accuracy.|||Skattningar för samma valdistrikt, baserade på DeSO-antal och befolkningsviktade överlappningar. Nämnare: alla skattade invånare i födelselandstabellen. Europa inkluderar Ryssland och Turkiet (SCB) och motsvarar varken EU eller FN-indelningen i kommunvyn. Övriga världen inkluderar okänt födelseland. Skyddade celler summerar inte alltid till 100 %. Hög täckning garanterar inte lokal precision.
+Origen extranjero incluye también a nacidos en Suecia con ambos progenitores nacidos fuera. Ciudadanía extranjera mide nacionalidad, no nacimiento. Son medidas distintas; no se suman.|||Foreign background also includes Sweden-born residents with both parents born abroad. Foreign citizenship measures citizenship, not birthplace. These are separate measures; do not add them together.|||Utländsk bakgrund inkluderar även inrikes födda med två utrikes födda föräldrar. Utländskt medborgarskap mäter medborgarskap, inte födelseland. Måtten är olika och ska inte summeras.
+residentes estimados. Europa incluye Rusia y Turquía. Resto incluye país desconocido; no separa África y Asia. Las celdas protegidas pueden no sumar el total.|||estimated residents. Europe includes Russia and Turkey. Rest of the world includes unknown birthplace; Africa and Asia are not separated. Protected cells may not sum to the total.|||skattade invånare. Europa inkluderar Ryssland och Turkiet. Övriga världen inkluderar okänt födelseland; Afrika och Asien särredovisas inte. Skyddade celler summerar inte alltid till totalen.
+Los tres grupos suman ≈|||The three groups sum to approximately|||De tre grupperna summerar till cirka
+personas y el total publicado, trasladado al distrito, es ≈|||people and the published total allocated to the district is approximately|||personer och den publicerade totalen fördelad på valdistriktet är cirka
+. Hay un desajuste de ≈|||. The discrepancy is approximately|||. Skillnaden är cirka
+personas entre componentes y total. SCB protege las celdas por separado; se conserva esa diferencia y no se inventa un grupo para completarla.|||people between components and total. SCB protects cells separately; this difference is retained, without inventing an additional group.|||personer mellan delarna och totalen. SCB skyddar cellerna separat; skillnaden behålls och ingen ny grupp skapas för att fylla ut den.
+«Nacidos fuera» se calcula como total menos nacidos en Suecia, incluido país desconocido. Por eso puede diferir de sumar Europa y resto.|||Born abroad is calculated as the total minus Sweden-born residents, including unknown birthplace. It can therefore differ from adding Europe and the rest of the world.|||Utrikes födda beräknas som totalen minus inrikes födda och inkluderar okänt födelseland. Det kan därför skilja sig från summan av Europa och övriga världen.
+¹ Nacimiento incluye país desconocido; ciudadanía incluye apátridas y desconocida.|||¹ Birthplace includes unknown country; citizenship includes stateless and unknown.|||¹ Födelseland inkluderar okänt land; medborgarskap inkluderar statslösa och okänt.
+Participación agregada sobre distritos con votantes y electores conocidos. Excluye unidades de recogida; no equivale al resultado nacional completo.|||Aggregate turnout for districts with known voters and eligible voters. Excludes collection districts; not the full national result.|||Sammanvägt valdeltagande för valdistrikt med känt antal röstande och röstberättigade. Uppsamlingsdistrikt ingår inte; detta är inte hela riksresultatet.
+distritos con cobertura parcial. La demografía es estimada; consulta la fuente y el año de cada ficha.|||districts with partial coverage. Population data are estimates; check each district's source and year.|||valdistrikt med partiell täckning. Befolkningsdata är skattade; se källa och år för varje valdistrikt.
+No hay observaciones de origen para este ámbito. La fuente por áreas pequeñas empieza en 2010.|||No population-background observations for this area. The small-area source starts in 2010.|||Inga observationer av befolkningsbakgrund för detta område. Småområdeskällan börjar 2010.
+porcentajes a lo largo del tiempo. Usa el selector de año o la tabla para consultar valores.|||percentages over time. Use the year selector or table to look up values.|||procent över tid. Använd årsväljaren eller tabellen för att se värden.
+Año de|||Year for|||År för
+Algunos países no tienen un dato individual publicado. Los porcentajes regionales suman solo los datos disponibles; no representan el total completo. «Sin dato» no significa cero.|||Some countries have no separately published value. Regional percentages only sum available data; they do not represent complete totals. No data does not mean zero.|||Vissa länder saknar en separat publicerad uppgift. Regionala procenttal summerar endast tillgängliga data och visar inte fullständiga totaler. Uppgift saknas betyder inte noll.
+Porcentaje por año. Las líneas continuas unen los puntos disponibles, incluso entre años sin dato o con cambios territoriales. No añaden observaciones ni garantizan límites constantes. Los datos provisionales y CKM se identifican al consultar cada año.|||Percentage by year. Solid lines connect available points, including across missing years or boundary changes. They do not add observations or guarantee constant boundaries. Provisional and CKM data are identified in the year readout.|||Procent per år. Heldragna linjer förbinder tillgängliga punkter, även över år som saknar data eller har gränsändringar. De tillför inga observationer och garanterar inte oförändrade gränser. Preliminära uppgifter och CKM-data markeras när ett år visas.
+Las líneas unen observaciones publicadas, no son estimaciones entre años. Pulsa las leyendas para ocultar series y ajustar la escala; mueve el cursor o el selector de año para ver los porcentajes. Las líneas conectan los puntos disponibles, también cuando hay años intermedios sin dato; esos años siguen figurando como «Sin dato» en la consulta y la tabla.|||Lines connect published observations, not estimates between years. Click the legend to hide series and adjust the scale; move the pointer or year selector to see percentages. Lines connect available points even across missing years, which remain marked No data in the readout and table.|||Linjerna förbinder publicerade observationer, inte skattningar mellan år. Klicka i teckenförklaringen för att dölja serier och anpassa skalan; flytta pekaren eller årsväljaren för att se procenttalen. Linjerna förbinder tillgängliga punkter även över år utan data, som fortfarande visas som Uppgift saknas i avläsningen och tabellen.
+Votos: elecciones al Riksdag, 2002–2022 definitivos de SCB y 2026 provisional de Valmyndigheten. Se divide el número de votos de cada partido por todos los votos válidos, incluidos los de otros partidos. FP se muestra como L. El recuento de 2026 incluye únicamente unidades que han informado; quedan unidades de recogida pendientes. Esta página es una instantánea estática.|||Votes: Riksdag elections, final SCB results for 2002–2022 and provisional Valmyndigheten results for 2026. Each party's votes are divided by all valid votes, including other parties. FP is shown as L. The 2026 count includes only reporting units; collection units remain pending. This page is a static snapshot.|||Röster: riksdagsval, slutgiltiga SCB-resultat för 2002–2022 och preliminära resultat från Valmyndigheten för 2026. Varje partis röster divideras med alla giltiga röster, även övriga partiers. FP visas som L. Räkningen 2026 omfattar endast rapporterande enheter; uppsamlingsenheter återstår. Sidan är en statisk ögonblicksbild.
+Origen: residentes a 31 de diciembre de cada año, 2002–2025. Los cuatro grupos según nacimiento propio y de los padres son distintos y no se solapan; tener un progenitor nacido fuera y otro en Suecia se incluye en origen sueco según SCB. No son datos sobre cómo vota cada grupo. No se infiere religión ni etnia.|||Background: residents on 31 December each year, 2002–2025. The four groups based on own and parents' birthplace are mutually exclusive; one parent born abroad and one in Sweden counts as Swedish background under SCB's definition. These data do not show how each group votes. Religion and ethnicity are not inferred.|||Bakgrund: invånare den 31 december varje år, 2002–2025. De fyra grupperna utifrån eget och föräldrarnas födelseland överlappar inte; en utrikes född och en inrikes född förälder räknas som svensk bakgrund enligt SCB. Uppgifterna visar inte hur varje grupp röstar. Religion och etnicitet härleds inte.
+Desde 2025 SCB aplica protección CKM: pequeños ajustes pueden cambiar la suma de los grupos. La etiqueta CKM identifica esos datos al consultar el año. Los países pequeños pueden estar agrupados por SCB; se conserva «sin dato» y los continentes son subtotales de celdas publicadas, no totales completos. Los códigos y el reconocimiento de países también cambian con el tiempo. No deben sumarse «Fuera de Europa» y los continentes que contiene.|||Since 2025 SCB uses CKM disclosure protection: small adjustments can change group sums. CKM labels identify these data in the year readout. Small countries may be grouped by SCB; missing values are retained and continents are subtotals of published cells, not complete totals. Country codes and recognition also change over time. Do not add Outside Europe to the continents it contains.|||Sedan 2025 använder SCB CKM för röjandeskydd: små justeringar kan ändra gruppernas summa. CKM-etiketten markerar dessa uppgifter vid avläsning av år. Små länder kan grupperas av SCB; saknade värden behålls och kontinenter är delsummor av publicerade celler, inte fullständiga totaler. Landskoder och erkännande av länder ändras också över tid. Summera inte Utanför Europa med de kontinenter som ingår i gruppen.
+Regiones de nacimiento: clasificación ONU M49. Turquía y Chipre en Asia; Rusia en Europa; antigua URSS y países agrupados o desconocidos sin asignación continental. Esta definición difiere de las tres categorías SCB del mapa por distritos.|||Regions of birth: UN M49 classification. Turkey and Cyprus are in Asia; Russia in Europe; the former USSR and grouped or unknown countries are not assigned a continent. This differs from the three SCB categories on the district map.|||Födelseregioner: FN:s M49-indelning. Turkiet och Cypern ligger i Asien; Ryssland i Europa; före detta Sovjetunionen samt grupperade eller okända länder saknar kontinentindelning. Detta skiljer sig från de tre SCB-kategorierna på valdistriktskartan.
+La serie usa los municipios publicados en cada año, no los límites de un distrito actual. Los cambios territoriales documentados se describen en las notas de comparabilidad: Lidingö/Vaxholm en 2011 (población de 2010, por su división de referencia). SCB ya separa Knivsta en los resultados electorales de 2002 y publica la serie de Heby con su código actual. Las cifras de población usan la división del 1 de enero siguiente al año de referencia; las elecciones, la división electoral correspondiente.|||The series uses municipalities as published for each year, not the boundaries of a current district. Documented boundary changes are described in comparability notes: Lidingö/Vaxholm in 2011 (2010 population, according to its reference geography). SCB already separates Knivsta in the 2002 election results and publishes Heby's series under its current code. Population uses the division on 1 January following the reference year; elections use the relevant electoral division.|||Serien använder kommunerna som publicerats för varje år, inte gränserna för ett nuvarande valdistrikt. Dokumenterade gränsändringar beskrivs i jämförbarhetsnoterna: Lidingö/Vaxholm 2011 (befolkning 2010, enligt dess referensindelning). SCB särredovisar redan Knivsta i valresultaten 2002 och publicerar Hebys serie med nuvarande kod. Befolkningsuppgifterna använder indelningen den 1 januari efter referensåret; valen använder respektive valindelning.
+Historia distrital|||District history|||Valdistriktets historik
+Datos de cada edición · líneas continuas|||Data from each edition · continuous lines|||Data från varje utgåva · sammanhängande linjer
+Cargando archivo histórico 2002–2026…|||Loading the 2002–2026 historical archive…|||Läser in historiskt arkiv 2002–2026…
+Evolución de votos del distrito|||District vote trends|||Valdistriktets röstutveckling
+Evolución de nacimiento del distrito|||District birthplace trends|||Utveckling av födelseland i valdistriktet
+Explorar todos los distritos de cada elección|||Explore all districts in each election|||Utforska alla valdistrikt vid varje val
+Por qué cambia la cobertura|||Why coverage changes|||Varför täckningen ändras
+Archivo electoral: 2002, 2006, 2010, 2014, 2018, 2022 y 2026. Origen: observaciones anuales desde 2010 hasta 2025. Un distrito nuevo o renumerado puede no identificarse en las ediciones anteriores; el enlace al archivo permite consultar los distritos que existían entonces.|||Election archive: 2002, 2006, 2010, 2014, 2018, 2022 and 2026. Background: annual observations from 2010 to 2025. A new or renumbered district may not be identifiable in earlier editions; the archive link lets you explore the districts that existed then.|||Valarkiv: 2002, 2006, 2010, 2014, 2018, 2022 och 2026. Bakgrund: årliga observationer från 2010 till 2025. Ett nytt eller omnumrerat valdistrikt kan sakna identifierbar motsvarighet i tidigare utgåvor; arkivlänken låter dig se de valdistrikt som fanns då.
+Las líneas continuas unen todos los puntos disponibles. Si se conserva el código, se muestran también las ediciones anteriores como referencia, aunque hayan cambiado nombre o límites. La unión visual no implica que los territorios sean idénticos ni añade valores para los años sin dato. Bajo el gráfico se indica el ámbito del año consultado. Un mismo código no garantiza un territorio constante. No se han verificado correspondencias comparables anteriores a 2014–2018.|||Solid lines connect all available points. If the code is retained, earlier editions are also shown for reference, even if names or boundaries changed. Connecting points does not imply identical areas or add values for missing years. The selected year's geography is shown below the chart. The same code does not guarantee an unchanged area. Comparable links before 2014–2018 have not been verified.|||Heldragna linjer förbinder alla tillgängliga punkter. Om koden finns kvar visas även tidigare utgåvor som referens, även om namn eller gränser ändrats. Linjerna innebär inte identiska områden och tillför inga värden för år utan data. Det valda årets område visas under diagrammet. Samma kod garanterar inte oförändrat område. Jämförbara kopplingar före 2014–2018 har inte verifierats.
+Origen: tres categorías SCB, estimadas sobre los límites de cada edición electoral. En 2010–2014 solo se publican los casos que coinciden prácticamente con áreas DeSO enteras; los demás quedan sin estimación porque no se ha incorporado una cuadrícula de población contemporánea. Desde 2015 se usan intersecciones ponderadas por la cuadrícula del propio año. Las estimaciones de baja cobertura se excluyen. En 2024 cambia la división DeSO y en 2025, la protección estadística CKM. No se inventa población de 2026.|||Background: three SCB categories estimated within each election edition's boundaries. In 2010–2014, only cases matching nearly whole DeSO areas are published; others have no estimate because a contemporary population grid has not been incorporated. From 2015, intersections are weighted by that year's grid. Low-coverage estimates are excluded. DeSO divisions change in 2024 and CKM disclosure protection in 2025. No 2026 population is invented.|||Bakgrund: tre SCB-kategorier skattade inom gränserna för varje valutgåva. För 2010–2014 publiceras endast fall som nästan sammanfaller med hela DeSO-områden; övriga saknar skattning eftersom ett samtida befolkningsrutnät inte har införts. Från 2015 viktas överlappningarna med respektive års rutnät. Skattningar med låg täckning utesluts. DeSO-indelningen ändras 2024 och CKM-skyddet 2025. Ingen befolkning för 2026 hittas på.
+Las fusiones comparables suman recuentos antes de calcular porcentajes. Valmyndigheten admite pequeños cambios territoriales: para 2018–2022, hasta un 5 % del electorado afectado. La cadena no equivale a una reconstrucción sobre límites fijos. Los votos son definitivos hasta 2022; 2026 es provisional.|||Comparable mergers add counts before calculating percentages. Valmyndigheten allows small boundary changes: for 2018–2022, up to 5% of the electorate affected. The chain is not a reconstruction on fixed boundaries. Votes are final through 2022; 2026 is provisional.|||Jämförbara sammanslagningar summerar antalen innan procenttal beräknas. Valmyndigheten tillåter små gränsändringar: för 2018–2022 upp till 5 % berörda röstberättigade. Kedjan är inte en rekonstruktion med fasta gränser. Rösterna är slutgiltiga till och med 2022; 2026 är preliminärt.
+Europa incluye Rusia y Turquía. Resto incluye país desconocido. Celdas protegidas pueden no sumar el total. No se infiere el voto de las personas según su origen.|||Europe includes Russia and Turkey. Rest of the world includes unknown birthplace. Protected cells may not sum to the total. Individual votes are not inferred from population background.|||Europa inkluderar Ryssland och Turkiet. Övriga världen inkluderar okänt födelseland. Skyddade celler summerar inte alltid till totalen. Individers röster härleds inte utifrån deras bakgrund.
+Archivo oficial de Valmyndigheten|||Official Valmyndigheten archive|||Valmyndighetens officiella arkiv
+Cobertura anual de origen|||Annual background coverage|||Årlig täckning för bakgrund
+Fuentes históricas|||Historical sources|||Historiska källor
+nueva división DeSO|||new DeSO division|||ny DeSO-indelning
+comienza la ponderación por cuadrícula contemporánea|||weighting by contemporary population grid begins|||viktning med samtida befolkningsrutnät börjar
+años de origen con estimación|||years with background estimates|||år med skattad bakgrund
+Líneas continuas entre puntos disponibles · comparabilidad territorial y de método en las notas.|||Continuous lines between available points · see notes on boundary and method comparability.|||Sammanhängande linjer mellan tillgängliga punkter · se noter om jämförbarhet i gränser och metod.
+El distrito no se ha podido identificar antes de|||The district could not be identified before|||Valdistriktet kunde inte identifieras före
+. Consulta los distritos antiguos en el archivo.|||. See earlier districts in the archive.|||. Se äldre valdistrikt i arkivet.
+Contexto municipal · otro ámbito|||Municipal context · different area|||Kommunkontext · annat område
+Composición del municipio|||Municipal composition|||Kommunens sammansättning
+Composición|||Composition|||Sammansättning
+Continentes|||Continents|||Kontinenter
+todo el municipio|||whole municipality|||hela kommunen
+Cuatro grupos de nacimiento propio y de los padres, sobre todos los residentes del municipio. No describen su reparto entre distritos.|||Four groups based on own and parents' birthplace, as a share of all municipal residents. They do not show the distribution between districts.|||Fyra grupper utifrån eget och föräldrarnas födelseland, som andel av alla kommuninvånare. De visar inte fördelningen mellan valdistrikt.
+Subtotales de países publicados sobre todos los residentes del municipio. Suecia excluida de los continentes; los datos ocultos no son ceros. Turquía se agrupa en Asia según ONU M49.|||Published country subtotals as a share of all municipal residents. Sweden is excluded from continents; suppressed data are not zeros. Turkey is grouped in Asia under UN M49.|||Publicerade landsdelsummor som andel av alla kommuninvånare. Sverige ingår inte i kontinenterna; skyddade uppgifter är inte nollor. Turkiet grupperas i Asien enligt FN M49.
+Subtotales · % residentes|||Subtotals · % of residents|||Delsummor · % av invånarna
+Origen · % residentes|||Background · % of residents|||Bakgrund · % av invånarna
+Votos · % válidos|||Votes · % of valid votes|||Röster · % av giltiga röster
+% válidos|||% of valid votes|||% av giltiga röster
+31 diciembre|||31 December|||31 december
+cambio de protección SCB (CKM)|||change in SCB disclosure protection (CKM)|||ändrat röjandeskydd hos SCB (CKM)
+Subtotales publicados: faltan países sin desglose.|||Published subtotals: countries without separate data are missing.|||Publicerade delsummor: länder utan uppdelning saknas.
+Sin dato: país agrupado, sin dato publicado o sin código para ese año.|||No data: country grouped, unpublished or without a code for that year.|||Uppgift saknas: landet är grupperat, inte publicerat eller saknar kod för året.
+Ver evolución|||View trends|||Visa utveckling
+elecciones|||elections|||val
+publicados|||published|||publicerade
+# Country views and analysis
+Socialdemokraterna|||Social Democrats|||Socialdemokraterna
+Moderaterna|||Moderates|||Moderaterna
+Sverigedemokraterna|||Sweden Democrats|||Sverigedemokraterna
+Vänsterpartiet|||Left Party|||Vänsterpartiet
+Centerpartiet|||Centre Party|||Centerpartiet
+Kristdemokraterna|||Christian Democrats|||Kristdemokraterna
+Liberalerna|||Liberals|||Liberalerna
+Miljöpartiet|||Green Party|||Miljöpartiet
+Otros partidos|||Other parties|||Övriga partier
+Europa (incluye Suecia)|||Europe (including Sweden)|||Europa (inklusive Sverige)
+América septentrional|||Northern America|||Nordamerika
+América Latina y Caribe|||Latin America and the Caribbean|||Latinamerika och Karibien
+Nacidos en Suecia · ambos padres fuera|||Sweden-born · both parents born abroad|||Inrikes födda · två utrikes födda föräldrar
+Nacidos en Suecia · ambos padres en Suecia|||Sweden-born · both parents born in Sweden|||Inrikes födda · två inrikes födda föräldrar
+Personas nacidas fuera de Suecia, con independencia de dónde nacieron sus progenitores.|||People born outside Sweden, regardless of their parents' birthplace.|||Personer födda utomlands, oavsett föräldrarnas födelseland.
+Nacidos en Suecia con los dos progenitores nacidos en el extranjero.|||Born in Sweden with both parents born abroad.|||Inrikes födda med två utrikes födda föräldrar.
+Nacidos en Suecia con un progenitor nacido en Suecia y otro en el extranjero. SCB incluye este grupo en «origen sueco».|||Born in Sweden with one parent born in Sweden and the other abroad. SCB includes this group in Swedish background.|||Inrikes födda med en inrikes och en utrikes född förälder. SCB räknar denna grupp som svensk bakgrund.
+Nacidos en Suecia con los dos progenitores nacidos en Suecia.|||Born in Sweden with both parents born in Sweden.|||Inrikes födda med två inrikes födda föräldrar.
+MUNICIPIOS|||MUNICIPALITIES|||KOMMUNER
+Porcentaje sobre|||Percentage of|||Andel av
+todos los residentes del municipio|||all residents in the municipality|||alla kommuninvånare
+Ver distritos electorales|||View electoral districts|||Visa valdistrikt
+Mostrar|||Show|||Visa
+Porcentaje|||Percentage|||Procent
+Más común|||Most common|||Vanligast
+Agrupar por|||Group by|||Gruppera efter
+Regiones geográficas|||Geographic regions|||Geografiska regioner
+País o región|||Country or region|||Land eller region
+Subtotales incompletos · Más información|||Incomplete subtotals · Learn more|||Ofullständiga delsummor · Läs mer
+Nacimiento de la persona y sus padres · Definiciones|||Own and parents' birthplace · Definitions|||Eget och föräldrarnas födelseland · Definitioner
+Estas categorías usan lugar de nacimiento, no ciudadanía. «Un progenitor fuera» significa nacido en Suecia con un progenitor nacido en Suecia y otro fuera; SCB lo incluye en origen sueco. «Ambos fuera» sí pertenece a origen extranjero. Los porcentajes se calculan sobre todos los residentes, no solo sobre nacidos en Suecia. Datos municipales: no se trasladan a distritos electorales.|||These categories use birthplace, not citizenship. One parent abroad means born in Sweden with one Sweden-born and one foreign-born parent; SCB classifies this as Swedish background. Both parents abroad belongs to foreign background. Percentages use all residents, not only those born in Sweden. Municipal data are not allocated to electoral districts.|||Kategorierna utgår från födelseland, inte medborgarskap. En utrikes född förälder avser inrikes födda med en inrikes och en utrikes född förälder; SCB räknar detta som svensk bakgrund. Två utrikes födda föräldrar ingår i utländsk bakgrund. Procenttalen gäller alla invånare, inte bara inrikes födda. Kommunuppgifter fördelas inte på valdistrikt.
+SCB protege las celdas con pequeñas perturbaciones; los cuatro grupos pueden no sumar exactamente el total.|||SCB protects cells using small perturbations; the four groups may not sum exactly to the total.|||SCB skyddar cellerna med små störningar; de fyra grupperna summerar inte alltid exakt till totalen.
+Tabla oficial SCB|||Official SCB table|||Officiell SCB-tabell
+Procedencia y definiciones|||Provenance and definitions|||Ursprung och definitioner
+Mapa municipal de proporción por país o región de nacimiento|||Municipal map of shares by country or region of birth|||Kommunkarta över andelar efter födelseland eller födelseregion
+Fuentes y definiciones|||Sources and definitions|||Källor och definitioner
+Religión: musulmanes, cristianos, hindúes…|||Religion: Muslims, Christians, Hindus…|||Religion: muslimer, kristna, hinduer…
+Sin datos municipales comparables en las fuentes consultadas.|||No comparable municipal data in the consulted sources.|||Inga jämförbara kommunuppgifter i de granskade källorna.
+SCB no incluye religión en esta tabla. La fuente SST cuenta miembros y participantes de determinadas comunidades religiosas, un universo distinto del conjunto de residentes. No se ha añadido un porcentaje religioso municipal.|||SCB does not include religion in this table. SST counts members and participants in certain religious communities, a different population from all residents. No municipal religion percentage has been added.|||SCB inkluderar inte religion i denna tabell. SST räknar medlemmar och deltagare i vissa trossamfund, vilket är en annan population än alla invånare. Ingen kommunal religionsandel har lagts till.
+País de nacimiento, región geográfica y religión son variables distintas. Nacer en India no significa ser hindú, ni nacer en un país de mayoría musulmana permite asignar esa religión.|||Country of birth, geographic region and religion are different variables. Being born in India does not imply being Hindu, and birth in a Muslim-majority country does not establish a person's religion.|||Födelseland, geografisk region och religion är olika variabler. Att vara född i Indien innebär inte att vara hindu, och födelse i ett land med muslimsk majoritet fastställer inte en persons religion.
+Qué mide la estadística religiosa de SST|||What SST's religious statistics measure|||Vad SST:s religionsstatistik mäter
+se agrupan países según ONU M49, con correspondencias documentadas para códigos históricos. Turquía y Chipre se sitúan en Asia; Rusia, en Europa. La antigua URSS, los países desconocidos y «Otros países» quedan sin asignación continental. «Fuera de Europa» suma África, Asia, América y Oceanía; no significa «fuera de la UE». Las categorías se solapan y no deben sumarse entre sí.|||countries are grouped using UN M49, with documented mappings for historical codes. Turkey and Cyprus are in Asia; Russia in Europe. The former USSR, unknown countries and Other countries are not assigned a continent. Outside Europe adds Africa, Asia, the Americas and Oceania; it does not mean outside the EU. Categories overlap and must not be added together.|||länder grupperas enligt FN M49, med dokumenterade kopplingar för historiska koder. Turkiet och Cypern ligger i Asien; Ryssland i Europa. Före detta Sovjetunionen, okända länder och Övriga länder saknar kontinentindelning. Utanför Europa summerar Afrika, Asien, Amerika och Oceanien; det betyder inte utanför EU. Kategorierna överlappar och ska inte summeras.
+Los valores regionales son|||Regional values are|||De regionala värdena är
+subtotales de países publicados|||subtotals of published country data|||delsummor av publicerade landsuppgifter
+. Las celdas ocultas por confidencialidad y países agrupados impiden obtener un total continental completo. Se muestra cuántas celdas faltan; no se imputan ceros ni se presentan estos subtotales como estimaciones de toda la región.|||. Suppressed cells and grouped countries prevent complete continental totals. The number of missing cells is shown; zeros are not imputed and these subtotals are not presented as estimates of the entire region.|||. Skyddade celler och grupperade länder förhindrar fullständiga kontinenttotaler. Antalet saknade celler visas; nollor imputeras inte och delsummorna presenteras inte som skattningar för hela regionen.
+Países incluidos en cada región|||Countries included in each region|||Länder som ingår i varje region
+CSV de regiones y cobertura|||Regions and coverage CSV|||CSV med regioner och täckning
+Clasificación ONU M49|||UN M49 classification|||FN:s M49-indelning
+Cómo interpretar estos datos:|||How to interpret these data:|||Så tolkar du uppgifterna:
+país de nacimiento es distinto de ciudadanía y de origen familiar. Quien nació en Suecia figura en Suecia, aunque sus padres nacieran en otro país. Son residentes a 31/12/2025, no llegadas durante 2026.|||country of birth differs from citizenship and family background. Someone born in Sweden is counted under Sweden, even if their parents were born elsewhere. These are residents on 31 December 2025, not arrivals during 2026.|||födelseland skiljer sig från medborgarskap och familjebakgrund. Den som är född i Sverige räknas till Sverige även om föräldrarna föddes i ett annat land. Detta avser invånare den 31 december 2025, inte ankomster under 2026.
+SCB agrupa los países con menos de 10 personas en un territorio —20 a escala nacional— en «Otros países». Gris significa dato agrupado, ausente o cero no distinguible. No se convierten los ausentes en cero. La protección estadística CKM introduce pequeñas perturbaciones; los componentes pueden no sumar exactamente el total.|||SCB groups countries with fewer than 10 people in an area—20 nationally—under Other countries. Grey indicates grouped, missing or indistinguishable zero values. Missing values are not converted to zero. CKM disclosure protection introduces small perturbations; components may not sum exactly to the total.|||SCB grupperar länder med färre än 10 personer i ett område—20 i riket—under Övriga länder. Grått betyder grupperat, saknat eller en nolla som inte kan särskiljas. Saknade värden ersätts inte med noll. CKM-skyddet tillför små störningar; delarna summerar inte alltid exakt till totalen.
+Los contornos municipales se obtienen agrupando los distritos electorales de 2026, únicamente para dibujar el mapa. Los recuentos por país proceden de SCB; los subtotales por región se calculan agrupando esas celdas.|||Municipal outlines are obtained by combining 2026 electoral districts solely for drawing the map. Country counts come from SCB; regional subtotals are calculated by grouping these cells.|||Kommunernas konturer skapas genom att slå samman valdistrikten 2026, enbart för att rita kartan. Antalen per land kommer från SCB; regionala delsummor beräknas genom att gruppera dessa celler.
+CSV completo|||Full CSV|||Fullständig CSV
+Procedencia|||Provenance|||Ursprung
+Agrupado / sin dato|||Grouped / no data|||Grupperat / uppgift saknas
+Regiones: subtotales de países con dato publicado, divididos entre todos los residentes. Faltan países agrupados u ocultos por confidencialidad. No son totales continentales completos. Clasificación ONU M49; ver países incluidos debajo del mapa.|||Regions: subtotals of countries with published data, divided by all residents. Grouped or suppressed countries are missing. These are not complete continental totals. UN M49 classification; see included countries below the map.|||Regioner: delsummor för länder med publicerade uppgifter, dividerade med alla invånare. Grupperade eller skyddade länder saknas. Detta är inte fullständiga kontinenttotaler. FN:s M49-indelning; se ingående länder under kartan.
+Se comparan cinco regiones sin solapamientos y sin Suecia. El mayor subtotal publicado puede cambiar si se conocieran las celdas ocultas.|||Five non-overlapping regions are compared, excluding Sweden. The largest published subtotal could change if suppressed cells were known.|||Fem regioner utan överlappning jämförs, utan Sverige. Den största publicerade delsumman kan ändras om skyddade celler blir kända.
+Se comparan países de nacimiento publicados; Suecia y categorías agrupadas no compiten. Si las celdas agrupadas podrían alterar el ganador, se muestra sin determinar.|||Published countries of birth are compared; Sweden and grouped categories are excluded. If grouped cells could change the winner, the result is marked undetermined.|||Publicerade födelseländer jämförs; Sverige och grupperade kategorier ingår inte. Om grupperade celler kan ändra vinnaren anges resultatet som inte fastställt.
+Subtotal de las celdas de países publicadas para este ámbito; no se suman municipios.|||Subtotal of country cells published for this area; municipalities are not added together.|||Delsumma av landsceller publicerade för detta område; kommuner summeras inte.
+Cifra publicada directamente para este ámbito; no se suman las celdas municipales.|||Value published directly for this area; municipal cells are not added together.|||Uppgift publicerad direkt för detta område; kommunceller summeras inte.
+Recuento municipal publicado por SCB a 31/12/2025. Los cuatro grupos no se solapan, pero la protección estadística puede alterar su suma.|||Municipal count published by SCB for 31 December 2025. The four groups do not overlap, but disclosure protection may change their sum.|||Kommunantal publicerat av SCB för den 31 december 2025. De fyra grupperna överlappar inte, men röjandeskyddet kan ändra summan.
+Fuente oficial|||Official source|||Officiell källa
+celdas publicadas de|||published cells out of|||publicerade celler av
+países/categorías incluidos.|||included countries/categories.|||ingående länder/kategorier.
+celdas sin dato individual. Los países agrupados no se pueden asignar a un continente.|||cells without individual data. Grouped countries cannot be assigned a continent.|||celler utan separat uppgift. Grupperade länder kan inte tilldelas en kontinent.
+Cuatro grupos distintos; no se fuerza su suma al total.|||Four distinct groups; their sum is not forced to match the total.|||Fyra skilda grupper; summan tvingas inte till totalen.
+Las regiones de la tabla se solapan: no deben sumarse entre sí.|||The regions in the table overlap: do not add them together.|||Regionerna i tabellen överlappar och ska inte summeras.
+Los demás países y las categorías agrupadas aparecen debajo.|||Other countries and grouped categories are shown below.|||Övriga länder och grupperade kategorier visas nedan.
+en el mapa|||on the map|||på kartan
+Ver|||View|||Visa
+Correlaciones y recta: cada distrito pesa igual.|||Correlations and fitted line: each district has equal weight.|||Korrelationer och regressionslinje: varje valdistrikt väger lika.
+distritos excluidos por datos ausentes. No se calculan con menos de tres casos o variables constantes.|||districts excluded due to missing data. Not calculated with fewer than three cases or constant variables.|||valdistrikt uteslutna på grund av saknade data. Beräknas inte för färre än tre fall eller konstanta variabler.
+Los intervalos incluyen el límite inferior y excluyen el superior; el último incluye 100 %. Población estimada. La participación de esta tabla es una media con la ponderación seleccionada.|||Intervals include the lower bound and exclude the upper bound; the last includes 100%. Population is estimated. Turnout in this table is a mean using the selected weighting.|||Intervallen inkluderar den nedre gränsen och utesluter den övre; det sista inkluderar 100 %. Befolkningen är skattad. Valdeltagandet i tabellen är ett medelvärde med vald viktning.
+Cortes nacionales fijos. Los empates permanecen juntos; los grupos pueden tener tamaños diferentes o quedar vacíos.|||Fixed national thresholds. Tied values stay together; groups may differ in size or be empty.|||Fasta gränser för riket. Lika värden hålls samman; grupperna kan ha olika storlek eller vara tomma.
+Association conditional on included variables.|||Association conditional on included variables.|||Samband givet de inkluderade variablerna.
+Asociaciones condicionadas a las variables incluidas; los coeficientes no son efectos causales. La interpolación y la dependencia espacial limitan la interpretación.|||Associations conditional on included variables; coefficients are not causal effects. Interpolation and spatial dependence limit interpretation.|||Samband givet de inkluderade variablerna; koefficienterna är inte kausala effekter. Interpolation och rumsligt beroende begränsar tolkningen.
+Coeficientes en puntos porcentuales de|||Coefficients in percentage points of|||Koefficienter i procentenheter av
+por una desviación típica de la variable explicativa, manteniendo las otras constantes. Sin pruebas de significación ni interpretación causal.|||per standard deviation of the explanatory variable, holding others constant. No significance tests or causal interpretation.|||per standardavvikelse av den förklarande variabeln, med övriga konstanta. Inga signifikanstest eller kausala tolkningar.
+No se puede ajustar: selecciona predictores con variación, suficientes casos completos y sin colinealidad perfecta.|||Cannot fit: select varying predictors, enough complete cases and no perfect collinearity.|||Kan inte anpassas: välj prediktorer med variation, tillräckligt många fullständiga fall och utan perfekt kollinearitet.
+Sin estimación: falta una cuadrícula histórica incorporada para repartir áreas DeSO parciales|||No estimate: a historical grid has not been incorporated to allocate partial DeSO areas|||Skattning saknas: historiskt rutnät för fördelning av delar av DeSO har inte införts
+Estimación excluida: cobertura geográfica insuficiente|||Estimate excluded: insufficient geographic coverage|||Skattning utesluten: otillräcklig geografisk täckning
+Estimación no disponible: faltan celdas de origen|||Estimate unavailable: source cells are missing|||Skattning saknas: källceller saknas
+Sin observación para este ámbito histórico|||No observation for this historical area|||Observation saknas för detta historiska område
+FUENTES Y METODOLOGÍA|||SOURCES AND METHODOLOGY|||KÄLLOR OCH METOD
+Qué mide este atlas|||What this atlas measures|||Vad atlasen mäter
+Resultados observados. Demografía estimada. Asociaciones entre territorios.|||Observed results. Estimated population data. Associations between areas.|||Observerade resultat. Skattade befolkningsdata. Samband mellan områden.
+El distrito electoral es la unidad de análisis|||The electoral district is the unit of analysis|||Valdistriktet är analysenheten
+Un|||A|||Ett
+es un distrito de votación. En 2022 hay 6.264 distritos territoriales en estos archivos. Los 314|||is a voting district. In 2022 these files contain 6,264 territorial districts. The 314|||är ett röstningsdistrikt. År 2022 innehåller dessa filer 6 264 territoriella valdistrikt. De 314
+recogen, entre otros, votos tardíos y del exterior. Se conservan aparte y no se asignan artificialmente a polígonos. Por ello, la suma del mapa no equivale al resultado nacional completo.|||collect, among others, late and overseas votes. They are kept separate and are not artificially assigned to polygons. The map total therefore differs from the complete national result.|||samlar bland annat sena röster och utlandsröster. De hålls åtskilda och tilldelas inte polygoner på konstgjord väg. Kartans summa motsvarar därför inte det fullständiga riksresultatet.
+Desglose por países de nacimiento|||Breakdown by country of birth|||Fördelning efter födelseland
+La vista|||The view|||Vyn
+utiliza recuentos publicados de SCB para los 290 municipios, los län y el país a 31/12/2025. El porcentaje divide residentes nacidos en cada país entre todos los residentes del ámbito seleccionado. No se reparten estos recuentos entre distritos. El país de nacimiento no es nacionalidad ni país de nacimiento de los padres.|||uses SCB's published counts for the 290 municipalities, counties and the whole country on 31 December 2025. The percentage divides residents born in each country by all residents of the selected area. These counts are not distributed between districts. Country of birth is neither citizenship nor parents' birthplace.|||använder SCB:s publicerade antal för de 290 kommunerna, länen och riket den 31 december 2025. Procenttalet är antalet invånare födda i respektive land dividerat med alla invånare i det valda området. Antalen fördelas inte mellan valdistrikt. Födelseland är varken medborgarskap eller föräldrarnas födelseland.
+Países con menos de 10 personas regionalmente o 20 nacionalmente se agrupan en «Otros países». Los ausentes y ceros ambiguos no se representan como porcentajes exactos nulos; se etiquetan agrupados/sin dato. CKM protege las celdas y sus sumas pueden diferir de los totales.|||Countries with fewer than 10 people regionally or 20 nationally are grouped under Other countries. Missing and ambiguous zero values are not shown as exact zero percentages; they are labelled grouped/no data. CKM protects cells, and their sums may differ from totals.|||Länder med färre än 10 personer regionalt eller 20 i riket grupperas under Övriga länder. Saknade värden och tvetydiga nollor visas inte som exakta nollprocent; de markeras som grupperat/uppgift saknas. CKM skyddar cellerna och summorna kan skilja sig från totalerna.
+Nacimiento propio y de los progenitores|||Own and parents' birthplace|||Eget och föräldrarnas födelseland
+La vista municipal permite cuatro grupos publicados por SCB en UtlSvBakgFinCKM para 2025: nacidos fuera de Suecia; nacidos en Suecia con ambos progenitores nacidos fuera; nacidos en Suecia con un progenitor nacido en Suecia y otro fuera; y nacidos en Suecia con ambos progenitores nacidos en Suecia. Los porcentajes usan el total publicado en esta misma tabla, para todas las edades y ambos sexos. Las perturbaciones CKM pueden hacer que los grupos no sumen exactamente ese total; no se normalizan.|||The municipal view offers four groups published by SCB in UtlSvBakgFinCKM for 2025: born outside Sweden; born in Sweden with both parents born abroad; born in Sweden with one Sweden-born and one foreign-born parent; and born in Sweden with both parents born in Sweden. Percentages use the total published in that same table, for all ages and both sexes. CKM perturbations may prevent the groups summing exactly to the total; they are not normalised.|||Kommunvyn visar fyra grupper publicerade av SCB i UtlSvBakgFinCKM för 2025: utrikes födda; inrikes födda med två utrikes födda föräldrar; inrikes födda med en inrikes och en utrikes född förälder; samt inrikes födda med två inrikes födda föräldrar. Procenttalen använder totalen i samma tabell, för alla åldrar och båda könen. CKM-störningar kan göra att grupperna inte summerar exakt till totalen; de normaliseras inte.
+«Origen extranjero» agrupa los dos primeros. SCB clasifica como origen sueco a los nacidos en Suecia con uno o ambos progenitores nacidos en Suecia. Son lugares de nacimiento, no ciudadanía, etnia ni religión. La tabla DeSO actual FolkmDesoBakgrKon solo separa origen sueco/extranjero: no permite aislar a quienes tienen un progenitor nacido fuera. Por eso este detalle se presenta por municipio y no se reparte entre distritos electorales.|||Foreign background combines the first two groups. SCB classifies Sweden-born residents with one or both parents born in Sweden as Swedish background. These are birthplaces, not citizenship, ethnicity or religion. The current DeSO table FolkmDesoBakgrKon only separates Swedish/foreign background: it cannot isolate people with one foreign-born parent. This detail is therefore presented by municipality and not distributed between electoral districts.|||Utländsk bakgrund omfattar de två första grupperna. SCB klassificerar inrikes födda med en eller två inrikes födda föräldrar som svensk bakgrund. Det handlar om födelseländer, inte medborgarskap, etnicitet eller religion. Den aktuella DeSO-tabellen FolkmDesoBakgrKon skiljer endast på svensk/utländsk bakgrund och kan inte särskilja personer med en utrikes född förälder. Detaljerna visas därför per kommun och fördelas inte mellan valdistrikt.
+Mapa de un progenitor nacido fuera|||Map of residents with one foreign-born parent|||Karta över invånare med en utrikes född förälder
+Regiones geográficas y religión|||Geographic regions and religion|||Geografiska regioner och religion
+Las agrupaciones geográficas usan ONU M49 y correspondencias explícitas para códigos históricos. «Fuera de Europa» incluye África, Asia, América y Oceanía; no equivale a fuera de la UE. Turquía y Chipre se asignan a Asia y Rusia a Europa. La antigua URSS y los países desconocidos o agrupados quedan sin asignación continental.|||Geographic groups use UN M49 and explicit mappings for historical codes. Outside Europe includes Africa, Asia, the Americas and Oceania; it does not mean outside the EU. Turkey and Cyprus are assigned to Asia and Russia to Europe. The former USSR and unknown or grouped countries are not assigned a continent.|||De geografiska grupperna använder FN M49 och uttryckliga kopplingar för historiska koder. Utanför Europa inkluderar Afrika, Asien, Amerika och Oceanien; det betyder inte utanför EU. Turkiet och Cypern räknas till Asien och Ryssland till Europa. Före detta Sovjetunionen och okända eller grupperade länder saknar kontinentindelning.
+Los valores son subtotales de celdas publicadas, divididos entre todos los residentes, con el número de celdas ausentes visible. No representan totales continentales completos ni límites inferiores exactos: existen celdas ocultas, países agrupados y perturbaciones CKM. Las categorías se solapan.|||Values are subtotals of published cells divided by all residents, with the number of missing cells shown. They are neither complete continental totals nor exact lower bounds: suppressed cells, grouped countries and CKM perturbations exist. Categories overlap.|||Värdena är delsummor av publicerade celler dividerade med alla invånare, med antalet saknade celler synligt. De är varken fullständiga kontinenttotaler eller exakta nedre gränser: skyddade celler, grupperade länder och CKM-störningar förekommer. Kategorierna överlappar.
+Clasificación y países incluidos|||Classification and included countries|||Indelning och ingående länder
+La tabla de nacimiento no registra religión. Las estadísticas de SST cuentan miembros o participantes de determinadas comunidades religiosas y no ofrecen aquí un desglose municipal comparable de todos los residentes. No se deducen musulmanes, cristianos ni hindúes a partir del país de nacimiento.|||The birthplace table does not record religion. SST statistics count members or participants in certain religious communities and do not provide a comparable municipal breakdown of all residents here. Muslims, Christians and Hindus are not inferred from country of birth.|||Födelselandstabellen registrerar inte religion. SST:s statistik räknar medlemmar eller deltagare i vissa trossamfund och ger här ingen jämförbar kommunal fördelning av alla invånare. Muslimer, kristna och hinduer härleds inte från födelseland.
+Nacimiento en los mismos distritos electorales|||Birthplace in the same electoral districts|||Födelseland inom samma valdistrikt
+En Demografía y Comparar dos mapas se pueden elegir tres categorías publicadas por SCB en DeSO: Suecia, Europa excepto Suecia y resto del mundo incluyendo país desconocido. Para 2022 se usan población 2022, DeSO 2018 y distritos 2022; para 2026, población 2025, DeSO 2025 y distritos 2026. Los mapas electoral y demográfico usan exactamente los mismos polígonos de cada edición.|||In Population and Compare views, three categories published by SCB for DeSO can be selected: Sweden, Europe excluding Sweden, and rest of the world including unknown country. The 2022 edition uses 2022 population, DeSO 2018 and 2022 districts; 2026 uses 2025 population, DeSO 2025 and 2026 districts. Election and population maps use exactly the same polygons for each edition.|||I Befolkning och Jämför kan tre kategorier som SCB publicerar för DeSO väljas: Sverige, Europa utom Sverige samt övriga världen inklusive okänt land. Utgåvan 2022 använder befolkning 2022, DeSO 2018 och valdistrikt 2022; 2026 använder befolkning 2025, DeSO 2025 och valdistrikt 2026. Val- och befolkningskartorna använder exakt samma polygoner i varje utgåva.
+La composición se estima transfiriendo los recuentos de cada categoría y el total de su propia tabla con los pesos del cruce espacial poblacional. Después se divide el numerador agregado entre ese denominador. No se reparten porcentajes municipales, no se promedian porcentajes DeSO ni se normalizan los pesos para ocultar superficie sin cobertura. Los diagnósticos de cobertura de cada ficha siguen siendo aplicables. Si falta alguna celda contribuyente, el distrito queda sin estimación de estas categorías.|||Composition is estimated by transferring each category's counts and its own table's total using population-weighted spatial intersections. The aggregated numerator is then divided by that denominator. Municipal percentages are not distributed, DeSO percentages are not averaged, and weights are not normalised to conceal uncovered areas. Each district's coverage diagnostics still apply. If any contributing cell is missing, the district has no estimate for these categories.|||Sammansättningen skattas genom att fördela varje kategoris antal och totalen i dess egen tabell med befolkningsviktade geografiska överlappningar. Den summerade täljaren divideras sedan med nämnaren. Kommunprocent fördelas inte, DeSO-procent medelvärdesbildas inte och vikterna normaliseras inte för att dölja områden utan täckning. Varje valdistrikts täckningsmått gäller fortfarande. Om någon bidragande cell saknas saknar valdistriktet skattning för kategorierna.
+«Europa excepto Suecia» incluye Rusia y Turquía según SCB. Es diferente de la UE y de la clasificación ONU de la vista municipal. «Resto del mundo» incorpora país desconocido: no equivale exactamente a nacidos fuera de Europa y no permite separar África y Asia. No se calculan religiones. La protección estadística puede hacer que los componentes no sumen el total: la diferencia se conserva en el CSV como birth_regions_sum_gap. Las cifras de residentes tampoco describen únicamente a quienes pueden votar.|||Europe excluding Sweden includes Russia and Turkey under SCB's definition. It differs from the EU and the UN classification in the municipal view. Rest of the world includes unknown country: it is not exactly the same as born outside Europe and does not separate Africa and Asia. Religions are not calculated. Disclosure protection may prevent components summing to the total; the difference is retained in the CSV as birth_regions_sum_gap. Resident counts are also not limited to eligible voters.|||Europa utom Sverige inkluderar Ryssland och Turkiet enligt SCB. Det skiljer sig från EU och FN-indelningen i kommunvyn. Övriga världen inkluderar okänt land: det motsvarar inte exakt födda utanför Europa och skiljer inte på Afrika och Asien. Religioner beräknas inte. Röjandeskydd kan göra att delarna inte summerar till totalen; skillnaden bevaras i CSV som birth_regions_sum_gap. Invånarantalet omfattar inte heller enbart röstberättigade.
+Se publican método, año, fuente, denominador y completitud junto a cada fila.|||Method, year, source, denominator and completeness are published with each row.|||Metod, år, källa, nämnare och fullständighet publiceras för varje rad.
+. La coincidencia cartográfica es 1:1; los datos demográficos siguen siendo estimaciones espaciales.|||. The map correspondence is 1:1; population data remain spatial estimates.|||. Kartornas motsvarighet är 1:1; befolkningsuppgifterna är fortfarande geografiska skattningar.
+Tres conceptos diferentes|||Three different concepts|||Tre olika begrepp
+Persona nacida fuera de Suecia o nacida en Suecia con ambos progenitores nacidos fuera. No incluye a toda persona con un solo progenitor extranjero.|||A person born outside Sweden or born in Sweden with both parents born abroad. It does not include everyone with just one foreign-born parent.|||En person född utomlands eller född i Sverige med två utrikes födda föräldrar. Det omfattar inte alla med endast en utrikes född förälder.
+Född utomlands · nacido fuera|||Född utomlands · born abroad|||Född utomlands
+Se refiere al país de nacimiento, independientemente de nacionalidad o ascendencia. En la tabla DeSO utilizada, SCB agrupa el resto del mundo con país desconocido: el indicador se calcula como total menos nacidos en Suecia e incluye ese grupo desconocido.|||Refers to country of birth, regardless of citizenship or ancestry. In the DeSO table used, SCB groups rest of the world with unknown country: this indicator is calculated as the total minus Sweden-born residents and includes that unknown group.|||Avser födelseland, oavsett medborgarskap eller härkomst. I den använda DeSO-tabellen grupperar SCB övriga världen med okänt land: måttet beräknas som totalen minus inrikes födda och inkluderar den okända gruppen.
+Se refiere a ciudadanía, no al lugar de nacimiento. El complemento de ciudadanía sueca en la tabla SCB incluye apátridas y ciudadanía desconocida. No se debe interpretar como un recuento puro de extranjeros con nacionalidad conocida.|||Refers to citizenship, not birthplace. The complement of Swedish citizenship in the SCB table includes stateless and unknown citizenship. It should not be interpreted as a pure count of foreign citizens with known citizenship.|||Avser medborgarskap, inte födelseland. Komplementet till svenskt medborgarskap i SCB-tabellen inkluderar statslösa och okänt medborgarskap. Det ska inte tolkas som ett rent antal utländska medborgare med känt medborgarskap.
+Edición provisional 2026 · demografía 2025|||Provisional 2026 edition · 2025 population|||Preliminär utgåva 2026 · befolkning 2025
+Usa los límites electorales 2026, los DeSO 2025 y la cuadrícula poblacional SCB de 1 km de 2025. Población, origen extranjero, país de nacimiento y ciudadanía se refieren al 31 de diciembre de 2025: no son estadísticas demográficas de 2026 ni flujos anuales de inmigración. SCB aplica protección CKM desde 2025: añade pequeñas perturbaciones a las celdas y sus sumas pueden diferir de los totales publicados. El reparto espacial añade incertidumbre. Educación y empleo no se incluyen en esta edición, y sus controles aparecen desactivados.|||Uses 2026 electoral boundaries, DeSO 2025 and SCB's 2025 1 km population grid. Population, foreign background, country of birth and citizenship refer to 31 December 2025: these are neither 2026 population statistics nor annual immigration flows. SCB has used CKM protection since 2025, adding small perturbations to cells whose sums may differ from published totals. Spatial allocation adds uncertainty. Education and employment are not included in this edition, and their controls are disabled.|||Använder valgränser 2026, DeSO 2025 och SCB:s befolkningsrutnät på 1 km för 2025. Befolkning, utländsk bakgrund, födelseland och medborgarskap avser den 31 december 2025: det är varken befolkningsstatistik för 2026 eller årliga invandringsflöden. SCB använder CKM-skydd sedan 2025 med små störningar i cellerna, vars summor kan skilja sig från publicerade totaler. Geografisk fördelning tillför osäkerhet. Utbildning och sysselsättning ingår inte i denna utgåva och deras kontroller är inaktiverade.
+Fuentes oficiales y correspondencias 2026|||Official sources and correspondences for 2026|||Officiella källor och kopplingar för 2026
+Fecha y procedencia de la instantánea|||Snapshot date and provenance|||Ögonblicksbildens datum och ursprung
+Validación 2026|||2026 validation|||Validering 2026
+Años, universos y precisión · edición 2022|||Years, populations and precision · 2022 edition|||År, populationer och precision · utgåva 2022
+Fecha / universo|||Date / population covered|||Datum / population
+Geografía de origen|||Source geography|||Källans geografi
+Votos, electores, participación|||Votes, eligible voters, turnout|||Röster, röstberättigade, valdeltagande
+Valdistrikt 2022 · observado|||Valdistrikt 2022 · observed|||Valdistrikt 2022 · observerat
+Población y origen|||Population and background|||Befolkning och bakgrund
+31 de diciembre de 2022 · todos los residentes|||31 December 2022 · all residents|||31 december 2022 · alla invånare
+DeSO 2018, versión 2018_v3|||DeSO 2018, version 2018_v3|||DeSO 2018, version 2018_v3
+2022 · población 25–64; categorías SCB 5 + 6|||2022 · population aged 25–64; SCB categories 5 + 6|||2022 · befolkning 25–64 år; SCB-kategorier 5 + 6
+2021 · población 20–64 según metadatos de la tabla|||2021 · population aged 20–64 according to table metadata|||2021 · befolkning 20–64 år enligt tabellens metadata
+Ponderación poblacional|||Population weighting|||Befolkningsviktning
+31 de diciembre de 2022 · celdas de 1 km|||31 December 2022 · 1 km cells|||31 december 2022 · 1 km-rutor
+Cuadrícula SCB|||SCB grid|||SCB-rutnät
+Renta mediana, edad y densidad urbana no se incluyen en esta edición por falta de una variable compatible verificada. No se sustituyen por la renta de otro año o por características de los electores. El origen de los residentes no describe necesariamente a quienes tienen derecho a votar.|||Median income, age and urban density are not included in this edition because no verified compatible variable was available. They are not replaced by another year's income or voter characteristics. Residents' background does not necessarily describe those eligible to vote.|||Medianinkomst, ålder och tätortstäthet ingår inte i denna utgåva eftersom en verifierad kompatibel variabel saknades. De ersätts inte med ett annat års inkomst eller väljaregenskaper. Invånarnas bakgrund beskriver inte nödvändigtvis de röstberättigade.
+DeSO → valdistrikt: cómo se estima|||DeSO → electoral district: estimation method|||DeSO → valdistrikt: skattningsmetod
+DeSO es una división estadística de SCB. La versión histórica contiene 5.984 áreas; la revisión de 2025 contiene 6.160. Las intersecciones se calculan offline en EPSG:3006, usando los límites correspondientes a cada edición, antes de cualquier simplificación cartográfica.|||DeSO is an SCB statistical division. The historical version contains 5,984 areas; the 2025 revision contains 6,160. Intersections are calculated offline in EPSG:3006, using the boundaries for each edition before any cartographic simplification.|||DeSO är en statistisk indelning från SCB. Den historiska versionen innehåller 5 984 områden; revideringen 2025 innehåller 6 160. Överlappningar beräknas offline i EPSG:3006 med gränserna för respektive utgåva, före kartografisk förenkling.
+Para cada celda de la cuadrícula se supone una densidad uniforme de población. Se integra esa densidad sobre cada intersección DeSO ∩ valdistrikt y se divide por la masa de la cuadrícula dentro del DeSO completo. El peso se aplica a los recuentos del DeSO. Después se suman numeradores y denominadores por distrito y se calcula el porcentaje.|||Population density is assumed uniform within each grid cell. That density is integrated over each DeSO ∩ electoral district intersection and divided by grid population within the entire DeSO. The weight is applied to DeSO counts. Numerators and denominators are then summed by district and the percentage calculated.|||Befolkningstätheten antas vara jämn inom varje ruta. Tätheten integreras över varje överlappning DeSO ∩ valdistrikt och divideras med rutbefolkningen inom hela DeSO. Vikten tillämpas på DeSO-antalen. Täljare och nämnare summeras sedan per valdistrikt och procenttalet beräknas.
+No se utiliza el centroide. La distribución del origen dentro de cada DeSO se supone homogénea. La cuadrícula mejora la localización de población respecto a un reparto por superficie, pero una celda de 1 km todavía puede abarcar barrios distintos o zonas de agua. Los pesos no se fuerzan a sumar uno cuando hay superficie de origen sin cobertura electoral; se registra esa pérdida.|||Centroids are not used. Background distribution within each DeSO is assumed homogeneous. The grid improves population localisation compared with area allocation, but a 1 km cell may still span different neighbourhoods or water. Weights are not forced to sum to one where source areas lack electoral coverage; that loss is recorded.|||Centroider används inte. Bakgrundsfördelningen inom varje DeSO antas vara homogen. Rutnätet förbättrar befolkningens lokalisering jämfört med areafördelning, men en 1 km-ruta kan fortfarande omfatta olika bostadsområden eller vatten. Vikterna tvingas inte summera till ett där källområden saknar valtäckning; bortfallet registreras.
+Si un DeSO no tuviera masa de cuadrícula positiva, el programa permite el reparto por área y lo etiqueta como|||If a DeSO had no positive grid population, the program allows area-based allocation and labels it|||Om ett DeSO saknar positiv rutbefolkning tillåter programmet areabaserad fördelning och markerar den som
+o mezcla espacial. En el dataset inicial no fue necesario ese fallback. Una fuente exacta futura se marcará|||or mixed spatial allocation. This fallback was not needed in the initial dataset. A future exact source would be labelled|||eller blandad geografisk fördelning. Reservmetoden behövdes inte i den ursprungliga datamängden. En framtida exakt källa skulle markeras som
+y evitará el overlay.|||and avoid the overlay.|||och undvika överlagringen.
+Cómo leer la calidad|||How to read data quality|||Så tolkar du datakvaliteten
+proporción de superficie electoral cubierta por DeSO.|||share of electoral area covered by DeSO.|||andel av valområdet som täcks av DeSO.
+proporción del área de intersección con población disponible.|||share of intersection area with population data available.|||andel av överlappningsytan med tillgängliga befolkningsdata.
+proporción de la población estimada aportada por el mayor contribuyente.|||share of estimated population supplied by the largest contributor.|||andel av den skattade befolkningen från den största bidragande enheten.
+cobertura de los DeSO contribuyentes por distritos, ponderada por la población transferida.|||coverage of contributing DeSO areas by districts, weighted by transferred population.|||valdistriktens täckning av bidragande DeSO-områden, viktad efter överförd befolkning.
+Se marca cobertura parcial cuando la cobertura geométrica o la asignación es menor del 98 %, o la completitud es menor del 99 %. Estas medidas son diagnósticos, no probabilidades ni intervalos de confianza. También influyen la confidencialidad estadística de SCB y la incertidumbre dentro de cada DeSO.|||Coverage is marked partial when geometric coverage or allocation is below 98%, or completeness below 99%. These measures are diagnostics, not probabilities or confidence intervals. SCB's disclosure protection and uncertainty within each DeSO also matter.|||Täckning markeras som partiell när geometrisk täckning eller fördelning är under 98 %, eller fullständigheten under 99 %. Måtten är diagnostiska, inte sannolikheter eller konfidensintervall. SCB:s röjandeskydd och osäkerheten inom varje DeSO påverkar också.
+Elecciones, mapas y análisis|||Elections, maps and analysis|||Val, kartor och analys
+El porcentaje de partido usa votos válidos; la participación usa votantes, incluidos votos inválidos, divididos por electores. «Otros» agrega los partidos restantes. El ganador se calcula entre partidos individuales, no enfrentando esa suma a un partido; se señalan empates.|||Party percentages use valid votes; turnout uses voters, including invalid votes, divided by eligible voters. Others combines the remaining parties. The winner is calculated between individual parties, without comparing that combined group to a single party; ties are flagged.|||Partiprocent använder giltiga röster; valdeltagande använder röstande, inklusive ogiltiga röster, dividerat med röstberättigade. Övriga summerar resterande partier. Vinnaren beräknas mellan enskilda partier, utan att jämföra denna samlade grupp med ett enskilt parti; lika resultat markeras.
+El mapa bivariado usa terciles nacionales fijos para origen extranjero y voto. Los filtros no recalculan esos cortes. Los rankings muestran la selección territorial y la ficha informa del ranking nacional con empates compartidos. Los bins son intervalos de diez puntos; el último agrupa 70–100 %. Los deciles mantienen juntos los empates.|||The bivariate map uses fixed national terciles for foreign background and votes. Filters do not recalculate these thresholds. Rankings show the selected area, and district details give national ranks with tied ranks shared. Bins are ten-point intervals; the final bin covers 70–100%. Deciles keep ties together.|||Den bivariata kartan använder fasta nationella terciler för utländsk bakgrund och röster. Filtren räknar inte om gränserna. Rangordningen visar det valda området och valdistriktsinformationen visar riksrang med delad rang vid lika värden. Intervallen är tio procentenheter; det sista omfattar 70–100 %. Decilerna håller lika värden samman.
+Pearson, Spearman (rangos medios para empates) y OLS describen distritos con ambos valores válidos. Cada distrito pesa igual en el scatter y sus estadísticas. La opción de ponderación por votos válidos afecta a las medias de bins, deciles y resúmenes de partido. La participación agregada del panel se calcula mediante sumas de votantes y electores. No se reemplazan ausentes por ceros.|||Pearson, Spearman (average ranks for ties) and OLS describe districts with both values available. Each district has equal weight in the scatterplot and its statistics. Weighting by valid votes affects interval, decile and party-summary means. Aggregate turnout in the panel uses sums of voters and eligible voters. Missing values are not replaced by zeros.|||Pearson, Spearman (medelrang vid lika värden) och OLS beskriver valdistrikt med båda värdena tillgängliga. Varje valdistrikt väger lika i punktdiagrammet och dess statistik. Viktning efter giltiga röster påverkar medelvärden för intervall, deciler och partisammanställningar. Sammanvägt valdeltagande i panelen använder summor av röstande och röstberättigade. Saknade värden ersätts inte med nollor.
+La regresión múltiple usa casos completos y predictores estandarizados. Muestra asociaciones condicionadas a las variables incluidas, sin causalidad ni inferencia individual. No se publican valores p que ignoren la dependencia espacial.|||Multiple regression uses complete cases and standardised predictors. It shows associations conditional on included variables, without causality or individual inference. P-values that ignore spatial dependence are not published.|||Multipel regression använder fullständiga fall och standardiserade prediktorer. Den visar samband givet de inkluderade variablerna, utan kausalitet eller slutsatser om individer. P-värden som bortser från rumsligt beroende publiceras inte.
+Comparación 2022 → 2026|||Comparison 2022 → 2026|||Jämförelse 2022 → 2026
+La edición 2026 es una instantánea del recuento provisional de Valmyndigheten. La fecha de descarga y actualización aparecen encima del mapa y del análisis. Los distritos pendientes mantienen valores electorales nulos y quedan excluidos de las estadísticas electorales; el mapa demográfico puede mostrarlos. La participación agregada usa únicamente distritos con votantes y electores conocidos. La correspondencia oficial se contrasta con los metadatos del resultado: solo se calculan diferencias cuando coinciden. Para los casos comparables con dos distritos de 2022 se suman primero votos y denominadores, después se calculan porcentajes. Los demás casos quedan sin diferencia. Se compara el provisional 2026 con el definitivo 2022, por lo que el cambio también puede reflejar el estado del recuento. No se infiere comparabilidad por compartir código.|||The 2026 edition is a snapshot of Valmyndigheten's provisional count. Download and update dates appear above the map and analysis. Pending districts retain null election values and are excluded from electoral statistics; the population map may show them. Aggregate turnout uses only districts with known voters and eligible voters. Official correspondences are checked against result metadata: differences are calculated only when they agree. For comparable cases involving two 2022 districts, votes and denominators are summed before percentages are calculated. Other cases have no difference. Provisional 2026 results are compared with final 2022 results, so changes can also reflect count status. Shared codes do not establish comparability.|||Utgåvan 2026 är en ögonblicksbild av Valmyndighetens preliminära rösträkning. Nedladdnings- och uppdateringsdatum visas ovanför kartan och analysen. Valdistrikt som inväntas behåller nullvärden för valet och utesluts från valstatistiken; befolkningskartan kan visa dem. Sammanvägt valdeltagande använder endast valdistrikt med känt antal röstande och röstberättigade. Officiella kopplingar kontrolleras mot resultatens metadata: skillnader beräknas bara när de stämmer överens. För jämförbara fall med två valdistrikt från 2022 summeras röster och nämnare innan procenttal beräknas. Övriga fall saknar skillnad. Preliminära resultat 2026 jämförs med slutgiltiga resultat 2022, så förändringen kan också spegla räkningens läge. Gemensamma koder fastställer inte jämförbarhet.
+Los mapas de bloque de 2022 y 2026 suman votos de S + V + MP + C y de M + SD + KD + L. Son agrupaciones analíticas explícitas y configurables, no coaliciones oficiales. Otros partidos quedan fuera de ambas sumas; los porcentajes mantienen todos los votos válidos en el denominador. Empates y pendientes tienen categorías propias.|||Bloc maps for 2022 and 2026 add votes for S + V + MP + C and M + SD + KD + L. These are explicit, configurable analytical groups, not official coalitions. Other parties are excluded from both sums; percentages retain all valid votes in the denominator. Ties and pending results have separate categories.|||Blockkartorna för 2022 och 2026 summerar röster för S + V + MP + C respektive M + SD + KD + L. De är uttryckliga, konfigurerbara analysgrupper, inte officiella koalitioner. Övriga partier ingår inte i summorna; procenttalen behåller alla giltiga röster i nämnaren. Lika resultat och resultat som inväntas har egna kategorier.
+Mapas categóricos y origen predominante|||Categorical maps and most common background|||Kategorikartor och vanligaste bakgrund
+Partido y bloque más votados se calculan con recuentos electorales; los empates tienen un color específico. El origen predominante por distrito compara solo los dos grupos SCB de nacimiento fuera de Suecia: Europa excepto Suecia y resto del mundo con país desconocido. El porcentaje relativo exportado divide por la suma de ambos recuentos estimados, sin Suecia; el hover compacto muestra el grupo predominante. No representa países individuales, religión o nacionalidad.|||The leading party and bloc are calculated from vote counts; ties have a dedicated colour. The most common background by district compares only the two SCB foreign-birth groups: Europe excluding Sweden and rest of the world with unknown country. The exported relative percentage divides by the sum of both estimated counts, excluding Sweden; the compact hover shows the leading group. It does not represent individual countries, religion or citizenship.|||Största parti och block beräknas från röstetal; lika resultat har en egen färg. Vanligaste bakgrund per valdistrikt jämför endast SCB:s två utrikes födelsegrupper: Europa utom Sverige samt övriga världen med okänt land. Det exporterade relativa procenttalet dividerar med summan av båda skattade antalen, utan Sverige; den kompakta hovringsrutan visar den största gruppen. Det visar inte enskilda länder, religion eller medborgarskap.
+En la vista municipal, el país más común se elige entre países con recuentos publicados, excluyendo Suecia y categorías agrupadas. Si los recuentos agrupados/desconocidos podrían cambiar el ganador, se marca sin determinar. Los continentes se comparan mediante cinco subtotales disjuntos: Europa sin Suecia, África, Asia, América y Oceanía; se excluyen agrupaciones solapadas. El mayor subtotal publicado no garantiza un predominio real si faltan países. Los colores son identificadores de categoría, no escalas de intensidad ni indicadores de certeza.|||In the municipal view, the most common country is selected among countries with published counts, excluding Sweden and grouped categories. If grouped/unknown counts could change the winner, it is marked undetermined. Continents are compared through five non-overlapping subtotals: Europe excluding Sweden, Africa, Asia, the Americas and Oceania; overlapping groups are excluded. The largest published subtotal does not guarantee the true leader if countries are missing. Colours identify categories, not intensity or certainty.|||I kommunvyn väljs det vanligaste landet bland länder med publicerade antal, utan Sverige och grupperade kategorier. Om grupperade/okända antal kan ändra vinnaren markeras den som inte fastställd. Kontinenter jämförs genom fem delsummor utan överlappning: Europa utom Sverige, Afrika, Asien, Amerika och Oceanien; överlappande grupper utesluts. Den största publicerade delsumman garanterar inte det verkligt vanligaste ursprunget om länder saknas. Färgerna identifierar kategorier, inte intensitet eller säkerhet.
+Fuentes y reutilización|||Sources and reuse|||Källor och återanvändning
+Valmyndigheten: archivos 2022|||Valmyndigheten: 2022 files|||Valmyndigheten: filer för 2022
+permite uso y redistribución con atribución.|||allows use and redistribution with attribution.|||tillåter användning och vidareförmedling med källangivelse.
+SCB: datos abiertos CC0|||SCB: CC0 open data|||SCB: öppna data CC0
+. Fuente: Valmyndigheten + SCB; elaboración propia de las estimaciones. Este atlas no es una publicación oficial de esas instituciones.|||. Source: Valmyndigheten + SCB; estimates calculated for this atlas. This atlas is not an official publication of those institutions.|||. Källa: Valmyndigheten + SCB; skattningar framtagna för atlasen. Atlasen är inte en officiell publikation från dessa myndigheter.
+Se examinó el payload estructurado de|||The structured data from|||Strukturerade data från
+antes de recurrir a DeSO. Al no localizar una licencia explícita para redistribuir ese conjunto, no se incluye. El mapa directo de SCB utiliza características de electores y no reemplaza la demografía de todos los residentes.|||were examined before using DeSO. As no explicit redistribution licence was found for that dataset, it is not included. SCB's direct map uses voter characteristics and does not replace population data for all residents.|||granskades innan DeSO användes. Eftersom ingen uttrycklig licens för vidareförmedling hittades för datamängden ingår den inte. SCB:s direkta karta använder väljaregenskaper och ersätter inte befolkningsdata för alla invånare.
+Los archivos originales permanecen inmutables en la caché local. Cada descarga del pipeline registra URL, fecha y SHA-256. Las transformaciones, incidencias y comprobaciones se documentan en los archivos del proyecto.|||Original files remain unchanged in the local cache. Each pipeline download records the URL, date and SHA-256. Transformations, issues and checks are documented in the project files.|||Originalfilerna förblir oförändrade i den lokala cachen. Varje nedladdning i bearbetningen registrerar URL, datum och SHA-256. Omvandlingar, problem och kontroller dokumenteras i projektfilerna.
+Informe de calidad|||Quality report|||Kvalitetsrapport
+Inventario de fuentes|||Source inventory|||Källförteckning
+Auditoría|||Audit|||Granskning
+Condiciones de los datos|||Data terms|||Datavillkor
+# Remaining dynamic UI fragments
+Cargando mapa…|||Loading map…|||Läser in kartan…
+Porcentaje sobre todos los residentes|||Percentage of all residents|||Andel av alla invånare
+% de|||% of|||% av
+Cambio|||Change|||Förändring
+No se pudo cargar el archivo histórico|||Could not load the historical archive|||Det historiska arkivet kunde inte läsas in
+No se pudo abrir Evolución|||Could not open Trends|||Utveckling kunde inte öppnas
+No se pudo cargar la serie|||Could not load the series|||Serien kunde inte läsas in
+No se pudo abrir el archivo|||Could not open the archive|||Arkivet kunde inte öppnas
+No se pudo cargar|||Could not load|||Kunde inte läsa in
+Respuesta vacía|||Empty response|||Tomt svar
+Recarga para reintentar.|||Reload to try again.|||Ladda om för att försöka igen.
+Cargando archivo de distritos…|||Loading district archive…|||Läser in valdistriktsarkivet…
+Cargando distritos…|||Loading districts…|||Läser in valdistrikt…
+Cargando contexto municipal…|||Loading municipal context…|||Läser in kommunkontext…
+Cargando países de nacimiento de SCB…|||Loading SCB countries of birth…|||Läser in födelseländer från SCB…
+Índice histórico|||Historical index|||Historiskt index
+Índice|||Index|||Index
+nacimiento y padres|||birthplace and parents|||födelseland och föräldrar
+países por municipio|||countries by municipality|||länder per kommun
+países nacional|||countries nationwide|||länder för riket
+países|||countries|||länder
+padres|||parents|||föräldrar
+de todos los residentes|||of all residents|||av alla invånare
+por año|||by year|||per år
+31/12/2025, estimación espacial.|||31/12/2025, spatial estimate.|||2025-12-31, geografisk skattning.
+Denominador: todos los residentes de|||Denominator: all residents of|||Nämnare: alla invånare i
+unidades con recuento|||units counted|||räknade enheter

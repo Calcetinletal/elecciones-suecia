@@ -92,3 +92,17 @@ El selector antes llamado Indicador pasa a «Origen poblacional» en Origen/Comp
 Se añaden leyendas separadas y el hover consulta el indicador de su propio mapa. La ficha de distrito muestra los dos ganadores también en Comparar. Enlace de ejemplo: `/?view=compare&metric=foreign_background_pct&electionMetric=winning_block`.
 
 Verificación: compilación TypeScript y producción correctas; revisión estática de controles, eventos, estado, colores y leyendas. Se añadieron cuatro pruebas de estado y una prueba E2E para este flujo, pero NO se han ejecutado: la revisión automática rechazó `npm test` por contener comparaciones de partidos y bloques. Sigue pendiente la verificación de ejecución y presentación en navegador; no se intentó eludir ese bloqueo.
+
+## Idiomas · 2026-09-15
+
+Selector visible de Español, English y Svenska en todas las rutas. Conserva el
+idioma en almacenamiento local y enlaces, y mantiene distrito, filtros, cámara y
+selecciones históricas al cambiar. Los nombres de países y formatos numéricos se
+localizan; la navegación utiliza rutas estables independientes del texto visible.
+
+Validación: 38 pruebas unitarias, compilación con prefijo `/atlas/` y 14 pruebas de
+navegador verificadas. Una aserción antigua del desglose distrital se actualizó para
+comprobar los dos grupos de filas existentes y su apertura/cierre; volvió a pasar.
+Se revisaron visualmente el selector móvil en sueco y ambas evoluciones en inglés.
+También se revisaron los textos desplegados de las cinco páginas en inglés,
+incluidas notas y metodología. No se modificaron datos ni cálculos estadísticos.

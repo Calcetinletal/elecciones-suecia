@@ -1,3 +1,4 @@
+import {readLanguage,locales} from '../i18n/language';
 import {isDemographyMetric} from './demography';
 import type {State} from '../types';
 export const defaults:State={year:2026,view:'electoral',metric:'winning_party',electionMetric:'party',party:'SD',county:'',municipality:'',district:'',band:'all',weight:'votes',locale:'es-ES',quality:'all',size:'equal',analysisY:'party',lng:16,lat:62.7,zoom:4.2};
@@ -10,7 +11,7 @@ export function readState(search=location.search):State{
  if(!isDemographyMetric(s.metric)&&!['winning_party','winning_block','party','turnout_pct','foreign_background_pct','foreign_born_pct','foreign_citizens_pct','delta_pct_S','delta_pct_SD','delta_pct_M','delta_turnout_pct'].includes(s.metric))s.metric='winning_party';
  if(!['party','winning_party','winning_block'].includes(s.electionMetric))s.electionMetric='party';
  if(!['2022','2026'].includes(String(s.year)))s.year=2022;
- if(!['es-ES','sv-SE'].includes(s.locale))s.locale='es-ES';
+ s.locale=locales[readLanguage(search)];
  if(!['votes','equal'].includes(s.weight))s.weight='votes';
  if(!['all','high'].includes(s.quality))s.quality='all';
  if(!['all','0','10','20','30','40','50'].includes(s.band))s.band='all';
