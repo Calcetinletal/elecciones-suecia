@@ -58,3 +58,22 @@ test('comparison shows every party and birthplace group with both maps without s
  await expect(page.locator('#panel-content [data-history-votes] [data-line-series=V]')).toHaveCount(0);
  await page.locator('#close-district').click();await expect(page.locator('.comparison-scope')).toContainText('Stockholm');
 });
+
+test('categorical map keys stay outside geography and municipal cards do not overlap votes',async({page})=>{
+ await page.setViewportSize({width:1024,height:768});
+ await page.goto('./?view=compare&municipality=2085&district=20850401&metric=common_origin&lang=en');
+ await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true');
+ await page.locator('#compare-election').selectOption('winning_block');
+ await expect(page.locator('#panel-content [data-district-history]')).toHaveAttribute('data-ready','true');
+ await page.locator('#municipal-context').click();
+ const municipal=page.locator('#municipal-inline');await expect(municipal).toHaveAttribute('data-ready','true');
+ for(const group of ['regions','parents']){
+  await municipal.locator('select').selectOption(group);
+  const top=(await municipal.boundingBox())!.y;
+  for(const bottom of await page.locator('#panel-content .series-card').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().bottom)))expect(bottom).toBeLessThanOrEqual(top);
+  expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ for(const [map,legend] of [['#map-left','#legend'],['#map-right','#right-legend']]){
+  const m=(await page.locator(map).boundingBox())!,l=(await page.locator(legend).boundingBox())!;expect(m.y+m.height).toBeLessThanOrEqual(l.y+1);
+ }
+});
