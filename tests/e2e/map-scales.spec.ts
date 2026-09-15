@@ -1,4 +1,4 @@
-﻿import {test,expect} from '@playwright/test';
+import {test,expect} from '@playwright/test';
 test('map gradients and legend share national limits, stable across territory filters',async({page})=>{
  await page.goto('./?view=compare&party=V&metric=born_rest_world_unknown_pct&municipality=0180');
  await expect(page.locator('#map-right')).toHaveAttribute('data-ready','true');

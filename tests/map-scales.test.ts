@@ -1,4 +1,4 @@
-﻿import {describe,it,expect} from 'vitest';
+import {describe,it,expect} from 'vitest';
 import {percentageScale,metricScale,scaleStops,legend} from '../src/maps/palette';
 import type {District,State} from '../src/types';
 describe('national indicator scales',()=>{
