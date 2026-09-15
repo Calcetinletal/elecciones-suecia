@@ -697,3 +697,10 @@ Spearman ρ es la correlación principal: una medida no paramétrica de asociaci
 Cada distrito pesa igual en ambas correlaciones y en la recta OLS, incluso al cambiar el tamaño de los puntos. La ponderación por votos válidos solo afecta a las medias de bins, deciles y resúmenes de partido. La participación agregada se calcula mediante sumas de votantes y electores.|||Each district has equal weight in both correlations and the OLS line, even when point size changes. Weighting by valid votes only affects bin, decile and party-summary averages. Aggregate turnout is calculated from sums of voters and eligible voters.|||Varje distrikt väger lika i båda korrelationerna och OLS-linjen, även när punktstorleken ändras. Viktning efter giltiga röster påverkar endast medelvärden för intervall, deciler och partisammanställningar. Sammanlagt valdeltagande beräknas från summor av röstande och röstberättigade.
 Gráfico conjunto 2026 · S, V, S+V y S+V+Verdes · origen y voto · inglés|||Combined chart 2026 · S, V, S+V and S+V+Greens · birthplace and votes · English|||Samlat diagram 2026 · S, V, S+V och S+V+De gröna · födelseland och röster · engelska
 Renta y voto 2026 · los ocho partidos · inglés|||Income and votes 2026 · all eight parties · English|||Inkomst och röster 2026 · alla åtta partier · engelska
+
+Resultados electorales|||Election results|||Valresultat
+Origen de la población|||Population background|||Befolkningens bakgrund
+Comparar mapas|||Compare maps|||Jämför kartor
+Ver el voto a cada partido y los ganadores por distrito|||View party vote shares and district winners|||Visa partiernas röstandelar och vinnare per distrikt
+Ver el origen poblacional y la renta por distrito|||View population background and income by district|||Visa befolkningens bakgrund och inkomst per distrikt
+Ver elecciones y población en dos mapas sincronizados|||View elections and population on two synchronised maps|||Visa val och befolkning på två synkroniserade kartor
