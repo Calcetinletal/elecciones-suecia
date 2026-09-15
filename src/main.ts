@@ -53,7 +53,7 @@ function renderPanel(){
  const visible=selectedRows(),selected=rows.find(d=>d.district_id===state.district);
  const comparison=state.view==='compare';
  panel.innerHTML=comparison?comparisonPanel(visible,state,selected):selected?districtCard(selected,rows,state):summary(visible,state);
- if(selected&&!comparison)hydrateDistrictHistory(panel,selected);
+ if(selected)hydrateDistrictHistory(panel,selected);
  document.querySelector('.atlas-workspace')?.classList.toggle('has-district-history',!!selected&&!comparison);requestAnimationFrame(()=>maps?.resize());
  if(!selected&&!comparison)panel.insertAdjacentHTML('afterbegin',`<a class="evolution-link" href="${routeUrl('evolution/',{...state,municipality:state.municipality})}">↗ Ver evolución ${state.municipality?'del municipio':'nacional'} <span>Votos y origen · desde 2002</span></a>`);
  if(!selected&&!comparison&&isCategorical(state.metric)){const key=state.metric;const categories=key==='winning_block'?blockDefinitions:key==='common_origin'?originDefinitions:parties.map(p=>({...p,id:p.id,name:p.name}));panel.innerHTML+=`<h3>${e(label(state))}</h3><div class="category-counts">${[...categories,{id:'tie',name:'Empate',color:'#b1aabb'},{id:'missing',name:'Sin dato',color:'#7b8793'}].map(c=>{const count=visible.filter(d=>(key==='winning_party'&&d.winning_party_tie?'tie':d[key]??'missing')===c.id).length;return count?`<div><i style="background:${c.color}"></i><span>${e(c.name)}</span><b>${number(count)}</b></div>`:'';}).join('')}</div><p class="meta">Número de distritos en cada categoría.</p>`;}

@@ -207,7 +207,7 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 #comparison-dialog .district-history-charts{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(min-width:761px){
  #app:has(.maps.compare)>.site-header{padding:10px 20px}
- #controls:has(+ #workspace .maps.compare) .toolbar{display:grid;grid-template-columns:64px repeat(5,minmax(0,1fr)) 60px 90px;padding:8px 20px;gap:9px}
+ #controls:has(+ #workspace .maps.compare) .toolbar{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr)) 60px 90px;padding:8px 20px;gap:9px}
  #controls:has(+ #workspace .maps.compare) .toolbar label,#controls:has(+ #workspace .maps.compare) .toolbar .search-label{min-width:0}
  #controls:has(+ #workspace .maps.compare) .toolbar select,#controls:has(+ #workspace .maps.compare) .toolbar input{min-height:34px;padding-top:6px;padding-bottom:6px}
  #controls:has(+ #workspace .maps.compare) .toolbar .icon-button{height:34px}
@@ -216,3 +216,46 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  .atlas-workspace:has(.maps.compare)>.side-panel{overflow:visible}
 }
 @media(max-width:760px){#comparison-dialog .district-history-charts{grid-template-columns:1fr}}
+
+/* Two compact historical charts stay visible alongside the smaller paired maps. */
+.comparison-select-hint{font-size:10px;line-height:1.3;color:#617787;margin:0}
+.comparison-chart-data{gap:5px}
+.comparison-chart-data .comparison-history{margin:0;padding:0;border:0;min-width:0}
+.comparison-history>.district-history-heading,.comparison-history>.district-archive-link,.comparison-history>.history-scope-help{display:none}
+.comparison-history[data-ready=true]>.district-history-footnote{display:none}
+.comparison-history>.district-history-footnote{padding:5px;font-size:10px;margin:0 0 5px}
+.comparison-history .district-history-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comparison-history .district-history-charts>section{margin:0;padding:0;border:0;min-width:0}
+.comparison-history .timeline-heading{font-size:11px;line-height:1.25;gap:4px;margin:0 0 4px;align-items:baseline;flex-wrap:wrap}
+.comparison-history .timeline-heading>span{font-weight:700;color:#254b63}
+.comparison-history .timeline-year{font-size:10px;padding:2px 4px}
+.comparison-history .timeline-universe,.comparison-history .timeline-geography{font-size:9px;line-height:1.3;margin:0 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.comparison-history .timeline-svg{height:clamp(100px,21dvh,210px);min-height:0;width:100%;display:block;padding:0;border-radius:6px}
+.comparison-history .timeline-scrubber{padding:5px 0;gap:5px;font-size:10px;margin:0}
+.comparison-history .timeline-scrubber input{min-width:0;height:18px}
+.comparison-history .timeline-hint,.comparison-history .timeline-table,.comparison-history .timeline-coverage,.comparison-history .history-scope-help{display:none}
+.comparison-chart-data .comparison-history .timeline-legend{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:0}
+.comparison-chart-data .comparison-history .timeline-legend button.series-card{flex-direction:row;min-height:28px;border-radius:5px;box-shadow:none;min-width:0}
+.comparison-chart-data .comparison-history .series-card>.series-identity{min-height:0;padding:3px;gap:3px;justify-content:center;flex:none}
+.comparison-chart-data .comparison-history .series-card .series-emblem{flex:0 0 18px;width:18px;height:20px;border-radius:4px}
+.comparison-chart-data .comparison-history .series-card .series-emblem img,.comparison-chart-data .comparison-history .series-card .series-emblem svg{width:16px;height:18px}
+.comparison-chart-data .comparison-history .series-card .series-title{font-size:10px;line-height:1.25;overflow-wrap:normal}
+.comparison-chart-data .comparison-history .series-card>.series-value{flex:1;min-height:0;padding:3px;min-width:0}
+.comparison-chart-data .comparison-history .series-card .series-amount{font-size:11px;line-height:1.3}
+.comparison-chart-data .comparison-history [data-history-origin] .timeline-legend{grid-template-columns:1fr}
+.comparison-chart-data .comparison-history [data-history-origin] .series-card>.series-identity{flex:1;justify-content:flex-start;gap:5px}
+.comparison-chart-data .comparison-history [data-history-origin] .series-card>.series-value{flex:0 0 52px}
+.comparison-chart-data .comparison-history [data-history-origin] .series-title{font-size:10px}
+.comparison-chart-data .comparison-history .timeline-scrubber output{min-width:30px;font-size:10px}
+@media(min-width:761px){
+ .atlas-workspace:has(.maps.compare):has(.comparison-chart-data),#controls:has(.release-notice)+#workspace .atlas-workspace:has(.maps.compare):has(.comparison-chart-data){grid-template-columns:minmax(0,1fr) min(820px,56vw)}
+ .atlas-workspace:has(.maps.compare):has(.comparison-chart-data) #panel-content{padding:10px;height:100%}
+ .comparison-chart-data{height:100%;grid-template-rows:auto minmax(0,1fr) auto}
+}
+@media(max-width:1150px) and (min-width:761px){
+ .comparison-chart-data .comparison-history .series-card .series-emblem{display:none!important}
+ .comparison-chart-data .comparison-history .series-card>.series-identity{min-width:24px;padding:4px}
+ .comparison-chart-data .comparison-history .series-card .series-title{font-size:10px}
+ .comparison-history .district-history-charts{gap:8px}
+}
+@media(max-width:760px){.comparison-history .timeline-svg{height:145px}.comparison-history .district-history-charts{gap:8px}.comparison-chart-data .comparison-history .series-card .series-emblem{display:none!important}}

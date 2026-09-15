@@ -15,8 +15,9 @@ test('DeSO birth estimates compare on electoral polygons, with definitions and C
  await expect(page.locator('#left-caption')).toContainText('Europa excepto Suecia');
  await page.selectOption('#party','S');await expect(page.locator('#map-right')).toHaveAttribute('data-metric','pct_S');
  await page.fill('#search','01801506');await page.click('#search-results [data-district="01801506"]');
- await expect(page.locator('.comparison-origin-list>div')).toHaveCount(3);
- for(const group of await page.locator('.comparison-origin-list>div').all())await expect(group).toBeVisible();
+ await expect(page.locator('#panel-content [data-district-history]')).toHaveAttribute('data-ready','true');
+ await expect(page.locator('#panel-content [data-history-origin] .series-card')).toHaveCount(3);
+ for(const group of await page.locator('#panel-content [data-history-origin] .series-card').all())await expect(group).toBeVisible();
  await page.locator('#comparison-detail').click();
  const birthRows=page.locator('#comparison-dialog .simple-data');await expect(birthRows).toHaveCount(2);
  for(const group of await birthRows.all())await expect(group).toBeHidden();

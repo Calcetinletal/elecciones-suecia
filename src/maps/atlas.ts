@@ -5,7 +5,7 @@ import {demographicLabel} from '../utils/demography';
 import maplibregl, {type ExpressionSpecification, type Map as GLMap, type LngLatBoundsLike} from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import type {District,GeoData,State} from '../types';
-import {parties,bivariate,thresholds,numericMetric,sequential,divergent} from './palette';
+import {parties,bivariate,thresholds,numericMetric,metricScale,scaleStops,divergent} from './palette';
 import {escapeHtml as e,percent,number,method} from '../utils/format';
 
 export class AtlasMaps {
@@ -34,7 +34,7 @@ export class AtlasMaps {
    if(!map.getLayer('districts')){map.once('load',()=>this.update(s,visible,national));return;}
    map.setFilter('districts',['in',['get','district_id'],['literal',ids]]);map.setFilter('borders',['in',['get','district_id'],['literal',ids]]);map.setFilter('selected',['==',['get','district_id'],s.district]);
    const current:State=s.view==='compare'?{...s,view:index===0?'demography':'electoral',metric:index===0?s.metric:s.electionMetric}:s;
-   let color:unknown;
+   let color:unknown;delete map.getContainer().dataset.scaleMin;delete map.getContainer().dataset.scaleMax;
    if(current.view==='electoral'&&current.metric.startsWith('delta_'))color=['case',['==',['get',current.metric],null],'#777f85',['interpolate',['linear'],['get',current.metric],...[-30,-20,-10,0,10,20,30].flatMap(v=>[v,divergent(v)])]];
    else if(current.view==='electoral'&&current.metric==='winning_block')color=['match',['get','winning_block'],...blockDefinitions.flatMap(b=>[b.id,b.color]),'tie','#b1aabb','#7b8793'];
    else if(current.view==='bivariate'){
@@ -43,7 +43,7 @@ export class AtlasMaps {
     const cat=['+',['*',3,bin(`pct_${s.party}`,y)],bin('foreign_background_pct',x)];
     color=['case',['all',['!=',['get','foreign_background_pct'],null],['!=',['get',`pct_${s.party}`],null]],['match',cat,...bivariate.flatMap((c,i)=>[i,c]),'#777f85'],'#777f85'];
    }else if(current.view==='dominant'||(current.view==='electoral'&&current.metric==='winning_party'))color=['case',['==',['get','winning_party_tie'],true],'#b1aabb',['match',['get','winning_party'],...parties.flatMap(p=>[p.id,p.color]),'#777f85']];
-   else {const key=numericMetric(current);color=key==='common_origin'?['match',['get',key],...originDefinitions.flatMap(o=>[o.id,o.color]),'tie','#b1aabb','#7b8793']:['case',['==',['get',key],null],'#777f85',['interpolate',['linear'],['get',key],...[0,10,20,30,40,50,60,70,80,90,100].flatMap(v=>[v,sequential(v)])]];}
+   else {const key=numericMetric(current),domain=metricScale(national,key);if(key!=='common_origin'){map.getContainer().dataset.scaleMin=String(domain.min);map.getContainer().dataset.scaleMax=String(domain.max);}color=key==='common_origin'?['match',['get',key],...originDefinitions.flatMap(o=>[o.id,o.color]),'tie','#b1aabb','#7b8793']:['case',['==',['get',key],null],'#777f85',['interpolate',['linear'],['get',key],...scaleStops(domain).flat()]];}
    map.setPaintProperty('districts','fill-color',color as ExpressionSpecification);map.getContainer().dataset.metric=s.view==='compare'&&index===1?comparisonElectionKey(s):current.metric;
   });
  }
