@@ -169,6 +169,8 @@ def main():
     if errors:raise ValueError(str(errors))
     from build_district_birth_regions import attach_birth_regions
     out=attach_birth_regions(out,2026,cw)
+    from build_district_income import attach_income
+    out=attach_income(out,2026,cw)
     out=out.sort_values('district_id');out.to_csv(PROCESSED/'joined_2026.csv',index=False,float_format='%.6f');out.to_csv(folder/'joined_2026.csv',index=False,float_format='%.6f')
     (folder/'districts.json.gz').write_bytes(gzip.compress(out.round(6).to_json(orient='records',force_ascii=False).encode(),mtime=0))
     comparison.to_csv(PROCESSED/'comparability_2022_2026.csv',index=False)

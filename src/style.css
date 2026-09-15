@@ -347,3 +347,7 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  .comparison-chart-data:has(#municipal-inline:not([hidden])) .timeline-legend button.series-card{min-height:26px}
  .comparison-chart-data:has(#municipal-inline:not([hidden])) .series-card>.series-identity,.comparison-chart-data:has(#municipal-inline:not([hidden])) .series-card>.series-value{padding-top:2px;padding-bottom:2px}
 }
+
+.income-readout{display:grid;gap:4px;margin:12px 0;padding:10px;border-radius:6px;background:#eaf5f1;color:#1d6658}.income-readout>span{font-size:12px}.income-readout>strong{font-size:20px}.income-readout>small{font-size:10px}.income-inline{color:#1d6658}
+
+.analysis-controls{min-width:0;flex-wrap:wrap}.analysis-controls label{min-width:120px}.analysis-intro{flex-wrap:wrap}.analysis-intro>.analysis-controls{flex:1;min-width:300px;max-width:650px}

@@ -1,9 +1,11 @@
+import {isIncomeMetric,incomeAmount} from '../utils/income';
 import type {District} from '../types';
 import parties from '../../config/parties.json';
 import {escapeHtml as e,percent} from '../utils/format';
 import {partyBadge,blockWinner,districtOrigin,categoryLabel} from '../utils/categories';
 import {demographicLabel} from '../utils/demography';
 export function districtHover(d:District,metric:string){
+ if(isIncomeMetric(metric))return `<article class="hover-card mini-hover" style="--accent:#278477"><header><h3>${e(d.district_name)}</h3><p>${e(d.municipality_name)}</p></header><section><div class="hover-section-title">Renta neta · ${d.income_year} ≈</div><div class="mini-value"><b>${incomeAmount(d.mean_net_income)}</b></div><small>Media personal · 20+ · precios de 2024.<br>Estimación DeSO → distrito.${d.income_complete===false?' Sin dato de algún área contribuyente.':''}</small></section><footer>Pulsa para ver el detalle</footer></article>`;
  const ranked=parties.filter(p=>p.id!=='other'&&typeof d['pct_'+p.id]==='number').sort((a,b)=>(d['pct_'+b.id] as number)-(d['pct_'+a.id] as number));
  const accent=parties.find(p=>p.id===d.winning_party)?.color??'#728694',origin=districtOrigin(d),block=blockWinner(d);
  const demographic=metric==='common_origin'||metric.startsWith('born_')||metric.startsWith('foreign_');

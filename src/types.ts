@@ -13,4 +13,4 @@ export type GeoData=FeatureCollection<Geometry,{district_id:string;[key:string]:
 export interface YearEntry {year:number;status:string;district_count:number;table?:string;geometry?:string;downloaded_at?:string;source_updated_at?:string;reported_district_count?:number;pending_district_count?:number;}
 export interface Manifest {schema_version:number;years:YearEntry[];}
 export type View='electoral'|'demography'|'bivariate'|'dominant'|'compare';
-export interface State {year:number;view:View;metric:string;electionMetric:string;party:string;county:string;municipality:string;district:string;band:string;weight:string;locale:string;quality:string;size:string;analysisY:string;lng:number;lat:number;zoom:number;}
+export interface State {year:number;view:View;metric:string;electionMetric:string;party:string;county:string;municipality:string;district:string;band:string;weight:string;locale:string;quality:string;size:string;analysisY:string;analysisX:string;lng:number;lat:number;zoom:number;}

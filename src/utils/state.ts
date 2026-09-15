@@ -1,7 +1,7 @@
 import {readLanguage,locales} from '../i18n/language';
 import {isDemographyMetric} from './demography';
 import type {State} from '../types';
-export const defaults:State={year:2026,view:'electoral',metric:'winning_party',electionMetric:'party',party:'SD',county:'',municipality:'',district:'',band:'all',weight:'votes',locale:'es-ES',quality:'all',size:'equal',analysisY:'party',lng:16,lat:62.7,zoom:4.2};
+export const defaults:State={year:2026,view:'electoral',metric:'winning_party',electionMetric:'party',party:'SD',county:'',municipality:'',district:'',band:'all',weight:'votes',locale:'es-ES',quality:'all',size:'equal',analysisY:'party',analysisX:'foreign_background_pct',lng:16,lat:62.7,zoom:4.2};
 export function readState(search=location.search):State{
  const p=new URLSearchParams(search),s={...defaults};
  const aliases:Record<string,string>={foreign_background:'foreign_background_pct',foreign_born:'foreign_born_pct',foreign_citizens:'foreign_citizens_pct'};if(aliases[p.get('metric')??''])p.set('metric',aliases[p.get('metric')!]);if(!p.has('view')&&p.get('metric')?.startsWith('foreign_'))p.set('view','demography');
@@ -15,6 +15,7 @@ export function readState(search=location.search):State{
  if(!['votes','equal'].includes(s.weight))s.weight='votes';
  if(!['all','high'].includes(s.quality))s.quality='all';
  if(!['all','0','10','20','30','40','50'].includes(s.band))s.band='all';
+ if(!isDemographyMetric(s.analysisX)||s.analysisX==='common_origin')s.analysisX='foreign_background_pct';
  if(!['party','turnout'].includes(s.analysisY))s.analysisY='party';
  if(!['votes','equal'].includes(s.size))s.size='equal';
  for(const k of ['lat','lng','zoom'] as const)if(!Number.isFinite(s[k]))s[k]=defaults[k];

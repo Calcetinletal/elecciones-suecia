@@ -1,3 +1,4 @@
+import {isIncomeMetric,incomeAmount,aggregateIncome} from '../utils/income';
 import type {District,State} from '../types';
 import {parties} from '../maps/palette';
 import {demographicLabel} from '../utils/demography';
@@ -25,9 +26,10 @@ export function comparisonPanel(visible:District[],s:State,selected?:District){
  const scope=selected?`${selected.municipality_name} · ${selected.district_id}`:`${number(rows.length)} distritos`;
  const municipality=selected?.municipality_code??s.municipality;
  const municipalButton=municipality?'<button id="municipal-context" class="comparison-detail-button municipal-context-button" aria-controls="municipal-inline" aria-expanded="false">Origen municipal</button>':'';
+ const income=isIncomeMetric(s.metric)?` · Renta neta ${rows[0]?.income_year??'—'} ≈ ${incomeAmount(aggregateIncome(rows).mean)}`:'';
  const provisional=rows.some(d=>d.election_status==='provisional');
  const year=rows[0]?.birth_regions_year??rows[0]?.demography_year??'—';
- if(selected)return `<div class="comparison-data comparison-chart-data"><header class="comparison-scope"><div><h2>${e(title)}</h2><p>${e(scope)} · Participación ${percent(data.turnout)} · Límites históricos variables</p></div><button id="close-district" aria-label="Cerrar ficha">×</button></header><section class="district-history comparison-history" data-district-history aria-label="Evolución de votos y origen poblacional"></section><section id="municipal-inline" class="municipal-context municipal-compact" data-municipal-context hidden></section><div class="comparison-actions">${municipalButton}<button id="comparison-detail" class="comparison-detail-button">Fuentes, tablas y detalle ↗</button></div></div>`;
+ if(selected)return `<div class="comparison-data comparison-chart-data"><header class="comparison-scope"><div><h2>${e(title)}</h2><p>${e(scope)} · Participación ${percent(data.turnout)} · Límites históricos variables${income}</p></div><button id="close-district" aria-label="Cerrar ficha">×</button></header><section class="district-history comparison-history" data-district-history aria-label="Evolución de votos y origen poblacional"></section><section id="municipal-inline" class="municipal-context municipal-compact" data-municipal-context hidden></section><div class="comparison-actions">${municipalButton}<button id="comparison-detail" class="comparison-detail-button">Fuentes, tablas y detalle ↗</button></div></div>`;
  return `<div class="comparison-data">
  <header class="comparison-scope"><div><h2>${e(title)}</h2><p>${e(scope)}</p></div>${selected?'<button id="close-district" aria-label="Cerrar ficha">×</button>':''}</header>
  <section class="comparison-votes" aria-label="Datos electorales"><header><h3>Elecciones · ${s.year}</h3><span>${provisional?'Provisional':''}</span></header>
@@ -36,7 +38,7 @@ export function comparisonPanel(visible:District[],s:State,selected?:District){
  <section class="comparison-population" aria-label="Datos poblacionales"><header><h3>Nacimiento · ${year} ≈</h3><span>${number(data.population)} residentes ≈</span></header>
  <div class="comparison-origin-list">${data.origins.map(g=>`<div style="--origin:${g.color}"><i></i><span>${e(g.name)}</span><b>${percent(g.pct)}</b></div>`).join('')}</div>
  <div class="comparison-inline"><span>${e(demographicLabel(extraMetric))} ≈ <b>${percent(data.selectedDemography)}</b></span>${data.birthDistricts<rows.length?'<small>Datos parciales</small>':''}</div>
- <p class="comparison-definition">Europa incluye Rusia y Turquía. Resto incluye país desconocido.</p></section>
+ ${income?`<div class="comparison-inline income-inline"><span>Renta neta · ${rows[0]?.income_year} ≈</span><b>${incomeAmount(aggregateIncome(rows).mean)}</b></div>`:''}<p class="comparison-definition">Europa incluye Rusia y Turquía. Resto incluye país desconocido.</p></section>
  <section id="municipal-inline" class="municipal-context municipal-compact" data-municipal-context hidden></section><div class="comparison-actions">${municipalButton}<button id="comparison-detail" class="comparison-detail-button">Ver detalle y evolución ↗</button></div><p class="comparison-select-hint">Pulsa un distrito para ver las dos evoluciones.</p>
  </div>`;
 }

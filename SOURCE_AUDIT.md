@@ -93,3 +93,23 @@ La inexistencia de datos oficiales distritales no es una conclusión válida. Se
 Resultados preliminares descargados el 15/09/2026 a las 00:06:43 de Estocolmo, con fuente actualizada a las 18:30:03 del 14/09/2026. Se verificaron índice MD5 y las tres firmas RSA/SHA-256. 6.312 de 6.312 distritos territoriales informados; 0 pendientes. Los 36 pendientes anteriores ya tienen votos; no cambian los resultados de los 6.276 previamente informados. Quedan 16 empates de partido y ningún ganador sin determinar. Los límites y la comparabilidad XLSX coinciden por SHA-256 con los archivos anteriores, permitiendo reutilizar el cruce espacial. Las 5.059 comparaciones válidas tienen resultados.
 
 También se inspeccionó y verificó el ZIP del escrutinio definitivo (slutlig), actualizado a las 19:32:03: solo 15 de 6.626 unidades de recuento estaban contabilizadas. La página conserva el provisional completo y su etiqueta de provisionalidad. El JSON completo de diferencias está en data/2026/refresh_summary.json. SHA-256 del ZIP provisional: `e30649614e124867a481a16c6218446c1a8c89179df373e544e4051a315b134c`.
+
+
+## Actualización: renta neta distrital (15/09/2026)
+
+Se verificó la tabla oficial SCB Tab1InkDesoRegso (actualizada 20/01/2026):
+https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__HE__HE0110__HE0110I/Tab1InkDesoRegso/
+
+`mean_net_income` utiliza media (`0000089T`) y personas (`0000089O`), tipo neto
+`NeInk`, ambos sexos. Población 20+ de año completo según SCB; ambas series en
+precios constantes de 2024. El mapa 2022 usa renta 2022 y el 2026 renta 2024.
+Se estiman sumas y denominadores sobre los polígonos electorales con los cruces
+poblacionales existentes; no es renta distrital observada ni se aproxima la mediana
+mediante medias de medianas. La ausencia de `median_income` sigue siendo intencionada.
+
+Los cuatro originales de esta incorporación (metadatos, definición HTML, JSON-stat
+2022 y 2024) están fijados en caché y registrados en SOURCES.md con SHA-256.
+La media queda disponible en 6.259/6.264 distritos de 2022 y 6.312/6.312 de 2026.
+Los cinco sin dato no se imputan. Ver income_provenance.json por edición para
+universo, fórmula, años geográficos, cobertura y limitaciones. No describe únicamente
+a los electores ni permite atribuir votos individuales a grupos de renta.

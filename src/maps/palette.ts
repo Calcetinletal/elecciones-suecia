@@ -1,3 +1,4 @@
+import {isIncomeMetric,incomeAmount} from '../utils/income';
 import {comparisonElectionLabel} from '../utils/election-view';
 import {blockDefinitions,originDefinitions,partyBadge} from '../utils/categories';
 import {demographicLabel,isBirthRegionMetric} from '../utils/demography';
@@ -24,12 +25,19 @@ export function percentageScale(values:number[]){
  min=+min.toFixed(2);max=+max.toFixed(2);
  return {min,max,lowClipped:valid.some(v=>v<min),highClipped:valid.some(v=>v>max)};
 }
-export function metricScale(rows:District[],key:string){return percentageScale(rows.map(d=>d[key]).filter(finite));}
+export function incomeScale(values:number[]){
+ const valid=values.filter(finite);if(!valid.length)return {min:0,max:500000,lowClipped:false,highClipped:false};
+ const low=quantile(valid,.05)!,high=quantile(valid,.95)!,step=10000;
+ let min=Math.floor(low/step)*step,max=Math.ceil(high/step)*step;if(max<=min)max=min+step;
+ return {min,max,lowClipped:valid.some(v=>v<min),highClipped:valid.some(v=>v>max)};
+}
+export function metricScale(rows:District[],key:string){return (isIncomeMetric(key)?incomeScale:percentageScale)(rows.map(d=>d[key]).filter(finite));}
 export function scaleStops(domain:{min:number;max:number}):[number,string][]{return Array.from({length:11},(_,i)=>[domain.min+(domain.max-domain.min)*i/10,sequential(i*10)]);}
 export function scaleLabels(domain:ReturnType<typeof percentageScale>){return `<div class="scale-labels"><span>${domain.lowClipped?'≤ ':''}${percent(domain.min)}</span><span>${percent((domain.min+domain.max)/2)}</span><span>${domain.highClipped?'≥ ':''}${percent(domain.max)}</span></div>`;}
 export function numericMetric(s:State){return s.metric.startsWith('delta_')?s.metric:s.view==='demography'?s.metric:s.metric==='turnout_pct'?'turnout_pct':`pct_${s.party}`;}
 export function label(s:State){
  if(s.view==='compare')return demographicLabel(s.metric)+' / '+comparisonElectionLabel(s);
+ if(isIncomeMetric(s.metric))return 'Renta neta media anual ≈';
  if(s.metric==='winning_block')return 'Bloque más votado';
  if(s.metric==='common_origin')return 'Región extranjera predominante ≈';
  if(s.metric.startsWith('delta_')&&s.view==='electoral')return 'Cambio 2022 → 2026 · '+s.metric.replace('delta_pct_','voto ').replace('delta_turnout_pct','participación');
@@ -42,6 +50,7 @@ function legendContent(s:State,rows:District[]){
  if(s.view==='bivariate'){const x=thresholds(rows,'foreign_background_pct'),y=thresholds(rows,`pct_${s.party}`);return `<b>Cuantiles nacionales · 3 × 3</b><div class="biv-legend"><span class="vertical">Voto ${e(s.party)} →</span><div class="biv-grid">${[...bivariate.slice(6),...bivariate.slice(3,6),...bivariate.slice(0,3)].map(c=>`<span style="background:${c}"></span>`).join('')}</div></div><span>Origen extranjero →</span><small>X: ${percent(x[0])} / ${percent(x[1])}<br>Y: ${percent(y[0])} / ${percent(y[1])}<br>Bajo ≤ primer corte; alto &gt; segundo corte.<br>Gris claro: bajo en ambos; gris oscuro: sin dato.</small>`;}
  if(s.view==='dominant'||(s.view==='electoral'&&s.metric==='winning_party'))return `<b>Partido ganador</b><div class="party-legend">${parties.map(p=>`<span>${partyBadge(p.id)}${p.id==='other'?'Otros':''}</span>`).join('')}</div><small>Gris: sin resultado · Lila: empate.</small>`;
  const domain=metricScale(rows,numericMetric(s));
+ if(isIncomeMetric(s.metric))return `<b>Renta neta · ${rows[0]?.income_year??'—'} ≈</b><div class="scale" data-scale-min="${domain.min}" data-scale-max="${domain.max}">${scaleStops(domain).map(([,color])=>`<i style="background:${color}"></i>`).join('')}</div><div class="scale-labels"><span>${domain.lowClipped?'≤ ':''}${incomeAmount(domain.min)}</span><span>${domain.highClipped?'≥ ':''}${incomeAmount(domain.max)}</span></div><small>Personas de 20+ · precios de 2024. Estimación espacial de la media, no mediana ni salario. Escala nacional P5–P95; los extremos saturan el color, no recortan los datos. Gris: sin dato.</small>`;
  return `<b>${e(label(s))}</b><div class="scale" data-scale-min="${domain.min}" data-scale-max="${domain.max}">${scaleStops(domain).map(([,color])=>`<i style="background:${color}"></i>`).join('')}</div>${scaleLabels(domain)}<small>Escala nacional por indicador · percentiles 5–95 redondeados. Los valores fuera de los límites usan los colores extremos; los porcentajes no cambian. La escala se mantiene al filtrar y hacer zoom.<br>Gris: sin dato. Demografía: estimación espacial.${isBirthRegionMetric(s.metric)?'<br>% de residentes estimados; ver definición SCB sobre los mapas.':''}</small>`;
 }
 

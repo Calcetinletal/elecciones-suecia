@@ -324,3 +324,47 @@ archivos de datos descargables conservan sus nombres y contenido de origen.
 
 Validación: `npm test`; `PLAYWRIGHT_BROWSERS_PATH=.playwright npx playwright test
 tests/e2e/language.spec.ts` después de compilar con `VITE_BASE_PATH=/atlas/`.
+
+
+## Renta distrital · incorporación del 15/09/2026
+
+El selector del atlas incorpora **Renta neta media anual · SEK ≈**, también en Comparar.
+La ficha y el hover muestran el año propio de renta. En Análisis, el eje X permite elegir
+renta y los indicadores numéricos de origen; la renta también está disponible como
+control OLS. El eje X de renta usa miles de SEK/año, y la pendiente usa pp por 1.000 SEK.
+Las escalas de color de renta usan P5–P95 nacionales redondeados a 10.000 SEK, sin
+limitar importes al intervalo 0–100. El scatter conserva todos los valores extremos.
+
+Fuente oficial: [SCB Tab1InkDesoRegso](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__HE__HE0110__HE0110I/Tab1InkDesoRegso/),
+`InkomstTyp=NeInk`, `Kon=1+2`, media `0000089T`, personas `0000089O`.
+La población de referencia es 20+ de año completo según las restricciones de SCB,
+no todos los residentes ni los electores. Media de ingreso neto personal tras impuestos,
+incluye capital y transferencias; no es salario, renta bruta, renta equivalente del hogar
+ni mediana. La fuente publica tkr; se convierten a SEK. Ambas ediciones están en precios
+constantes de **2024**. La instantánea de metadatos y datos está fijada al 15/09/2026.
+
+- Mapa 2022: renta 2022, DeSO 2018, cuadrícula 2022; 6.259/6.264 distritos completos.
+- Mapa 2026: renta 2024, DeSO y cuadrícula 2025, límites 2026; 6.312/6.312 completos.
+
+Método: `sum(w * personas * media_tkr * 1000) / sum(w * personas)`.
+Se reconstruyen sumas aproximadas a partir de medias redondeadas. La distribución de
+personas 20+ e ingresos dentro de cada DeSO se supone igual a la de población total de
+la cuadrícula: esto y el desfase 2024/2025/2026 añaden incertidumbre. Cualquier contribuyente
+con peso positivo y media o personas ausentes deja el distrito sin renta. No se renormalizan
+pesos ni se imputan ceros. Las medias agregadas usan los totales y personas transferidos.
+No se construye una historia de renta sobre límites cambiantes.
+
+Los constructores 2022 y 2026 adjuntan renta automáticamente. Para añadirla a los datos
+existentes sin volver a generar votos o geometrías:
+
+```sh
+.venv/bin/python scripts/build_district_income.py
+.venv/bin/python scripts/build_provenance.py
+npm run build
+```
+
+Archivos: `public/data/{2022,2026}/income_provenance.json`, columnas `mean_net_income`,
+`income_population`, `income_total_sek`, `income_year`, `income_price_year`, `income_complete`,
+`income_method`, `income_deso_year`, `income_grid_year` e `income_source_url` en JSON/CSV.
+Los demás campos se conservan sin cambios. La metodología web documenta también la historia
+2002–2026, los puntos ausentes unidos visualmente, los cambios de límites y el contexto municipal separado.

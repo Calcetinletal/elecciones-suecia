@@ -39,6 +39,8 @@ def main():
     out['demography_source_url']='https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101Y/FolkmDesoBakgrKon/'
     from build_district_birth_regions import attach_birth_regions
     out=attach_birth_regions(out,2022,cw)
+    from build_district_income import attach_income
+    out=attach_income(out,2022,cw)
     out=out.sort_values('district_id')
     out.to_csv(PROCESSED/'joined_2022.csv',index=False,float_format='%.6f')
     folder=PUBLIC/'2022';folder.mkdir(exist_ok=True)
