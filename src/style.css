@@ -351,3 +351,8 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 .income-readout{display:grid;gap:4px;margin:12px 0;padding:10px;border-radius:6px;background:#eaf5f1;color:#1d6658}.income-readout>span{font-size:12px}.income-readout>strong{font-size:20px}.income-readout>small{font-size:10px}.income-inline{color:#1d6658}
 
 .analysis-controls{min-width:0;flex-wrap:wrap}.analysis-controls label{min-width:120px}.analysis-intro{flex-wrap:wrap}.analysis-intro>.analysis-controls{flex:1;min-width:300px;max-width:650px}
+
+/* Rank correlation is the primary descriptive statistic. */
+.stat-strip>div.primary-correlation{background:#e6f4ef;border-radius:8px;padding:12px 16px;margin:-12px 12px -12px 0}.primary-correlation span,.primary-correlation b{color:#17644f}.stat-strip .primary-correlation b{font-weight:700}.stat-strip .secondary-stat b{font-size:1.35rem;color:var(--muted)}.correlation-caption{font-size:.8rem;line-height:1.5;color:var(--muted);margin:8px 0 12px}
+
+.plot-downloads{font-size:.8rem;line-height:1.6;color:var(--muted)}.plot-downloads a{font-weight:650;margin-left:8px}

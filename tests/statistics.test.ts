@@ -7,6 +7,13 @@ describe('descriptive statistics',()=>{
  it('correlates positive and negative sequences',()=>{expect(pearson([1,2,3],[2,4,6])).toBeCloseTo(1);expect(pearson([1,2,3],[6,4,2])).toBeCloseTo(-1);});
  it('does not invent correlation for constants or tiny samples',()=>{expect(pearson([1,1,1],[2,4,6])).toBeNull();expect(pearson([1,2],[3,4])).toBeNull();expect(linear([1,1,1],[2,4,6])).toBeNull();});
  it('averages tied ranks',()=>{expect(ranks([40,10,10,20])).toEqual([4,1.5,1.5,3]);expect(spearman([1,2,2,4],[2,4,4,8])).toBeCloseTo(1);});
+ it('measures monotonic nonlinear association and handles undefined cases',()=>{
+  const x=[1,2,3,4,5],y=[1,4,9,16,10000];
+  expect(spearman(x,y)).toBeCloseTo(1);expect(pearson(x,y)).toBeLessThan(.8);
+  expect(spearman(x,y.map(v=>-v))).toBeCloseTo(-1);
+  expect(spearman([1,1,2,3],[1,2,2,4])).toBeCloseTo(5/6);
+  expect(spearman([1,1,1],[2,3,4])).toBeNull();expect(spearman([1,2],[2,3])).toBeNull();
+ });
  it('fits a known line',()=>{expect(linear([1,2,3,4],[5,8,11,14])).toEqual({slope:3,intercept:2});});
  it('uses interpolated quantiles',()=>{expect(quantile([0,10,20,30],.5)).toBe(15);expect(quantile([],0.5)).toBeNull();});
  it('fits a full-rank multiple regression',()=>{const x=[[0,1],[1,0],[2,3],[3,1],[4,2],[5,0],[6,4]],y=x.map(([a,b])=>5+2*a-3*b);const result=regression(x,y)!;expect(result.r2).toBeCloseTo(1);expect(result.coefficients[1]/result.sd[0]).toBeCloseTo(2);expect(result.coefficients[2]/result.sd[1]).toBeCloseTo(-3);});
