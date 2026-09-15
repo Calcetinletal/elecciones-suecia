@@ -160,13 +160,22 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  .map-topline span{font-size:10px;padding:3px 5px}
 }
 
-/* Give a pair of maps the full width; supporting data follows below. */
-.atlas-workspace:has(.maps.compare),
-#controls:has(.release-notice)+#workspace .atlas-workspace:has(.maps.compare){grid-template-columns:minmax(0,1fr);height:auto;min-height:0}
-.atlas-workspace:has(.maps.compare)>.map-area{height:clamp(620px,82dvh,1000px);min-height:0}
-.atlas-workspace:has(.maps.compare)>.side-panel{border-left:0;border-top:1px solid var(--line);max-height:none;margin-top:0;overflow:visible}
-.atlas-workspace:has(.maps.compare) #panel-content{max-width:1200px;margin-inline:auto;padding:22px 28px 32px}
-@media(max-width:760px){
- .atlas-workspace:has(.maps.compare)>.map-area{height:82dvh;min-height:480px}
- .atlas-workspace:has(.maps.compare) #panel-content{padding:8px 20px 28px}
+/* Keep the comparison, controls and data panel together in the viewport. */
+@media(min-width:761px){
+ #app:has(.maps.compare){height:100dvh;display:flex;flex-direction:column}
+ #app:has(.maps.compare)>.site-header,#app:has(.maps.compare)>.ecological-note{flex:none}
+ #app:has(.maps.compare)>.ecological-note{position:static}
+ #app:has(.maps.compare)>#main{display:flex;flex-direction:column;flex:1;min-height:0}
+ #main:has(.maps.compare)>#controls{flex:none}
+ #main:has(.maps.compare)>#workspace{flex:1;min-height:0}
+ .atlas-workspace:has(.maps.compare),
+ #controls:has(.release-notice)+#workspace .atlas-workspace:has(.maps.compare){
+  grid-template-columns:minmax(0,1fr) clamp(250px,20vw,300px);height:100%;min-height:0
+ }
+ .atlas-workspace:has(.maps.compare)>.map-area{height:auto;min-height:0}
+ .atlas-workspace:has(.maps.compare)>.side-panel{min-height:0;overflow-y:auto}
+ .atlas-workspace:has(.maps.compare) #panel-content{padding:16px}
+ .atlas-workspace.has-district-history:has(.maps.compare){grid-template-columns:minmax(0,1fr) clamp(320px,30vw,460px)}
+ #controls:has(.release-notice)+#workspace .atlas-workspace.has-district-history:has(.maps.compare){grid-template-columns:minmax(0,1fr) clamp(320px,30vw,460px)}
+ .atlas-workspace.has-district-history:has(.maps.compare) .district-history-charts{grid-template-columns:minmax(0,1fr)}
 }
