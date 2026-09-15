@@ -24,7 +24,7 @@ const value=(r:Observation,s:string)=>r.pct?r.pct[s]??null:typeof r.counts[s]===
 function timeline(root:HTMLElement,rows:Observation[],series:Series[],breaks:number[],title:string,compact=false,initialYear?:number,breakLabels:Record<string,string>={}){
  if(!rows.length){root.innerHTML='<p class="empty-history">No hay observaciones de origen para este ámbito. La fuente por áreas pequeñas empieza en 2010.</p>';return;}
  let active=initialYear===undefined?rows.length-1:Math.max(0,rows.findIndex(r=>r.year===initialYear)),pinned=active;const selected=new Set(series.map(s=>s.code));
- const W=compact?460:800,H=compact?(root.closest('.comparison-history')?230:260):320,left=48,right=22,top=18,bottom=36;
+ const W=compact?460:800,H=compact?(root.closest('.comparison-history')?180:260):320,left=48,right=22,top=18,bottom=36;
  const firstYear=rows[0].year,lastYear=rows.at(-1)!.year;
  const x=(year:number)=>firstYear===lastYear?(left+W-right)/2:left+(year-firstYear)/(lastYear-firstYear)*(W-left-right);
  const yearTicks=[...new Set(rows.length<=7?rows.map(r=>r.year):(compact?[firstYear,2006,2010,2014,2018,2022,lastYear]:[firstYear,2006,2010,2014,2018,2022,lastYear]).filter(year=>year>=firstYear&&year<=lastYear))];
@@ -135,7 +135,7 @@ export async function mountDistrictHistory(root:HTMLElement,d:District){
  const political=parties.map(p=>({code:p.id,name:p.name,color:p.color,party:true}));
  timeline(root.querySelector('[data-history-votes]')!,[voteObservation([d])],political,[],'Votos · % válidos',true,Number(d.election_year));
  const initialBirth=birthObservation([d]);timeline(root.querySelector('[data-history-origin]')!,Number.isFinite(initialBirth.year)&&initialBirth.year>=2010?[initialBirth]:[],districtBirthSeries,[],'Origen poblacional · % ≈',true);
- const municipalityRoot=root.closest('#panel-content, #analysis-card, #comparison-detail-content')?.querySelector<HTMLElement>('[data-municipal-context]');
+ const municipalityRoot=root.closest('#panel-content, #analysis-card, #comparison-detail-content')?.querySelector<HTMLElement>('[data-municipal-context]:not(.municipal-compact)');
  if(municipalityRoot)void mountMunicipalContext(municipalityRoot,code,d.municipality_name);
  try{
   const archive=await districtArchive(code);if(!root.isConnected)return;
@@ -183,18 +183,20 @@ async function showDistrictArchive(root:HTMLElement){
  }catch(error){root.innerHTML=`<p>No se pudo abrir el archivo: ${e((error as Error).message)}</p>`;}
 }
 
-export async function mountMunicipalContext(root:HTMLElement,code:string,municipality:string){
+export async function mountMunicipalContext(root:HTMLElement,code:string,municipality:string,compact=false){
  root.innerHTML='<p class="meta" role="status">Cargando contexto municipal…</p>';
  try{
   const [index,data]=await Promise.all([historyIndex(),historyTerritory(code)]);if(!root.isConnected)return;
   let grouping='regions';
   root.innerHTML=`<header class="municipal-context-heading"><div><span class="scope-chip">Contexto municipal · otro ámbito</span><h3>${e(municipality)}</h3><p data-municipal-population></p></div><label>Composición<select aria-label="Composición del municipio"><option value="regions">Continentes</option><option value="parents">Nacimiento y padres</option></select></label></header><div class="municipal-composition"></div><p class="municipal-context-note"></p><a class="municipal-history-link" href="${base}evolution/?municipality=${encodeURIComponent(code)}">Ver evolución del municipio ↗</a>`;
   function draw(){
+   root.dataset.grouping=grouping;
    const parents=grouping==='parents';const row=data[parents?'parents':'birth'].at(-1)!;
    const categories=parents?index.parents:index.groups.filter(c=>c.code!=='REG_NON_EUROPE');
    root.querySelector('[data-municipal-population]')!.textContent=`${number(row.population)} residentes · ${row.year} · todo el municipio`;
    root.querySelector('.municipal-composition')!.innerHTML=categories.map(c=>{const color=originColor(c.code);return `<div class="municipal-origin-tile" style="--series:${color};--series-ink:${seriesInk(color)}"><span class="municipal-origin-name" style="background:${color};color:${seriesInk(color)}">${originEmblem(c.code)}<span>${e(parents?parentNames[c.code]??name(c):name(c))}</span></span><span class="municipal-origin-value"><b>${percent(value(row,c.code))}</b>${row.missing?.[c.code]&&value(row,c.code)!==null?'<small>Parcial</small>':''}</span></div>`;}).join('');
    root.querySelector('.municipal-context-note')!.textContent=parents?'Cuatro grupos de nacimiento propio y de los padres, sobre todos los residentes del municipio. No describen su reparto entre distritos.': 'Subtotales de países publicados sobre todos los residentes del municipio. Suecia excluida de los continentes; los datos ocultos no son ceros. Turquía se agrupa en Asia según ONU M49.';
+   if(compact){const note=root.querySelector<HTMLElement>('.municipal-context-note')!;note.title=note.textContent??'';note.textContent=parents?'Municipio completo · no describe el reparto entre distritos.':'Municipio completo · subtotales parciales; Suecia excluida. Turquía: Asia (ONU).';}
    root.querySelector<HTMLAnchorElement>('.municipal-history-link')!.href=`${base}evolution/?municipality=${encodeURIComponent(code)}&origin=${grouping}`;
   }
   root.querySelector('select')!.addEventListener('change',event=>{grouping=(event.target as HTMLSelectElement).value;draw();});draw();root.dataset.ready='true';root.dataset.municipality=code;

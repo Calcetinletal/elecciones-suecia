@@ -16,7 +16,7 @@ test('comparison shows every party and birthplace group with both maps without s
    expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth)).toBe(true);
    expect(await page.locator('.side-panel').evaluate(el=>el.scrollHeight<=el.clientHeight)).toBe(true);
    await page.locator('#municipal-context').click();
-   const municipal=page.locator('#municipal-dialog [data-municipal-context]');
+   const municipal=page.locator('#municipal-inline');
    await expect(municipal).toHaveAttribute('data-ready','true');
    await expect(municipal).toHaveAttribute('data-municipality','0180');
    await expect(municipal.locator('h3')).toHaveText('Stockholm');
@@ -25,8 +25,22 @@ test('comparison shows every party and birthplace group with both maps without s
    await municipal.locator('select').selectOption('parents');
    await expect(municipal.locator('.municipal-origin-tile')).toHaveCount(4);
    await expect(municipal.locator('.municipal-history-link')).toHaveAttribute('href',/origin=parents/);
-   await page.locator('#close-municipal-dialog').click();
-   await expect(page.locator('#municipal-dialog')).toHaveCount(0);
+   await expect(page.locator('dialog[open]')).toHaveCount(0);
+   const sections=await page.locator('#panel-content [data-district-history], #municipal-inline').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().toJSON()));
+   if(district){
+    expect(sections[0].bottom).toBeLessThanOrEqual(sections[1].top);
+    const cards=await page.locator('#panel-content .series-card').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().bottom));
+    for(const bottom of cards)expect(bottom).toBeLessThanOrEqual(sections[1].top);
+   }
+   for(const [map,caption,legend] of [['#map-left','#left-caption','#legend'],['#map-right','#right-caption','#right-legend']]){
+    const box=await page.locator(map).boundingBox(),head=await page.locator(caption).boundingBox(),key=await page.locator(legend).boundingBox();
+    expect(head!.y+head!.height).toBeLessThanOrEqual(box!.y+1);
+    expect(box!.y+box!.height).toBeLessThanOrEqual(key!.y+1);
+   }
+   expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   expect(await page.locator('.side-panel').evaluate(el=>el.scrollHeight<=el.clientHeight)).toBe(true);
+   await page.locator('#municipal-context').click();
+   await expect(municipal).toBeHidden();
 
   }
  }
