@@ -70,7 +70,7 @@ async function render(){
  const version=++renderVersion;setLocale(state.locale);writeState(state);
  const entry=manifest?.years.find(y=>y.year===state.year);
  if(ready(entry)&&loadedYear!==state.year){
-  try{const nextRows=await compressedJSON<District[]>(`${import.meta.env.BASE_URL}data/${entry.table}`);if(version!==renderVersion)return;if(nextRows.length!==entry.district_count)throw new Error('El número de filas no coincide con el manifiesto.');rows=nextRows.map(decorateDistrict);loadedYear=state.year;geometry=null;maps?.destroy();maps=null;
+  try{const nextRows=await compressedJSON<District[]>(`${import.meta.env.BASE_URL}data/${entry.table}?schema=income-v1`);if(version!==renderVersion)return;if(nextRows.length!==entry.district_count)throw new Error('El número de filas no coincide con el manifiesto.');rows=nextRows.map(decorateDistrict);loadedYear=state.year;geometry=null;maps?.destroy();maps=null;
    if(state.municipality&&!rows.some(d=>d.municipality_code===state.municipality))state.municipality=rows.find(d=>d.municipality_name===state.municipality)?.municipality_code??'';
    if(state.county&&!rows.some(d=>d.county_code===state.county))state.county='';
   }catch(error){document.querySelector('#workspace')!.innerHTML=`<section class="empty"><h2>No se pudieron cargar los datos</h2><p>${e((error as Error).message)}</p></section>`;controls();return;}
