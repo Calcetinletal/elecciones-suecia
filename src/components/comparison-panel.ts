@@ -1,3 +1,4 @@
+import {partyLabel} from '../utils/party-selection';
 import {isIncomeMetric,incomeAmount,aggregateIncome} from '../utils/income';
 import type {District,State} from '../types';
 import {parties} from '../maps/palette';
@@ -27,12 +28,13 @@ export function comparisonPanel(visible:District[],s:State,selected?:District){
  const municipality=selected?.municipality_code??s.municipality;
  const municipalButton=municipality?'<button id="municipal-context" class="comparison-detail-button municipal-context-button" aria-controls="municipal-inline" aria-expanded="false">Origen municipal</button>':'';
  const income=isIncomeMetric(s.metric)?` · Renta neta ${rows[0]?.income_year??'—'} ≈ ${incomeAmount(aggregateIncome(rows).mean)}`:'';
+ const combined=s.electionMetric==='party'&&s.party.includes('+')?`<span class="selected-party-sum">${e(partyLabel(s.party))} <b>${percent(weightedMean(rows,'pct_'+s.party,s.weight))}</b></span>`:'';
  const provisional=rows.some(d=>d.election_status==='provisional');
  const year=rows[0]?.birth_regions_year??rows[0]?.demography_year??'—';
- if(selected)return `<div class="comparison-data comparison-chart-data"><header class="comparison-scope"><div><h2>${e(title)}</h2><p>${e(scope)} · Participación ${percent(data.turnout)} · Límites históricos variables${income}</p></div><button id="close-district" aria-label="Cerrar ficha">×</button></header><section class="district-history comparison-history" data-district-history aria-label="Evolución de votos y origen poblacional"></section><section id="municipal-inline" class="municipal-context municipal-compact" data-municipal-context hidden></section><div class="comparison-actions">${municipalButton}<button id="comparison-detail" class="comparison-detail-button">Fuentes, tablas y detalle ↗</button></div></div>`;
+ if(selected)return `<div class="comparison-data comparison-chart-data"><header class="comparison-scope"><div><h2>${e(title)}</h2><p>${e(scope)} · Participación ${percent(data.turnout)} · Límites históricos variables${income} ${combined}</p></div><button id="close-district" aria-label="Cerrar ficha">×</button></header><section class="district-history comparison-history" data-district-history aria-label="Evolución de votos y origen poblacional"></section><section id="municipal-inline" class="municipal-context municipal-compact" data-municipal-context hidden></section><div class="comparison-actions">${municipalButton}<button id="comparison-detail" class="comparison-detail-button">Fuentes, tablas y detalle ↗</button></div></div>`;
  return `<div class="comparison-data">
  <header class="comparison-scope"><div><h2>${e(title)}</h2><p>${e(scope)}</p></div>${selected?'<button id="close-district" aria-label="Cerrar ficha">×</button>':''}</header>
- <section class="comparison-votes" aria-label="Datos electorales"><header><h3>Elecciones · ${s.year}</h3><span>${provisional?'Provisional':''}</span></header>
+ <section class="comparison-votes" aria-label="Datos electorales"><header><h3>Elecciones · ${s.year}</h3>${combined||`<span>${provisional?'Provisional':''}</span>`}</header>
  <div class="comparison-party-grid">${data.votes.map(p=>`<div class="comparison-party" style="--party:${p.color}" title="${e(p.name)}">${partyBadge(p.id)}<b>${percent(p.pct)}</b></div>`).join('')}</div>
  <div class="comparison-inline"><span>Participación <b>${percent(data.turnout)}</b></span><small>${s.weight==='votes'?'% de votos válidos':'Media distrital'}</small></div></section>
  <section class="comparison-population" aria-label="Datos poblacionales"><header><h3>Nacimiento · ${year} ≈</h3><span>${number(data.population)} residentes ≈</span></header>

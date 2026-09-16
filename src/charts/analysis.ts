@@ -6,7 +6,7 @@ import {finite,weightedMean,sum} from '../utils/data';
 import {escapeHtml as e,number,percent} from '../utils/format';
 import {parties} from '../maps/palette';
 export function renderAnalysis(root:HTMLElement,rows:District[],national:District[],s:State,select:(id:string)=>void){
- const key=s.analysisY==='turnout'?'turnout_pct':`pct_${s.party}`,ylabel=s.analysisY==='turnout'?'Participación electoral':`Voto ${s.party}`;
+ const key=s.analysisY==='turnout'?'turnout_pct':`pct_${s.party}`,ylabel=s.analysisY==='turnout'?'Participación electoral':`Voto ${s.party.split('+').join(' + ')}`;
  const xkey=s.analysisX??'foreign_background_pct',income=isIncomeMetric(xkey),xlabel=demographicLabel(xkey),xunit=income?'miles de SEK/año · precios 2024':'%',xValue=(d:District)=>(d[xkey] as number)/(income?1000:1),xFormat=(v:number)=>income?number(v,1)+' kSEK':percent(v);
  const points=rows.filter(d=>finite(d[xkey])&&finite(d[key]));const x=points.map(xValue),y=points.map(d=>d[key] as number),fit=linear(x,y),r=pearson(x,y),rho=spearman(x,y);
  const xMin=income?Math.min(0,Math.floor(Math.min(...x,0)/100)*100):0,xMax=income?Math.max(100,Math.ceil(Math.max(...x,0)/100)*100):100,yMax=Math.min(100,Math.max(10,Math.ceil(Math.max(...y,0)/10)*10));

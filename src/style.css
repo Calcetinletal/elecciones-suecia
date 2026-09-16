@@ -370,3 +370,21 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 @media(min-width:761px) and (max-width:1150px){.primary-views{gap:4px;padding:3px}.view-tabs .view-choice{font-size:12px;padding:8px;gap:5px}.view-icon{width:19px;height:19px}.view-tabs{gap:3px}.view-tabs .more-maps>summary{padding-inline:7px}}
 @media(max-width:760px){.view-tabs{flex:1 0 100%;gap:4px}.primary-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:4px;padding:4px}.view-tabs .view-choice{flex-direction:column;gap:4px;min-width:0;min-height:68px;padding:7px 4px;white-space:normal;font-size:11.5px}.view-tabs .view-choice>span{max-width:100%;text-align:center}.view-tabs .more-maps{margin-top:1px}}
 @media(min-width:761px){#app:has(.maps.compare)>.site-header{padding-block:7px}#controls:has(+ #workspace .maps.compare) .toolbar{padding-block:5px}#controls:has(+ #workspace .maps.compare) .sub-toolbar{padding-bottom:4px}}
+/* Compact, keyboard-accessible custom party sums; no extra toolbar height. */
+#party-picker{width:min(420px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:22px;border:1px solid #d7e2ec;border-radius:16px;color:#19374b;box-shadow:0 20px 80px #132c4a40}
+#party-picker::backdrop{background:#18344760}
+#party-picker header,#party-picker footer{display:flex;align-items:center;justify-content:space-between;gap:14px}
+#party-picker h2{font-size:20px;margin:0}
+#party-picker header button{border:0;font-size:24px;padding:0 6px}
+#party-picker p{font-size:13px;line-height:1.5;margin:14px 0}
+#party-picker .party-picker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#party-picker .party-picker-grid label{display:flex;align-items:center;gap:7px;cursor:pointer;border:2px solid #e3e9ee;border-radius:10px;padding:10px 6px;background:#f7f9fb;font-weight:700;font-size:12px}
+#party-picker .party-picker-grid label:has(:checked){border-color:var(--party);background:color-mix(in srgb,var(--party) 13%,white)}
+#party-picker input{width:15px;height:15px;accent-color:var(--party);margin:0;flex:none}
+#party-picker .party-badge{width:25px;height:25px;flex-basis:25px;font-size:11px}
+#party-picker .party-sum-definition{color:#597081;font-size:12px}
+#party-picker output{font-size:14px;font-weight:750;overflow-wrap:anywhere}
+#apply-party-sum{background:#176286;color:white;border:0;font-weight:700;padding:10px 14px;flex:none}
+#apply-party-sum:disabled{opacity:.45;cursor:not-allowed}
+.selected-party-sum{font-size:12px;font-weight:650;color:#175879}
+.selected-party-sum b{font-weight:800;margin-left:5px;white-space:nowrap}

@@ -35,6 +35,11 @@ export class AtlasMaps {
   const ids=visible.map(d=>d.district_id);
   this.maps.forEach((map,index)=>{
    if(!map.getLayer('districts'))return;
+   const sumKey=`pct_${s.party}`;
+   if(s.party.includes('+')&&this.data.features.some(f=>!(sumKey in f.properties))){
+    for(const f of this.data.features){const row=this.byId.get(f.properties.district_id);f.properties[sumKey]=row?.[sumKey]??null;}
+    for(const instance of this.maps){const source=instance.getSource('districts') as maplibregl.GeoJSONSource|undefined;source?.setData(this.data);}
+   }
    map.setFilter('districts',['in',['get','district_id'],['literal',ids]]);map.setFilter('borders',['in',['get','district_id'],['literal',ids]]);map.setFilter('selected',['==',['get','district_id'],s.district]);
    const current:State=s.view==='compare'?{...s,view:index===0?'demography':'electoral',metric:index===0?s.metric:s.electionMetric}:s;
    let color:unknown;delete map.getContainer().dataset.scaleMin;delete map.getContainer().dataset.scaleMax;
@@ -47,7 +52,7 @@ export class AtlasMaps {
     color=['case',['all',['!=',['get','foreign_background_pct'],null],['!=',['get',`pct_${s.party}`],null]],['match',cat,...bivariate.flatMap((c,i)=>[i,c]),'#777f85'],'#777f85'];
    }else if(current.view==='dominant'||(current.view==='electoral'&&current.metric==='winning_party'))color=['case',['==',['get','winning_party_tie'],true],'#b1aabb',['match',['get','winning_party'],...parties.flatMap(p=>[p.id,p.color]),'#777f85']];
    else {const key=numericMetric(current),domain=metricScale(national,key);if(key!=='common_origin'){map.getContainer().dataset.scaleMin=String(domain.min);map.getContainer().dataset.scaleMax=String(domain.max);}color=key==='common_origin'?['match',['get',key],...originDefinitions.flatMap(o=>[o.id,o.color]),'tie','#b1aabb','#7b8793']:['case',['==',['get',key],null],'#777f85',['interpolate',['linear'],['get',key],...scaleStops(domain).flat()]];}
-   map.setPaintProperty('districts','fill-color',color as ExpressionSpecification);map.getContainer().dataset.metric=s.view==='compare'&&index===1?comparisonElectionKey(s):current.metric;
+   map.setPaintProperty('districts','fill-color',color as ExpressionSpecification);map.getContainer().dataset.metric=s.view==='compare'&&index===1?comparisonElectionKey(s):current.metric==='party'?`pct_${s.party}`:current.metric;
   });
  }
  fit(ids:string[]){cancelAnimationFrame(this.fitFrame);const wanted=new Set(ids),coords:number[][]=[];const visit=(a:unknown)=>{if(Array.isArray(a)){if(typeof a[0]==='number')coords.push(a as number[]);else a.forEach(visit);}};for(const f of this.data.features)if(wanted.has(f.properties.district_id)&&'coordinates'in f.geometry)visit(f.geometry.coordinates);if(!coords.length)return;let minX=180,minY=90,maxX=-180,maxY=-90;for(const[x,y]of coords){minX=Math.min(minX,x);minY=Math.min(minY,y);maxX=Math.max(maxX,x);maxY=Math.max(maxY,y);}this.fitFrame=requestAnimationFrame(()=>{if(this.disposed)return;this.resize();this.maps[0]?.fitBounds([[minX,minY],[maxX,maxY]] as LngLatBoundsLike,{padding:35,maxZoom:16,duration:650});});}
