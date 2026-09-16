@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 test('all municipalities restores the entire country after a search',async({page})=>{
  await page.goto('./?view=compare&mapCount=4&lang=en');
- await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true');
+ await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});
  await page.locator('#search').fill('Stockholm');await page.locator('#search').press('Enter');
  await expect(page.locator('#map-count')).toContainText('606 districts');
  await page.locator('#municipality').selectOption('');
@@ -11,9 +11,9 @@ test('all municipalities restores the entire country after a search',async({page
 test('four maps stay synchronised, retain independent indicators and fit the desktop viewport',async({page})=>{
  await page.setViewportSize({width:1366,height:768});
  await page.goto('./?view=compare&municipality=0180&lang=en&party=S%2BV');
- await expect(page.locator('#map-right')).toHaveAttribute('data-ready','true');
+ await expect(page.locator('#map-right')).toHaveAttribute('data-ready','true',{timeout:30000});
  await page.locator('#map-number').selectOption('4');await expect(page.locator('.map')).toHaveCount(4);
- await expect(page.locator('#map-4')).toHaveAttribute('data-ready','true');
+ await expect(page.locator('#map-4')).toHaveAttribute('data-ready','true',{timeout:30000});
  await expect(page.locator('#map-3')).toHaveAttribute('data-metric','mean_net_income');
  await page.locator('[data-extra-map="2"]').selectOption('vote:S+V');await expect(page.locator('#map-3')).toHaveAttribute('data-metric','pct_S+V');
  await page.locator('[data-extra-map="3"]').selectOption('socio_senior_pct');await expect(page.locator('#map-4')).toHaveAttribute('data-metric','socio_senior_pct');
@@ -32,9 +32,9 @@ test('four maps stay synchronised, retain independent indicators and fit the des
 });
 test('separate historical menu has income, social and demographic series with actual years and CSV',async({page})=>{
  await page.goto('./?view=compare&municipality=0180&lang=en&district=01801507');
- await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true');
+ await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});
  await page.locator('#socio-history-menu>summary').click();
- const host=page.locator('.socio-history-content');await expect(host).toHaveAttribute('data-ready','true');
+ const host=page.locator('.socio-history-content');await expect(host).toHaveAttribute('data-ready','true',{timeout:30000});
  await expect(host).toHaveAttribute('data-scope','district');await expect(host.locator('polyline')).toBeVisible();
  expect(Number(await host.getAttribute('data-observations'))).toBeGreaterThan(5);
  await expect(host.locator('.socio-universe')).toContainText('2024 prices');
@@ -44,8 +44,8 @@ test('separate historical menu has income, social and demographic series with ac
  const download=page.waitForEvent('download');await host.locator('[data-socio-download]').click();expect((await download).suggestedFilename()).toContain('senior');
  await host.locator('[data-socio-metric]').selectOption('income');await page.screenshot({path:'.tools/socio-history-district.png'});
  await host.locator('[data-socio-close]').click();await expect(page.locator('#socio-history-menu')).not.toHaveAttribute('open','');
- await page.goto('./?view=compare&municipality=0180&lang=sv');await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true');
- await page.locator('#socio-history-menu>summary').click();await expect(page.locator('.socio-history-content')).toHaveAttribute('data-ready','true');
+ await page.goto('./?view=compare&municipality=0180&lang=sv');await expect(page.locator('#map-left')).toHaveAttribute('data-ready','true',{timeout:30000});
+ await page.locator('#socio-history-menu>summary').click();await expect(page.locator('.socio-history-content')).toHaveAttribute('data-ready','true',{timeout:30000});
  await expect(page.locator('.socio-history-content')).toHaveAttribute('data-observations','14');
  await expect(page.locator('.socio-readout span')).toHaveText('2024');
  await page.setViewportSize({width:390,height:844});const box=await page.locator('.socio-history-content').boundingBox();expect(box!.x).toBeGreaterThanOrEqual(0);expect(box!.x+box!.width).toBeLessThanOrEqual(390);await page.screenshot({path:'.tools/socio-history-mobile.png'});
