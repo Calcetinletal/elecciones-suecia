@@ -15,8 +15,14 @@ test('four maps stay synchronised, retain independent indicators and fit the des
  await page.locator('#map-number').selectOption('4');await expect(page.locator('.map')).toHaveCount(4);
  await expect(page.locator('#map-4')).toHaveAttribute('data-ready','true',{timeout:30000});
  await expect(page.locator('#map-3')).toHaveAttribute('data-metric','mean_net_income');
- await page.locator('[data-extra-map="2"]').selectOption('vote:S+V');await expect(page.locator('#map-3')).toHaveAttribute('data-metric','pct_S+V');
- await page.locator('[data-extra-map="3"]').selectOption('socio_senior_pct');await expect(page.locator('#map-4')).toHaveAttribute('data-metric','socio_senior_pct');
+ const origin=page.locator('[data-topic-metric="origin"]'),social=page.locator('[data-topic-metric="socioeconomic"]'),age=page.locator('[data-topic-metric="demographic"]');
+ await expect(origin.locator('option[value^="socio_"]')).toHaveCount(0);await expect(origin.locator('option[value="mean_net_income"]')).toHaveCount(0);
+ await expect(social.locator('option[value="socio_senior_pct"]')).toHaveCount(0);
+ await social.selectOption('mean_net_income');await expect(page.locator('#map-left')).toHaveAttribute('data-metric','mean_net_income');await expect(origin).toHaveValue('');
+ await age.selectOption('socio_young_pct');await expect(page.locator('#map-left')).toHaveAttribute('data-metric','socio_young_pct');await expect(social).toHaveValue('');
+ await origin.selectOption('foreign_background_pct');
+ await page.locator('[data-extra-topic="2"]').selectOption('election');await page.locator('[data-extra-map="2"]').selectOption('vote:S+V');await expect(page.locator('#map-3')).toHaveAttribute('data-metric','pct_S+V');
+ await page.locator('[data-extra-topic="3"]').selectOption('demographic');await page.locator('[data-extra-map="3"]').selectOption('socio_senior_pct');await expect(page.locator('#map-4')).toHaveAttribute('data-metric','socio_senior_pct');
  await expect(page.locator('#legend-4')).toContainText('Age 65 and over');
  for(const width of [1366,1024]){
   await page.setViewportSize({width,height:768});

@@ -417,3 +417,19 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 .map-area:has(.maps.compare) .map-topline>#map-count{flex:1;min-width:0}
 .map-area:has(.maps.compare) .map-topline .map-number-label{margin-left:0}
 .map-area:has(.maps.compare) .map-topline>#reset-map{flex:none}
+
+/* Keep each selector restricted to a single subject, with a visible active topic. */
+.metric-topic{--topic:#2b7c87;color:var(--topic)}
+.metric-topic[data-topic="socioeconomic"]{--topic:#7950a1}
+.metric-topic[data-topic="demographic"]{--topic:#b36525}
+.metric-topic.is-active select{border-color:var(--topic);box-shadow:inset 0 -2px var(--topic);background:#f8fafc}
+.maps.compare .election-map-control .extra-map-topic{flex:.75}
+@media(min-width:761px){
+ #controls .toolbar.themed-toolbar{display:grid;grid-template-columns:84px repeat(7,minmax(0,1fr)) 52px 77px!important;gap:7px}
+ #controls .toolbar.themed-toolbar label,#controls .toolbar.themed-toolbar .search-label{min-width:0}
+ #controls .toolbar.themed-toolbar label[hidden]{display:none}
+ #controls .toolbar.themed-toolbar:has(label[hidden] #party){grid-template-columns:84px repeat(6,minmax(0,1fr)) 52px 77px!important}
+ #controls .themed-toolbar select,#controls .themed-toolbar input{min-width:0;padding-left:6px;padding-right:18px}
+ #controls .themed-toolbar .icon-button{padding-left:5px;padding-right:5px}
+}
+@media(max-width:1150px){.maps.compare.multi .extra-map-number{display:none}}
