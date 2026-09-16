@@ -5,6 +5,7 @@ from pathlib import Path
 import csv
 import hashlib
 import json
+from datetime import datetime
 import math
 import shutil
 import numpy as np
@@ -15,7 +16,7 @@ from matplotlib.ticker import PercentFormatter, MultipleLocator
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'reports/three-plots-2026'
-STEM = 'four-plots-2026-English-v8-spearman'
+STEM = 'four-plots-2026-English-v9-spearman'
 OUT.mkdir(parents=True, exist_ok=True)
 SOURCE = ROOT / 'public/data/2026/joined_2026.csv'
 with SOURCE.open(encoding='utf-8-sig', newline='') as stream:
@@ -69,6 +70,9 @@ fig.text(.073, .948, 'Sweden 2026 | Votes and birthplace', fontsize=29, weight='
 fig.text(.073, .912, '6,312 districts · one dot per district · provisional votes · estimated 2025 population', fontsize=16, color=MUTED)
 fig.text(.977, .951, 'Created by @Calcetinletal', ha='right', fontsize=14, weight='bold', color='#247B68', url='https://x.com/Calcetinletal')
 source_sha = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+source_updated = source_rows[0]['election_updated_at']
+assert all(r['election_updated_at'] == source_updated for r in source_rows)
+source_label = datetime.fromisoformat(source_updated).strftime('%d %b %Y, %H:%M')
 summaries = {}
 reference_ids = None
 for ax, (code, label, accent) in zip(axes.flat, CONFIG):
@@ -88,7 +92,7 @@ for ax, (code, label, accent) in zip(axes.flat, CONFIG):
              'primary_correlation': 'Spearman rho (nonparametric, average ranks for ties)',
              'spearman_rho_equal_district_weight': rho, 'pearson_r_equal_district_weight': pearson,
              'ols_intercept': intercept, 'ols_slope_pp_per_pp': slope, 'y_axis_limits': [0, ymax],
-             'source_csv_sha256': source_sha, 'source_csv': str(SOURCE.relative_to(ROOT)),
+             'source_updated_at': source_updated, 'source_csv_sha256': source_sha, 'source_csv': str(SOURCE.relative_to(ROOT)),
              'party_codes': PARTY_IDS[code], 'population_year': 2025, 'election_year': 2026,
              'x_definition': '100 * born_rest_world_unknown_count / birth_regions_population',
              'y_definition': '100 * sum(selected party vote counts) / valid_votes',
@@ -123,7 +127,7 @@ fig.text(.015, .525, 'Vote share (% of valid votes)', va='center', rotation=90, 
 fig.text(.525, .132, 'Residents born outside Europe* (% of district population)', ha='center', fontsize=19, weight='medium')
 fig.text(.073, .093, '* Africa, Asia, the Americas and Oceania + unknown birthplace. SCB includes Russia and Turkey in Europe.', fontsize=12.5, color=MUTED)
 fig.text(.073, .064, 'ρ: nonparametric rank correlation · equal district weights · dashed line: OLS fit · Y-axis ranges differ.', fontsize=12.5, color=MUTED)
-fig.text(.073, .035, 'Sources: Valmyndigheten + SCB · votes: 14 Sep 2026 · population: 31 Dec 2025, estimated on 2026 boundaries.', fontsize=11, color=MUTED)
+fig.text(.073, .035, f'Sources: Valmyndigheten + SCB · votes: {source_label} (Stockholm) · population: 31 Dec 2025, estimated on 2026 boundaries.', fontsize=11, color=MUTED)
 fig.text(.073, .014, 'Birthplace, not citizenship. District association does not identify how individuals voted.', fontsize=11, color=MUTED)
 fig.savefig(OUT / f'{STEM}.png', dpi=240)
 fig.savefig(OUT / f'{STEM}.svg', metadata={'Date': None, 'Creator': '@Calcetinletal', 'Description': json.dumps(summaries)})
@@ -140,7 +144,7 @@ Dependencies: `reports/three-plots-2026/requirements.txt`.
 Each panel contains the same 6,312 districts. S = Social Democrats; V = Left Party; Greens = MP.
 X is the estimated 2025 SCB rest-of-world + unknown birthplace share on 2026 electoral boundaries.
 Russia and Turkey belong to Europe in this SCB classification. This measures birthplace, not citizenship.
-Y is selected party votes divided by valid votes in the stored provisional 14 September 2026 snapshot.
+Y is selected party votes divided by valid votes in the stored provisional {source_label} (Stockholm) snapshot.
 
 Spearman rho is Pearson correlation of average ranks, with equal weight per district and average ranks for ties.
 It measures monotonic association without assuming linearity or normality. No significance tests are calculated.

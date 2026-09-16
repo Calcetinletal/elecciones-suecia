@@ -1,6 +1,6 @@
 # Fuentes, descargas y transformaciones
 
-Inventario generado 2026-09-15T14:54:12.267871+00:00. Cada original se conserva sin cambios en `data/raw/` con archivo contiguo de metadatos. La reproducción usa la caché y comprueba SHA-256 antes de reutilizarla. El listado siguiente refleja las descargas reales, no fechas supuestas.
+Inventario generado 2026-09-16T13:22:10.244092+00:00. Cada original se conserva sin cambios en `data/raw/` con archivo contiguo de metadatos. La reproducción usa la caché y comprueba SHA-256 antes de reutilizarla. El listado siguiente refleja las descargas reales, no fechas supuestas.
 
 ## Transformaciones
 
@@ -7163,6 +7163,13 @@ Inventario generado 2026-09-15T14:54:12.267871+00:00. Cada original se conserva 
 | `val2026/2026-09-15_000643/final_results.zip` | [Descarga](https://resultat.val.se/resultatfiler/val2026/s/rd/Val_2026_slutlig_00_RD.zip) | 2026-09-14T22:07:07.606352+00:00 | `8a8ed2b88550c204d8ff5b2ac9611a30d5e52c028b3557724ed15d9a35d28fdc` | 331649 |
 | `val2026/2026-09-15_000643/index.md5` | [Descarga](https://resultat.val.se/resultatfiler/val2026/index.md5) | 2026-09-14T22:06:43.285777+00:00 | `aab4553c65bf2e282e3050cc548d34663a775e9f5017e9cdc0d6482737cb25d3` | 22729 |
 | `val2026/2026-09-15_000643/results.zip` | [Descarga](https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip) | 2026-09-14T22:06:43.508480+00:00 | `e30649614e124867a481a16c6218446c1a8c89179df373e544e4051a315b134c` | 2207022 |
+| `val2026/2026-09-16_refresh/index.md5` | [Descarga](https://resultat.val.se/resultatfiler/val2026/index.md5) | 2026-09-16T13:15:43.624343+00:00 | `c4925e0e36be197aa566d60bedd29c77afa315b5695ff71407236950f7b32508` | 22941 |
+| `val2026/2026-09-16_refresh/results.zip` | [Descarga](https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip) | 2026-09-16T13:15:43.863684+00:00 | `e746f04a62aa0eff548456adfc036a048480daaa382272a8a831ce669d081414` | 2243038 |
+| `val2026/2026-09-16_refresh_02/boundaries.zip` | [Descarga](https://www.val.se/download/18.332cf48819bd61ac1513889/1785491689960/valdistrikt-riket-2026.zip) | 2026-09-16T13:18:23.634806+00:00 | `625ef4b4878c74af51a9d3eac39a5a0e049125becd8eb26f80503480d38ade61` | 28512507 |
+| `val2026/2026-09-16_refresh_02/comparability.xlsx` | [Descarga](https://www.val.se/download/18.1a2972da19f159e73fd3a47/1787064655347/valdistrikt-jamforelser-mellan-2022-och-2026.xlsx) | 2026-09-16T13:18:21.693934+00:00 | `f1e43ca9f871568cd9ec72c1dd8033e42e6b2d333d3033c01d0dccedf21f1ae8` | 319333 |
+| `val2026/2026-09-16_refresh_02/final.zip` | [Descarga](https://resultat.val.se/resultatfiler/val2026/s/rd/Val_2026_slutlig_00_RD.zip) | 2026-09-16T13:16:40.434937+00:00 | `938a33841823ed54e2afee52eeefa4465925fa77e74dff1262ec9ee232b95aa6` | 4278556 |
+| `val2026/2026-09-16_refresh_02/index.md5` | [Descarga](https://resultat.val.se/resultatfiler/val2026/index.md5) | 2026-09-16T13:16:39.897460+00:00 | `9698097707acde95fa847e96a3e229f4c3771b3052f53ff8f1ad620b29272da9` | 22941 |
+| `val2026/2026-09-16_refresh_02/results.zip` | [Descarga](https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip) | 2026-09-16T13:16:40.171525+00:00 | `185e534df82aad3ebfad0e9b51c2fa66e5f731b5a5daa595e5513a255a1d8f1b` | 2243416 |
 | `val2026/val-sign-crt.pem` | [Descarga](https://resultat.val.se/keys/val-sign-crt.pem) | 2026-09-14T09:31:50.648571+00:00 | `084c0b29d5a12fe89f2bf115e68a605e59c4dc03ecbde55e8d959669cc1fd048` | 1968 |
 
 ## Licencias

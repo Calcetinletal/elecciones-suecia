@@ -9,7 +9,7 @@ Parties: S, M, SD, V, C, KD, L and MP. The atlas groups remaining parties as “
 X: estimated mean annual personal net income in SEK, reference year 2024, constant 2024 prices.
 The source population is SCB's full-year population aged 20+, with its source restrictions; see the income provenance in the statistics JSON.
 Net income includes capital income and transfers after tax. It is not salary, median income or household-equivalised income.
-Income is spatially estimated on 2026 electoral boundaries. Election results are the stored provisional 14 September 2026 snapshot.
+Income is spatially estimated on 2026 electoral boundaries. Election results are the stored provisional 16 Sep 2026, 15:15 (Stockholm) snapshot.
 Y: 100 × party votes / valid votes, checked against published percentage fields.
 
 Spearman rho is calculated on the original observations, with average ranks for ties and equal district weights.
@@ -18,4 +18,4 @@ All 6,312 districts are present in every panel; no trimming or winsorisation. Y 
 No significance tests or regression lines are shown. Neither causality nor individual voting behaviour can be inferred from territorial associations.
 
 The CSV contains exactly the plotted district values for all parties. The statistics JSON records sources, exclusions, definitions and coefficients.
-Input SHA-256: f8c5c1e60f4d1399360af0f575460e3e21014d7d31ddac97408e0be2a3afd30a.
+Input SHA-256: ec0d764b416f961eaf175234e0c21e582d81529a2c035fb14ca83a092169ffb0.

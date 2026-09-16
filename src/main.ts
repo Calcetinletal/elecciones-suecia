@@ -30,7 +30,7 @@ function releaseNotice(entry:YearEntry|undefined){
  if(entry?.status!=='provisional')return '';
  const downloaded=entry.downloaded_at?new Date(entry.downloaded_at).toLocaleString(state.locale,{timeZone:'Europe/Stockholm'}):'sin fecha';
  const sourceTime=entry.source_updated_at?`${entry.source_updated_at.slice(8,10)}/${entry.source_updated_at.slice(5,7)} ${entry.source_updated_at.slice(11,16)}`:'sin fecha';
- return `<details class="release-notice"><summary><strong>2026 · Provisional</strong><span>${number(entry.reported_district_count)} / ${number(entry.district_count)} distritos</span><span title="Última actualización del recuento oficial, hora de Estocolmo">Actualizado ${e(sourceTime)}</span><span>Demografía 2025 ≈</span></summary><p>Resultados provisionales · ${number(entry.pending_district_count)} pendientes. Demografía: 31/12/2025, estimación espacial. Descarga: ${e(downloaded)} (Estocolmo). Fuente: ${e(entry.source_updated_at??'')}. Instantánea estática; no se actualiza en directo.</p></details>`;
+ return `<details class="release-notice"><summary><strong>2026 · Provisional</strong><span>${number(entry.reported_district_count)} / ${number(entry.district_count)} distritos</span><span title="Última actualización del recuento oficial, hora de Estocolmo">Actualizado ${e(sourceTime)}</span><span>Demografía 2025 ≈</span>${entry.reported_non_geographic_count!==undefined?`<span>Recogida tardía: ${number(entry.reported_non_geographic_count)} / ${number(entry.non_geographic_count)}</span>`:''}</summary><p>Resultados provisionales · ${number(entry.pending_district_count)} pendientes. Demografía: 31/12/2025, estimación espacial. Descarga: ${e(downloaded)} (Estocolmo). Fuente: ${e(entry.source_updated_at??'')}. Instantánea estática; no se actualiza en directo.</p><p>Los votos de recogida tardía se incluyen en la evolución municipal y nacional. No se asignan a los distritos del mapa.</p></details>`;
 }
 function selectedRows(){return filtered(rows,state);}
 function shell(){
@@ -146,6 +146,6 @@ if(page==='evolution'){
 }else if(page==='countries'){
  const {showCountries}=await import('./countries');await showCountries(document.querySelector('#main')!);
 }else if(page!=='methodology'){
- try{const response=await fetch(`${import.meta.env.BASE_URL}data/manifest.json`);if(!response.ok)throw new Error('Falta el manifiesto de datos. Ejecuta python make_data.py.');manifest=await response.json() as Manifest;await render();}
+ try{const response=await fetch(`${import.meta.env.BASE_URL}data/manifest.json`,{cache:'no-cache'});if(!response.ok)throw new Error('Falta el manifiesto de datos. Ejecuta python make_data.py.');manifest=await response.json() as Manifest;await render();}
  catch(error){document.querySelector('#workspace')!.innerHTML=`<section class="empty"><h2>No se pudieron cargar los datos</h2><p>${e((error as Error).message)}</p><button onclick="location.reload()">Reintentar</button><p>Se necesita un navegador moderno con descompresión gzip. El proyecto incluye los datos estáticos; no necesita un servidor Python.</p></section>`;}
 }

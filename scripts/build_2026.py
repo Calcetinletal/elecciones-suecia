@@ -117,6 +117,20 @@ def verify_signatures(path):
             doc=folder/Path(name).name;sig=folder/(doc.stem+'_sign.sha256');doc.write_bytes(z.read(name));sig.write_bytes(z.read(doc.stem+'_sign.sha256'))
             subprocess.run(['openssl','dgst','-sha256','-verify',str(key),'-signature',str(sig),str(doc)],check=True)
 
+def reporting_counts(data):
+    units=data['valdistrikt']
+    if len({r['valdistriktskod'] for r in units})!=len(units):raise ValueError('Duplicate reporting units')
+    territorial=[r for r in units if r['valdistriktstyp']=='valdistrikt']
+    collection=[r for r in units if r['valdistriktstyp']=='uppsamlingsdistrikt']
+    if len(territorial)+len(collection)!=len(units):raise ValueError('Unknown reporting unit type')
+    reported=lambda group:sum(bool(r.get('rostfordelning')) for r in group)
+    if reported(units)!=data['antalValdistriktRaknade'] or len(units)!=data['antalValdistriktSomSkaRaknas']:raise ValueError('Official reporting-unit count mismatch')
+    return {'reporting_unit_count':len(units),'reported_unit_count':reported(units),
+            'district_count':len(territorial),'reported_district_count':reported(territorial),
+            'pending_district_count':len(territorial)-reported(territorial),
+            'non_geographic_count':len(collection),'reported_non_geographic_count':reported(collection),
+            'pending_non_geographic_count':len(collection)-reported(collection)}
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--snapshot',default='2026-09-14',help='Unique cache label. Reuse to reproduce; new label to refresh results.');p.add_argument('--reuse-crosswalk',action='store_true',help='Reuse already computed overlay of fixed 2026 / 2025 geometries');args=p.parse_args()
     if not re.fullmatch(r'[A-Za-z0-9_-]+',args.snapshot):raise ValueError('Invalid snapshot label')
@@ -158,7 +172,8 @@ def main():
     simplify(2026)
     webgeo=gpd.GeoDataFrame.from_features(json.loads(gzip.decompress((folder/'districts.geojson.gz').read_bytes()))['features'],crs=4326)
     reported=out[out.election_reported].copy()
-    if len(reported)!=data['antalValdistriktRaknade']:raise ValueError('Reported district count mismatch')
+    counts=reporting_counts(data)
+    if len(reported)!=counts['reported_district_count']:raise ValueError('Reported territorial district count mismatch')
     errors,warnings=validate(reported,webgeo[webgeo.district_id.isin(reported.district_id)])
     pending=out[~out.election_reported]
     if pending[['valid_votes','ballots_cast','turnout_pct']+[f'pct_{p}' for p in PARTIES]].notna().any().any():errors['pending_fabricated_results']=True
@@ -176,11 +191,13 @@ def main():
     comparison.to_csv(PROCESSED/'comparability_2022_2026.csv',index=False)
     sourceweights=cw.groupby('deso_id').weight.sum()
     meta={'election_year':2026,'status':'provisional','snapshot':args.snapshot,'downloaded_at':source_meta['downloaded_at'],'source_updated_at':data['senasteUppdateringstid'],'source_timezone':'Europe/Stockholm','district_count':len(out),'reported_district_count':len(reported),'pending_district_count':len(pending),'non_geographic_count':len(data['valdistrikt'])-len(out),'demography_year':2025,'demography_reference_date':'2025-12-31','demography_geometry_year':2025,'grid_year':2025,'election_source_url':BASE+RESULT,'geometry_source_url':BOUNDARIES,'comparability_source_url':COMPARABILITY,'demography_source_url':SCB,'license':'Valmyndigheten: free reuse with attribution; SCB: CC0','signatures_verified':True,'election_sha256':source_meta['sha256'],'boundary_repairs':repairs,'intersections':len(cw),'source_weight_min':float(sourceweights.min()),'source_weight_max':float(sourceweights.max()),'areal_fallback_intersections':int(cw.method.eq('areal_estimate').sum()),'coverage_counts':out.coverage_quality.value_counts().to_dict(),'comparison_counts':out.comparison_status.value_counts().to_dict(),'comparable_reported_count':int(out.delta_pct_S.notna().sum()),'scb_disclosure_control':'CKM: independently protected cells; sums may differ from published totals','education_and_employment':'Not included in this 2025 demographic edition'}
+    meta.update(counts)
     write_json(folder/'provenance.json',meta)
     quality=json.loads((PROCESSED/'geometry_quality_2026.json').read_text())
     report='\n'.join(['# Validación de la edición provisional 2026','',
         f"Descarga UTC: {meta['downloaded_at']}. Fuente actualizada: {meta['source_updated_at']} (Europe/Stockholm).",
         f"Distritos territoriales: {len(out)}. Contabilizados: {len(reported)}. Pendientes: {len(pending)}. Unidades de recogida excluidas del mapa: {meta['non_geographic_count']}.",
+        f"Unidades de recogida contabilizadas: {meta['reported_non_geographic_count']} / {meta['non_geographic_count']}. Total de unidades contabilizadas: {meta['reported_unit_count']} / {meta['reporting_unit_count']}. Los votos de recogida se incluyen en la evolución municipal y nacional, no se reparten entre distritos territoriales.",
         '', '## Comprobaciones realizadas','',
         '- Firmas RSA/SHA-256 de los tres JSON verificadas con el certificado oficial; MD5 del ZIP contrastado con el índice. SHA-256 y petición de cada original conservados.',
         '- Elección real Val_2026 / RD / preliminär; rechaza simulaciones test=true. Fecha electoral y estado preservados.',

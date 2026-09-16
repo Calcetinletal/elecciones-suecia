@@ -1,0 +1,101 @@
+{
+  "S": {
+    "districts_plotted": 6312,
+    "districts_excluded": 0,
+    "primary_correlation": "Spearman rho (nonparametric, average ranks for ties)",
+    "spearman_rho_equal_district_weight": 0.5173854130815329,
+    "pearson_r_equal_district_weight": 0.5584965046849526,
+    "ols_intercept": 23.774950233341006,
+    "ols_slope_pp_per_pp": 0.40755123920463937,
+    "y_axis_limits": [
+      0,
+      60
+    ],
+    "source_updated_at": "2026-09-16T15:15:01",
+    "source_csv_sha256": "ec0d764b416f961eaf175234e0c21e582d81529a2c035fb14ca83a092169ffb0",
+    "source_csv": "public/data/2026/joined_2026.csv",
+    "party_codes": [
+      "S"
+    ],
+    "population_year": 2025,
+    "election_year": 2026,
+    "x_definition": "100 * born_rest_world_unknown_count / birth_regions_population",
+    "y_definition": "100 * sum(selected party vote counts) / valid_votes",
+    "notes": "Equal district weights; no significance tests. Dashed line is OLS, not a Spearman fit. Spatial estimates; no individual-vote inference."
+  },
+  "V": {
+    "districts_plotted": 6312,
+    "districts_excluded": 0,
+    "primary_correlation": "Spearman rho (nonparametric, average ranks for ties)",
+    "spearman_rho_equal_district_weight": 0.7847733014076796,
+    "pearson_r_equal_district_weight": 0.8324605339497068,
+    "ols_intercept": 1.8703231214438454,
+    "ols_slope_pp_per_pp": 0.6115987904221025,
+    "y_axis_limits": [
+      0,
+      65
+    ],
+    "source_updated_at": "2026-09-16T15:15:01",
+    "source_csv_sha256": "ec0d764b416f961eaf175234e0c21e582d81529a2c035fb14ca83a092169ffb0",
+    "source_csv": "public/data/2026/joined_2026.csv",
+    "party_codes": [
+      "V"
+    ],
+    "population_year": 2025,
+    "election_year": 2026,
+    "x_definition": "100 * born_rest_world_unknown_count / birth_regions_population",
+    "y_definition": "100 * sum(selected party vote counts) / valid_votes",
+    "notes": "Equal district weights; no significance tests. Dashed line is OLS, not a Spearman fit. Spatial estimates; no individual-vote inference."
+  },
+  "SV": {
+    "districts_plotted": 6312,
+    "districts_excluded": 0,
+    "primary_correlation": "Spearman rho (nonparametric, average ranks for ties)",
+    "spearman_rho_equal_district_weight": 0.6831663056477018,
+    "pearson_r_equal_district_weight": 0.7924456019442581,
+    "ols_intercept": 25.645273354784837,
+    "ols_slope_pp_per_pp": 1.019150029626742,
+    "y_axis_limits": [
+      0,
+      100
+    ],
+    "source_updated_at": "2026-09-16T15:15:01",
+    "source_csv_sha256": "ec0d764b416f961eaf175234e0c21e582d81529a2c035fb14ca83a092169ffb0",
+    "source_csv": "public/data/2026/joined_2026.csv",
+    "party_codes": [
+      "S",
+      "V"
+    ],
+    "population_year": 2025,
+    "election_year": 2026,
+    "x_definition": "100 * born_rest_world_unknown_count / birth_regions_population",
+    "y_definition": "100 * sum(selected party vote counts) / valid_votes",
+    "notes": "Equal district weights; no significance tests. Dashed line is OLS, not a Spearman fit. Spatial estimates; no individual-vote inference."
+  },
+  "SVG": {
+    "districts_plotted": 6312,
+    "districts_excluded": 0,
+    "primary_correlation": "Spearman rho (nonparametric, average ranks for ties)",
+    "spearman_rho_equal_district_weight": 0.6692501895173947,
+    "pearson_r_equal_district_weight": 0.73376744609245,
+    "ols_intercept": 32.03033144775437,
+    "ols_slope_pp_per_pp": 0.9907829616517345,
+    "y_axis_limits": [
+      0,
+      100
+    ],
+    "source_updated_at": "2026-09-16T15:15:01",
+    "source_csv_sha256": "ec0d764b416f961eaf175234e0c21e582d81529a2c035fb14ca83a092169ffb0",
+    "source_csv": "public/data/2026/joined_2026.csv",
+    "party_codes": [
+      "S",
+      "V",
+      "MP"
+    ],
+    "population_year": 2025,
+    "election_year": 2026,
+    "x_definition": "100 * born_rest_world_unknown_count / birth_regions_population",
+    "y_definition": "100 * sum(selected party vote counts) / valid_votes",
+    "notes": "Equal district weights; no significance tests. Dashed line is OLS, not a Spearman fit. Spatial estimates; no individual-vote inference."
+  }
+}

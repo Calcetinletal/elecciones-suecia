@@ -1,9 +1,9 @@
 # 2026 provisional + demografía 2025
 
-Edición activada en el atlas. Instantánea descargada el 15/09/2026 a las 00:06:43 de Estocolmo; fuente actualizada el 14/09/2026 a las 18:30:03, hora sueca. 6.312 distritos territoriales, 6.312 contabilizados, 0 pendientes; 314 unidades de recogida fuera del mapa.
+Edición activada en el atlas. Instantánea descargada el 16/09/2026 a las 15:16:40 de Estocolmo; fuente actualizada el 16/09/2026 a las 15:15:01. Los 6.312 distritos territoriales están contabilizados. De las 314 unidades de recogida, 175 han informado y 139 están pendientes. Total: 6.487 / 6.626 unidades. Las unidades de recogida se incluyen en la evolución municipal y nacional, pero permanecen fuera del mapa.
 
 ```sh
-.venv/bin/python scripts/build_2026.py --snapshot 2026-09-15_000643
+.venv/bin/python scripts/build_2026.py --snapshot 2026-09-16_refresh_02
 npm run build
 ```
 

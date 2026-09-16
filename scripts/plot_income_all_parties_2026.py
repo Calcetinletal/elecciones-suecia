@@ -8,6 +8,7 @@ from collections import Counter
 import csv
 import hashlib
 import json
+from datetime import datetime
 import math
 import shutil
 import numpy as np
@@ -20,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'public/data/2026/joined_2026.csv'
 PROVENANCE = ROOT / 'public/data/2026/income_provenance.json'
 OUT = ROOT / 'reports/income-plots-2026'
-STEM = 'income-all-parties-2026-English-v1-spearman'
+STEM = 'income-all-parties-2026-English-v2-spearman'
 CONFIG = [
     ('S', 'Social Democrats', '#c73646'),
     ('M', 'Moderates', '#2475b4'),
@@ -88,6 +89,9 @@ def main():
     provenance = json.loads(PROVENANCE.read_text())
     assert provenance['reference_year'] == provenance['price_year'] == 2024
     x = np.array([p['mean_net_income_sek_per_year'] for p in points])
+    source_updated=rows[0]['election_updated_at']
+    assert all(r['election_updated_at']==source_updated for r in rows)
+    source_label=datetime.fromisoformat(source_updated).strftime('%d %b %Y, %H:%M')
     summary = {
         'districts_in_source': len(rows), 'districts_plotted_per_panel': len(points), 'exclusions': excluded,
         'source_csv': str(SOURCE.relative_to(ROOT)), 'source_csv_sha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
@@ -152,7 +156,7 @@ def main():
     fig.text(.52, .140, 'Estimated mean annual net income (SEK per person)', ha='center', fontsize=21)
     fig.text(.52, .108, 'Log income axis · each tick doubles income · all districts shown · Y-axis ranges differ', ha='center', fontsize=15, color=MUTED)
     fig.text(.055, .065, 'Income: SCB full-year population aged 20+ · after tax, including capital income and transfers · 2024 prices.', fontsize=13, color=MUTED)
-    fig.text(.055, .039, 'Sources: Valmyndigheten (14 Sep 2026 snapshot) + SCB · income spatially estimated on 2026 electoral boundaries.', fontsize=12, color=MUTED)
+    fig.text(.055, .039, f'Sources: Valmyndigheten ({source_label}, Stockholm) + SCB · income estimated on 2026 electoral boundaries.', fontsize=12, color=MUTED)
     fig.text(.055, .013, 'Equal district weights. Territorial associations do not establish causality or identify how individuals voted.', fontsize=12, color=MUTED)
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
@@ -180,7 +184,7 @@ Parties: S, M, SD, V, C, KD, L and MP. The atlas groups remaining parties as “
 X: estimated mean annual personal net income in SEK, reference year 2024, constant 2024 prices.
 The source population is SCB's full-year population aged 20+, with its source restrictions; see the income provenance in the statistics JSON.
 Net income includes capital income and transfers after tax. It is not salary, median income or household-equivalised income.
-Income is spatially estimated on 2026 electoral boundaries. Election results are the stored provisional 14 September 2026 snapshot.
+Income is spatially estimated on 2026 electoral boundaries. Election results are the stored provisional {source_label} (Stockholm) snapshot.
 Y: 100 × party votes / valid votes, checked against published percentage fields.
 
 Spearman rho is calculated on the original observations, with average ranks for ties and equal district weights.

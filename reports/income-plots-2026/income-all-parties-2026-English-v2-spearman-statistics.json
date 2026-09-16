@@ -1,0 +1,175 @@
+{
+  "districts_in_source": 6312,
+  "districts_plotted_per_panel": 6312,
+  "exclusions": {},
+  "source_csv": "public/data/2026/joined_2026.csv",
+  "source_csv_sha256": "ec0d764b416f961eaf175234e0c21e582d81529a2c035fb14ca83a092169ffb0",
+  "income_provenance": {
+    "source_url": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__HE__HE0110__HE0110I/Tab1InkDesoRegso/",
+    "api_url": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/HE/HE0110/HE0110I/Tab1InkDesoRegso",
+    "table": "Tab1InkDesoRegso",
+    "income_type": "NeInk",
+    "contents": {
+      "mean_tkr": "0000089T",
+      "persons": "0000089O"
+    },
+    "raw_sha256": "81f241c5c0766cf5051a1a1ab8f33a8efb0b0c5b159c3c5957be8b1d4cb10c02",
+    "downloaded_at": "2026-09-15T14:42:32.638355+00:00",
+    "reference_year": 2024,
+    "price_year": 2024,
+    "unit": "SEK per person per year, constant 2024 prices",
+    "population": "Persons aged 20+ registered in Sweden throughout the reference year, according to SCB full-year-population restrictions; not all residents or eligible voters. Households with zero disposable income are excluded by the source.",
+    "definition": "Net income: taxable and tax-free personal income, including capital income and transfers, minus tax and other negative transfers such as student-loan repayments. Not salary, gross income, household-equivalised income or median income.",
+    "election_geometry_year": 2026,
+    "deso_geometry_year": 2025,
+    "population_grid_year": 2025,
+    "deso_count": 6160,
+    "district_count": 6312,
+    "complete_district_count": 6312,
+    "missing_source_deso_count": 0,
+    "crosswalk_sha256": "e59f3c4ee885c34626a19feb73e5119f60f1ccfd710384ec155cdfe352e397c8",
+    "method": "sum(w * source_persons * source_mean_tkr * 1000) / sum(w * source_persons). Same population-grid overlay as the atlas. No weighted medians, municipal substitutes, renormalisation of spatial weights or zero-filling. Any missing positive-weight source contributor suppresses the district estimate.",
+    "limitations": [
+      "Within each DeSO the income population and net income are assumed to follow the all-age population grid. Different income groups may live in different parts of the same DeSO.",
+      "For 2026 the income year is 2024, DeSO geography and population weights are from 2025, and electoral boundaries from 2026. It is not 2026 income or an estimate of income growth.",
+      "Source means and counts are rounded/disclosure controlled; reconstructed sums are approximate. Existing spatial coverage diagnostics also apply.",
+      "SCB assigns some geographically unlocatable persons to central DeSO/RegSO areas in their municipality.",
+      "Values for 2022 and 2024 are both expressed in constant 2024 prices. No district income trend is inferred across changed electoral boundaries."
+    ]
+  },
+  "election_source_url": "https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip",
+  "election_updated_at": [
+    "2026-09-16T15:15:01"
+  ],
+  "election_status": {
+    "provisional": 6312
+  },
+  "x_definition": "Estimated mean annual personal net income; SCB income population aged 20+, reference year 2024, SEK at 2024 prices.",
+  "y_definition": "100 * party_votes / valid_votes",
+  "x_display": "Logarithmic, original SEK values labelled; all positive observed incomes included. No trimming or winsorisation.",
+  "x_observed_range_sek": [
+    145888.396314,
+    2673694.38272
+  ],
+  "correlation": "Spearman rho: Pearson correlation of average ranks, equal district weights, average ranks for ties; no significance tests.",
+  "notes": [
+    "Eight individually identified parliamentary parties in the atlas. Other parties are an aggregate category and are not an additional party panel.",
+    "Logarithmic display does not change Spearman rho; coefficients are computed from original income values.",
+    "Income is a spatial estimate, not salary or median income. Vote shares are observed provisional 2026 results.",
+    "District-level association does not identify individual voting behaviour or establish causality. Spatial dependence and estimation uncertainty remain."
+  ],
+  "parties": {
+    "S": {
+      "name": "Social Democrats",
+      "n": 6312,
+      "spearman_rho": -0.6080886717594391,
+      "pearson_r_raw_income_reference": -0.5633454587272219,
+      "y_observed_range_pct": [
+        4.004329004329004,
+        57.21830985915493
+      ],
+      "y_axis_range_pct": [
+        0,
+        60
+      ]
+    },
+    "M": {
+      "name": "Moderates",
+      "n": 6312,
+      "spearman_rho": 0.737996339286809,
+      "pearson_r_raw_income_reference": 0.6795967214919205,
+      "y_observed_range_pct": [
+        0.3508771929824561,
+        51.87566988210075
+      ],
+      "y_axis_range_pct": [
+        0,
+        55
+      ]
+    },
+    "SD": {
+      "name": "Sweden Democrats",
+      "n": 6312,
+      "spearman_rho": -0.2727739618537793,
+      "pearson_r_raw_income_reference": -0.2771588686126672,
+      "y_observed_range_pct": [
+        0.7425742574257426,
+        46.348314606741575
+      ],
+      "y_axis_range_pct": [
+        0,
+        50
+      ]
+    },
+    "V": {
+      "name": "Left Party",
+      "n": 6312,
+      "spearman_rho": -0.5229751318511519,
+      "pearson_r_raw_income_reference": -0.37689211413764956,
+      "y_observed_range_pct": [
+        0.10101010101010101,
+        60.32953105196451
+      ],
+      "y_axis_range_pct": [
+        0,
+        65
+      ]
+    },
+    "C": {
+      "name": "Centre Party",
+      "n": 6312,
+      "spearman_rho": 0.684757747312044,
+      "pearson_r_raw_income_reference": 0.5365130228995683,
+      "y_observed_range_pct": [
+        0.1111111111111111,
+        21.941747572815533
+      ],
+      "y_axis_range_pct": [
+        0,
+        25
+      ]
+    },
+    "KD": {
+      "name": "Christian Democrats",
+      "n": 6312,
+      "spearman_rho": 0.22818655391092857,
+      "pearson_r_raw_income_reference": 0.11757047260719873,
+      "y_observed_range_pct": [
+        0.0,
+        28.549734244495063
+      ],
+      "y_axis_range_pct": [
+        0,
+        30
+      ]
+    },
+    "L": {
+      "name": "Liberals",
+      "n": 6312,
+      "spearman_rho": 0.7846858588607771,
+      "pearson_r_raw_income_reference": 0.7856069670066477,
+      "y_observed_range_pct": [
+        0.0,
+        21.536796536796537
+      ],
+      "y_axis_range_pct": [
+        0,
+        25
+      ]
+    },
+    "MP": {
+      "name": "Greens",
+      "n": 6312,
+      "spearman_rho": 0.3976328179499963,
+      "pearson_r_raw_income_reference": 0.1263429553550836,
+      "y_observed_range_pct": [
+        0.3333333333333333,
+        35.003977724741446
+      ],
+      "y_axis_range_pct": [
+        0,
+        40
+      ]
+    }
+  }
+}

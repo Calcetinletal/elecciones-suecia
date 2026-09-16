@@ -1,7 +1,8 @@
 # Validación de la edición provisional 2026
 
-Descarga UTC: 2026-09-14T22:06:43.508480+00:00. Fuente actualizada: 2026-09-14T18:30:03 (Europe/Stockholm).
+Descarga UTC: 2026-09-16T13:16:40.171525+00:00. Fuente actualizada: 2026-09-16T15:15:01 (Europe/Stockholm).
 Distritos territoriales: 6312. Contabilizados: 6312. Pendientes: 0. Unidades de recogida excluidas del mapa: 314.
+Unidades de recogida contabilizadas: 175 / 314. Total de unidades contabilizadas: 6487 / 6626. Los votos de recogida se incluyen en la evolución municipal y nacional, no se reparten entre distritos territoriales.
 
 ## Comprobaciones realizadas
 
@@ -22,9 +23,9 @@ Se repararon seis geometrías analíticas. En las colecciones se conservaron com
 {
   "election_year": 2026,
   "status": "provisional",
-  "snapshot": "2026-09-15_000643",
-  "downloaded_at": "2026-09-14T22:06:43.508480+00:00",
-  "source_updated_at": "2026-09-14T18:30:03",
+  "snapshot": "2026-09-16_refresh_02",
+  "downloaded_at": "2026-09-16T13:16:40.171525+00:00",
+  "source_updated_at": "2026-09-16T15:15:01",
   "source_timezone": "Europe/Stockholm",
   "district_count": 6312,
   "reported_district_count": 6312,
@@ -40,7 +41,7 @@ Se repararon seis geometrías analíticas. En las colecciones se conservaron com
   "demography_source_url": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101Y/FolkmDesoBakgrKon/",
   "license": "Valmyndigheten: free reuse with attribution; SCB: CC0",
   "signatures_verified": true,
-  "election_sha256": "e30649614e124867a481a16c6218446c1a8c89179df373e544e4051a315b134c",
+  "election_sha256": "185e534df82aad3ebfad0e9b51c2fa66e5f731b5a5daa595e5513a255a1d8f1b",
   "boundary_repairs": 6,
   "intersections": 37104,
   "source_weight_min": 0.9993174684054226,
@@ -56,7 +57,11 @@ Se repararon seis geometrías analíticas. En las colecciones se conservaron com
   },
   "comparable_reported_count": 5059,
   "scb_disclosure_control": "CKM: independently protected cells; sums may differ from published totals",
-  "education_and_employment": "Not included in this 2025 demographic edition"
+  "education_and_employment": "Not included in this 2025 demographic edition",
+  "reporting_unit_count": 6626,
+  "reported_unit_count": 6487,
+  "reported_non_geographic_count": 175,
+  "pending_non_geographic_count": 139
 }
 ```
 

@@ -113,3 +113,12 @@ La media queda disponible en 6.259/6.264 distritos de 2022 y 6.312/6.312 de 2026
 Los cinco sin dato no se imputan. Ver income_provenance.json por edición para
 universo, fórmula, años geográficos, cobertura y limitaciones. No describe únicamente
 a los electores ni permite atribuir votos individuales a grupos de renta.
+
+## Actualización electoral del 16 de septiembre de 2026
+
+- Instantánea `2026-09-16_refresh_02`: fuente preliminar de Valmyndigheten actualizada 2026-09-16T15:15:01 (Europe/Stockholm), descargada 2026-09-16T13:16:40.171525+00:00 UTC. SHA-256 `185e534df82aad3ebfad0e9b51c2fa66e5f731b5a5daa595e5513a255a1d8f1b`. Índice MD5 y las tres firmas RSA/SHA-256 coinciden y se verificaron.
+- 6.312 distritos territoriales contabilizados; 175/314 unidades de recogida. La cifra oficial de 6.487/6.626 incluye ambos tipos: no debe compararse solo con las 6.312 filas territoriales del mapa.
+- Se consultó también el archivo `slutlig`, actualizado 2026-09-16T15:15:13: 1.331 distritos contabilizados, todavía parcial. Se conserva una edición provisional completa y no se mezclan recuentos.
+- Los votos por partido de los 6.312 distritos territoriales no cambiaron respecto a la instantánea anterior. Cambiaron electores y participación en 96 distritos (hasta dos electores; hasta 0,149195 puntos de participación); se regeneraron diferencias disponibles. Las series municipales y nacionales incorporan las unidades de recogida nuevas.
+- Límites y correspondencias nuevos tienen hashes idénticos a los originales anteriores: se reutilizó el cruce poblacional. Todas las variables demográficas y de renta se verificaron idénticas tras regenerar el dataset.
+- La primera descarga `2026-09-16_refresh` no coincidió con su índice durante la actualización remota y se descartó. Permanece en el inventario como descarga auditada, pero no se usa para publicar resultados. La segunda instantánea supera todas las comprobaciones.

@@ -71,7 +71,7 @@ export async function showEvolution(root:HTMLElement){
  if(new URLSearchParams(location.search).get('scope')==='district'){await showDistrictArchive(root);return;}
  root.innerHTML='<p class="loading" role="status">Cargando series históricas oficiales…</p>';
  try{
-  const response=await fetch(`${base}data/history/index.json`);if(!response.ok)throw new Error(`Índice histórico (${response.status})`);const index=await response.json() as Index;
+  const response=await fetch(`${base}data/history/index.json`,{cache:'no-cache'});if(!response.ok)throw new Error(`Índice histórico (${response.status})`);const index=await response.json() as Index;
   const params=new URLSearchParams(location.search);let code=index.regions.some(r=>r.code===params.get('municipality'))?params.get('municipality')!:'00';
   let mode=['parents','regions','countries'].includes(params.get('origin')??'')?params.get('origin')!:'parents';
   let requested=(params.get('origins')??params.get('country')??'').split(',').filter(c=>index.countries.some(x=>x.code===c));
@@ -115,7 +115,7 @@ export async function showEvolution(root:HTMLElement){
 let inlineIndex:Promise<Index>|undefined;
 const inlineTerritories=new Map<string,Promise<Territory>>();
 function historyIndex(){
- return inlineIndex??=(async()=>{try{const response=await fetch(`${base}data/history/index.json`);if(!response.ok)throw new Error(`Índice histórico (${response.status})`);return await response.json() as Index;}catch(error){inlineIndex=undefined;throw error;}})();
+ return inlineIndex??=(async()=>{try{const response=await fetch(`${base}data/history/index.json`,{cache:'no-cache'});if(!response.ok)throw new Error(`Índice histórico (${response.status})`);return await response.json() as Index;}catch(error){inlineIndex=undefined;throw error;}})();
 }
 function historyTerritory(code:string){
  let pending=inlineTerritories.get(code);
@@ -159,7 +159,7 @@ export async function mountDistrictHistory(root:HTMLElement,d:District){
 async function showDistrictArchive(root:HTMLElement){
  root.innerHTML='<p class="loading">Cargando archivo de distritos…</p>';
  try{
-  const response=await fetch(`${base}data/history/district_archive/index.json`);if(!response.ok)throw new Error(`Índice (${response.status})`);
+  const response=await fetch(`${base}data/history/district_archive/index.json`,{cache:'no-cache'});if(!response.ok)throw new Error(`Índice (${response.status})`);
   const index=await response.json() as {years:number[];regions:{code:string;name:string;counts:Record<string,number>}[]};
   const params=new URLSearchParams(location.search);let code=params.get('municipality')??'0180';if(!index.regions.some(r=>r.code===code))code=index.regions[0].code;
   let year=Number(params.get('year')??2026);if(!index.years.includes(year))year=2026;

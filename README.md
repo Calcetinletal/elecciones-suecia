@@ -4,7 +4,7 @@ Atlas interactivo **100 % estático**, en español, para explorar resultados del
 
 Incluye datos reales de **6.264 distritos de 2022**. Los 314 distritos de recogida de votos se conservan por separado. La demografía por distrito es una **estimación espacial** desde SCB DeSO 2018 y la cuadrícula oficial de población de 2022. No son observaciones exactas de cada valdistrikt. Educación: 2022; empleo: 2021. Renta mediana, edad y densidad: no disponibles.
 
-La web abre ahora la **edición provisional 2026**: 6.312 distritos territoriales, 6.312 contabilizados y 0 pendientes en la instantánea descargada el **15/09/2026 a las 00:06:43 de Estocolmo**. Demografía: **31/12/2025**, interpolada desde DeSO y cuadrícula SCB 2025. Fuente electoral actualizada el **14/09/2026 a las 18:30:03 de Estocolmo**. Hay diferencias respecto a 2022 disponibles para 5.059 distritos contabilizados con correspondencia oficial válida. Los 314 distritos de recogida se conservan aparte. La web muestra la fecha y no se actualiza en directo. Se puede seguir seleccionando 2022.
+La web abre la **edición provisional 2026**, actualizada con la fuente oficial del **16/09/2026 a las 15:15:01 de Estocolmo**. Descarga: 16/09/2026 15:16:40. Los 6.312 distritos territoriales están contabilizados; 0 pendientes. Hay además **175 de 314 unidades de recogida tardía contabilizadas**: se incluyen en las series municipales y nacionales, nunca se reparten entre los polígonos del mapa. En total han informado 6.487 de 6.626 unidades. La demografía sigue siendo del 31/12/2025 y la renta, de 2024. El recuento definitivo está en curso y no se mezcla con esta edición provisional. La web muestra la fecha y es una instantánea estática.
 
 ## Abrir localmente
 
@@ -121,14 +121,14 @@ En PowerShell: `$env:VITE_BASE_PATH='/mi-repositorio/'; npm run build`.
 
 `/analysis/` y `/methodology/` tienen archivos HTML físicos en `dist/`, por lo que se pueden recargar o compartir sin un servidor de rutas. `.nojekyll` se genera automáticamente. No hace falta un `404.html` que simule el enrutamiento.
 
-No se ha creado un repositorio remoto ni se ha publicado esta copia: el workflow queda listo para el repositorio que elijas.
+Publicado en https://calcetinletal.github.io/elecciones-suecia/ mediante el workflow de GitHub Pages.
 
 ## Configuración y URLs
 
 - `config/parties.json`: nombres y colores de partido. Recompilar tras editar.
 - `config/blocks.json`: agrupaciones por año. 2026 no hereda automáticamente las de 2022.
 - `config/sources.json`: URLs y tablas auditadas.
-- `public/data/manifest.json`: ediciones disponibles; la aplicación solo activa las definitivas.
+- `public/data/manifest.json`: ediciones disponibles; la aplicación activa ediciones definitivas o provisionales identificadas como tales.
 
 Ejemplo:
 
@@ -143,7 +143,7 @@ Otros parámetros: `county`, `band`, `quality`, `weight`, `analysisY`, `size`, `
 Con la caché incluida en este equipo:
 
 ```sh
-.venv/bin/python scripts/build_2026.py --snapshot 2026-09-15_000643
+.venv/bin/python scripts/build_2026.py --snapshot 2026-09-16_refresh_02
 npm run build
 ```
 

@@ -12,7 +12,7 @@ test('Spearman is primary, recalculates and is explained in all languages',async
  await page.goto('./analysis/?year=2026&analysisX=born_rest_world_unknown_pct&party=V&lang=en');
  await expect(page.locator('[data-stat=spearman] b')).toHaveText('0.785');
  const download=page.locator('.plot-downloads a').first();
- await expect(download).toHaveAttribute('href',/v8-spearman\.png$/);
+ await expect(download).toHaveAttribute('href',/v9-spearman\.png$/);
  const response=await page.request.get((await download.getAttribute('href'))!);expect(response.ok()).toBe(true);
  expect(response.headers()['content-type']).toContain('image/png');
  await page.locator('#point-size').selectOption('votes');
