@@ -433,3 +433,14 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  #controls .themed-toolbar .icon-button{padding-left:5px;padding-right:5px}
 }
 @media(max-width:1150px){.maps.compare.multi .extra-map-number{display:none}}
+
+.socio-definition{font-size:12px;line-height:1.5;color:#314f60;margin:12px 0 6px}
+.socio-axis-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 0;font-size:10px;color:#5b7281}
+.socio-axis-controls label{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:10px}
+.socio-axis-controls input{margin:0;accent-color:#248675}
+.indicator-brief{font-weight:500}.indicator-details-link{margin-left:8px;color:#176681;text-decoration:underline;white-space:nowrap;font-size:10px}
+.map-variable-help{flex:none;position:relative;margin-left:5px}
+.map-variable-help>summary{cursor:pointer;font-size:11px;font-weight:700;list-style:none;color:#286579;width:17px;height:17px;border:1px solid #7e9eaf;border-radius:50%;display:grid;place-items:center}
+.map-variable-help>div{position:absolute;z-index:12;right:0;bottom:calc(100% + 6px);max-height:180px;overflow:auto;width:min(290px,calc(100vw - 45px));padding:12px;background:#fff;border:1px solid #cadce4;border-radius:8px;box-shadow:0 5px 20px #23435933;color:#294452;font-size:12px;white-space:normal}
+.map-variable-help p{margin:6px 0;line-height:1.45}.map-variable-help small{font-size:10px}
+.map-slot:has(.map-variable-help[open]){z-index:5}

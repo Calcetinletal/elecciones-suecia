@@ -6,7 +6,7 @@ import {isIncomeMetric,metricAmount,metricYear} from './utils/income';
 import {comparisonPanel} from './components/comparison-panel';
 import {languagePicker,startLocalization,readLanguage,locales} from './i18n';
 import {dominantOptions,electionSelection,selectElection} from './utils/election-view';
-import {demographyHelp} from './components/origin-help';
+import {demographyHelp,mapVariableHelp} from './components/origin-help';
 import {decorateDistrict,isCategorical,categoryLabel,blockDefinitions,originDefinitions} from './utils/categories';
 import {demographyMetrics,isDemographyMetric,demographicLabel,metricGroups,metricGroup} from './utils/demography';
 import './style.css';
@@ -49,7 +49,7 @@ function extraMapControl(index:number){
  const choice=index===2?state.map3:state.map4,current=comparisonMapState(state,index),group=metricGroup(choice)?.id??'election';
  const votes=[...new Set([...parties.map(p=>p.id),state.party,choice.startsWith('vote:')?choice.slice(5):state.party])];
  const entries:[string,string][]=group==='election'?[['winning_party','Partido dominante'],['winning_block','Bloque dominante'],['turnout_pct','Participación'],...votes.map(p=>['vote:'+p,'Voto '+partyLabel(p)] as [string,string])]:metricGroups.find(g=>g.id===group)!.metrics;
- return `<label><span class="extra-map-number">Mapa ${index+1}</span><select class="extra-map-topic" data-extra-topic="${index}" aria-label="Tema del mapa ${index+1}">${options([['election','Elecciones'],...metricGroups.map(g=>[g.id,g.label] as [string,string])],group)}</select><select data-extra-map="${index}" aria-label="Variable del mapa ${index+1}">${options(entries,choice)}</select><span class="extra-map-year">${current.view==='electoral'?state.year:metricYear(rows[0],current.metric)}</span></label>`;
+ return `<label><span class="extra-map-number">Mapa ${index+1}</span><select class="extra-map-topic" data-extra-topic="${index}" aria-label="Tema del mapa ${index+1}">${options([['election','Elecciones'],...metricGroups.map(g=>[g.id,g.label] as [string,string])],group)}</select><select data-extra-map="${index}" aria-label="Variable del mapa ${index+1}">${options(entries,choice)}</select><span class="extra-map-year">${current.view==='electoral'?state.year:metricYear(rows[0],current.metric)}</span></label>${current.view==='demography'?mapVariableHelp(current.metric):''}`;
 }
 function mapWorkspace(compare:boolean){
  const count=compare?state.mapCount:1,multi=count>2;

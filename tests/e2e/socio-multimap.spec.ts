@@ -24,6 +24,10 @@ test('four maps stay synchronised, retain independent indicators and fit the des
  await page.locator('[data-extra-topic="2"]').selectOption('election');await page.locator('[data-extra-map="2"]').selectOption('vote:S+V');await expect(page.locator('#map-3')).toHaveAttribute('data-metric','pct_S+V');
  await page.locator('[data-extra-topic="3"]').selectOption('demographic');await page.locator('[data-extra-map="3"]').selectOption('socio_senior_pct');await expect(page.locator('#map-4')).toHaveAttribute('data-metric','socio_senior_pct');
  await expect(page.locator('#legend-4')).toContainText('Age 65 and over');
+ await expect(page.locator('.indicator-brief')).toContainText('two foreign-born parents');
+ const help=page.locator('#extra-caption-3 .map-variable-help');await help.locator('summary').click();await expect(help.locator('p').first()).toContainText('all residents');
+ const helpBox=(await help.locator('div').boundingBox())!,area=(await page.locator('.map-area').boundingBox())!;expect(helpBox.y).toBeGreaterThanOrEqual(area.y);expect(helpBox.x).toBeGreaterThanOrEqual(area.x);
+ await help.locator('summary').click();
  for(const width of [1366,1024]){
   await page.setViewportSize({width,height:768});
   expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -44,6 +48,10 @@ test('separate historical menu has income, social and demographic series with ac
  await expect(host).toHaveAttribute('data-scope','district');await expect(host.locator('polyline')).toBeVisible();
  expect(Number(await host.getAttribute('data-observations'))).toBeGreaterThan(5);
  await expect(host.locator('.socio-universe')).toContainText('2024 prices');
+ await expect(host.locator('.socio-definition')).toContainText('after taxes');
+ expect(Number(await host.getAttribute('data-y-min'))).toBeGreaterThan(0);
+ await host.locator('[data-socio-zero]').check();await expect(host).toHaveAttribute('data-y-min','0');
+ await host.locator('[data-socio-zero]').uncheck();expect(Number(await host.getAttribute('data-y-min'))).toBeGreaterThan(0);
  await host.locator('[data-socio-metric]').selectOption('employment');await expect(host.locator('.socio-universe')).toContainText('20–64');
  expect(Number(await host.getAttribute('data-observations'))).toBeGreaterThan(2);
  await host.locator('[data-socio-metric]').selectOption('senior');await expect(host.locator('.socio-readout span')).toContainText('2025');
