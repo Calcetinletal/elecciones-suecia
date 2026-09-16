@@ -122,3 +122,39 @@ a los electores ni permite atribuir votos individuales a grupos de renta.
 - Los votos por partido de los 6.312 distritos territoriales no cambiaron respecto a la instantánea anterior. Cambiaron electores y participación en 96 distritos (hasta dos electores; hasta 0,149195 puntos de participación); se regeneraron diferencias disponibles. Las series municipales y nacionales incorporan las unidades de recogida nuevas.
 - Límites y correspondencias nuevos tienen hashes idénticos a los originales anteriores: se reutilizó el cruce poblacional. Todas las variables demográficas y de renta se verificaron idénticas tras regenerar el dataset.
 - La primera descarga `2026-09-16_refresh` no coincidió con su índice durante la actualización remota y se descartó. Permanece en el inventario como descarga auditada, pero no se usa para publicar resultados. La segunda instantánea supera todas las comprobaciones.
+
+
+## Historia socioeconómica y edades — 16 septiembre 2026
+
+Fuentes SCB consultadas: Tab1InkDesoRegso (renta), UtbSUNBefDesoRegso y
+UtbSUNBefDesoRegsoN (educación), ArRegDesoStatusN (BAS), FolkmDesoAldKon (edad).
+Metadatos, consultas, respuestas, fechas y SHA-256 se conservan en caché inmutable.
+La renta está en precios del último año publicado (2024); nunca se promedian medianas.
+Educación contiene todas las cinco categorías en el denominador, incluida desconocida,
+y ambas categorías postsecundarias en el numerador. Desde 2023 el universo es 25–65,
+frente a 25–64 hasta 2022. Aunque la fuente es SCB, esta tabla detallada figura con
+Officiell statistik: Nej. No se presenta como observación electoral oficial.
+BAS se consulta en 20–64 para todos sus años (2020–2024): empleo / población,
+desempleo / población activa; no se une a la serie RAMS.
+La población y las edades se refieren a 31/12; CKM comienza en 2025.
+
+Se reutilizan los cruces históricos de nacimiento, con cuadrículas contemporáneas
+desde 2015. Para 2010–2014 solo se admiten uniones casi completas de DeSO.
+Se excluyen contribuyentes ausentes y fuentes con cobertura insuficiente, sin
+renormalizar pesos ni completar con el municipio. Numeradores y denominadores
+se agregan antes de dividir; población total se agrega como recuento.
+La historia muestra la geografía de cada edición y los enlaces no verificados.
+El agregado BAS de municipio/län/país es suma de DeSO; para las demás variables
+se publica el agregado SCB, sin mezclarlo con el distrito.
+
+Los nuevos mapas conservan los archivos originales de voto, origen y renta.
+Un suplemento separado aporta educación, empleo, desempleo y edades. En la edición
+2026 usa el cruce/retícula 2025: educación/edad 2025 y BAS 2024. No es un crecimiento
+de 2024 a 2026. La edición 2022 conserva 95 casos sin estimación por cobertura
+espacial insuficiente, en vez de imputarlos. Cobertura por variable/año y huellas de
+los cruces en history/socio/provenance.json.
+
+Validación: 522.707 observaciones revisadas (orden/duplicados/años/rangos); 195
+estimaciones recalculadas independientemente con celdas y pesos de origen. Los
+agregados publicados de muestras municipales y nacionales coinciden con SCB.
+Ninguna columna preexistente de los distritos es reemplazada por el suplemento.

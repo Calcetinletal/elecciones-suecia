@@ -368,3 +368,27 @@ Archivos: `public/data/{2022,2026}/income_provenance.json`, columnas `mean_net_i
 `income_method`, `income_deso_year`, `income_grid_year` e `income_source_url` en JSON/CSV.
 Los demás campos se conservan sin cambios. La metodología web documenta también la historia
 2002–2026, los puntos ausentes unidos visualmente, los cambios de límites y el contexto municipal separado.
+
+
+## Historia socioeconómica y comparación múltiple
+
+`Renta y sociedad` abre una serie anual independiente para el distrito seleccionado,
+o para el municipio, región o país completos. Incluye renta 2011–2024, educación
+2015–2025, BAS 2020–2024 y edades/población 2010–2025. Ofrece selector de año,
+tabla y CSV. No hay imputación de años faltantes ni sustitución municipal de datos distritales.
+Los límites históricos, el universo de cada tasa y los cambios de método se etiquetan.
+
+En Comparar, `Mapas` permite 2, 3 o 4 mapas sincronizados. Los mapas adicionales
+tienen selector independiente de votos, origen, renta, educación, empleo, desempleo
+y grupos de edad. Los enlaces conservan `mapCount`, `map3` y `map4`.
+Seleccionar Todos los municipios limpia también la región fijada al buscar un lugar.
+
+Para reproducir con la caché y cruces históricos del proyecto:
+```sh
+.venv/bin/python scripts/build_socio_history.py
+.venv/bin/pytest -q tests/test_socio_history.py
+npm test
+npm run build
+```
+Auditoría y cobertura: `public/data/history/socio/provenance.json`.
+Los originales permanecen en la caché inmutable `data/raw/scb/socio_history/2026-09-16/`.

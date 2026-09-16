@@ -1,3 +1,4 @@
+import {socioMetric} from '../utils/socio';
 import {partyLabel} from '../utils/party-selection';
 import {isIncomeMetric,incomeAmount} from '../utils/income';
 import {comparisonElectionLabel} from '../utils/election-view';
@@ -38,6 +39,7 @@ export function scaleLabels(domain:ReturnType<typeof percentageScale>){return `<
 export function numericMetric(s:State){return s.metric.startsWith('delta_')?s.metric:s.view==='demography'?s.metric:s.metric==='turnout_pct'?'turnout_pct':`pct_${s.party}`;}
 export function label(s:State){
  if(s.view==='compare')return demographicLabel(s.metric)+' / '+comparisonElectionLabel(s);
+ if(socioMetric(s.metric))return demographicLabel(s.metric);
  if(isIncomeMetric(s.metric))return 'Renta neta media anual ≈';
  if(s.metric==='winning_block')return 'Bloque más votado';
  if(s.metric==='common_origin')return 'Región extranjera predominante ≈';

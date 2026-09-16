@@ -388,3 +388,32 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 #apply-party-sum:disabled{opacity:.45;cursor:not-allowed}
 .selected-party-sum{font-size:12px;font-weight:650;color:#175879}
 .selected-party-sum b{font-weight:800;margin-left:5px;white-space:nowrap}
+.map-number-label{display:flex;align-items:center;gap:4px;flex:none;font-size:10px;margin-left:auto;pointer-events:auto}
+.map-number-label select{margin:0;min-height:22px;width:45px;padding:2px 4px;font-size:11px}
+.maps.compare.multi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3px;background:#dbe5ed}
+.maps.compare.multi[data-map-count="3"]>.map-slot:last-child{grid-column:1/-1}
+.maps.compare.multi .map-slot{position:relative;min-width:0;min-height:0;border:0}
+.maps.compare.multi .legend{position:static!important;flex:none;width:auto;max-width:none;padding:3px 6px;margin:0;border:0;border-radius:0;box-shadow:none;font-size:9px;background:#f8fafb}
+.maps.compare.multi .legend b{font-size:9px;margin:0}
+.maps.compare.multi .legend .scale{height:5px;margin:2px 0}
+.maps.compare.multi .scale-labels,.maps.compare.multi .legend-notes>summary{font-size:9px;line-height:1.1;padding:0}
+.maps.compare.multi .categorical-legend,.maps.compare.multi .party-legend{display:flex;flex-wrap:wrap;gap:3px 6px}
+.maps.compare.multi .categorical-legend>span{font-size:9px}
+.maps.compare.multi .party-badge{height:15px;width:15px;flex-basis:15px;font-size:8px}
+.maps.compare.multi .legend-notes small{font-size:10px}
+.extra-map-year{font-size:9px;color:#5e7485;flex:none}
+#socio-history-menu>summary{font-size:11px;font-weight:650;padding:8px 10px;border:1px solid #c7ded8;border-radius:7px;background:#eaf6f0;color:#206859;cursor:pointer;white-space:nowrap}
+#socio-history-menu[open]>.socio-history-content{position:fixed;z-index:60;top:135px;right:20px;width:min(740px,calc(100vw - 40px));max-height:calc(100dvh - 160px);overflow:auto;background:white;border:1px solid #c2d9d0;box-shadow:0 14px 60px #19374840;border-radius:12px;padding:18px}
+.socio-heading,.socio-controls,.socio-readout,.socio-year{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.socio-heading strong{font-size:14px}.socio-heading small{display:block;color:#657b89;font-size:11px;margin-top:3px}.socio-heading button{border:0;font-size:23px;padding:0 6px}
+.socio-controls{margin-top:12px}.socio-controls label{flex:1;font-size:11px}.socio-controls select{width:100%;min-height:30px;padding:5px 8px;margin-top:4px}.socio-controls button{font-size:11px;align-self:end;padding:7px}
+.socio-universe,.socio-geography{font-size:11px;color:#607585;line-height:1.4;margin:9px 0}
+.socio-readout{background:#edf6f3;padding:8px 12px;border-radius:7px;color:#235e50}.socio-readout strong{font-size:20px}.socio-readout span{font-size:14px;font-weight:700}
+.socio-chart{width:100%;max-height:235px;display:block;margin-top:5px}.socio-chart text{font-size:12px;fill:#5d7482}.socio-year{font-size:12px}.socio-year input{flex:1;width:0;min-width:0}.socio-year output{font-weight:700;min-width:35px}
+.socio-notes,.socio-table{font-size:11px;border-top:1px solid #e2ebe7;margin-top:10px;padding-top:9px}.socio-notes summary,.socio-table summary{cursor:pointer;font-weight:650}.socio-notes p{font-size:11px;line-height:1.5;margin:9px 0}.socio-table th,.socio-table td{font-size:11px;padding:6px}
+@media(max-width:760px){#socio-history-menu[open]>.socio-history-content{top:12px;right:12px;width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:14px}.map-area .maps.compare.multi{min-height:540px}.maps.compare.multi .map-caption label{flex-wrap:wrap}.extra-map-year{display:none}}
+@media(min-width:761px) and (max-width:1150px){#controls .election-modes{display:none}}
+.map-area:has(.maps.compare) .map-topline{overflow:hidden}
+.map-area:has(.maps.compare) .map-topline>#map-count{flex:1;min-width:0}
+.map-area:has(.maps.compare) .map-topline .map-number-label{margin-left:0}
+.map-area:has(.maps.compare) .map-topline>#reset-map{flex:none}
