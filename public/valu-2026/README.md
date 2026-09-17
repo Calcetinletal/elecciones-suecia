@@ -15,6 +15,17 @@ porcentajes entre los grupos mostrados de la misma variable.
 Los grupos se tratan sin ponderarlos por su tamaño. Por tanto, NO describe
 la composición demográfica del electorado de cada partido. Tampoco mezcla
 los grupos de distintas variables dentro de un mismo denominador.
+La composición que tiene como denominador todos los votantes de un partido
+requiere recuentos conjuntos ponderados: 100 × votantes del grupo y del
+partido / total de votantes del partido. No se obtiene normalizando estas
+columnas. Faltan las bases ponderadas compatibles para calcularla en 2026.
+Los tamaños muestrales de origen del PDF no se usan como sustituto: no se
+confirma que sean las bases ponderadas de los porcentajes. Además, las
+categorías familiares pueden solaparse. Las variables incompletas precisan
+categorías restantes y sin respuesta para representar el total del partido.
+Consulta de disponibilidad (17/09/2026): la colección de microdatos de VALU
+en https://researchdata.se/sv/catalogue/collection/valu lista hasta 2024
+(elecciones europeas) y 2022 (parlamentarias); no se localizó VALU 2026.
 Las etiquetas se redondean a una cifra decimal por mayores restos para que
 las columnas impresas sumen exactamente 100.0. Puede haber ajustes de 0.1
 respecto al redondeo convencional. El color usa el mismo rango 0–100 de índice.

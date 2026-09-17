@@ -30,6 +30,7 @@ WIDGET = 'https://australis.svt.se/quickshot/kross/widgets/lo7ut/webframe.html'
 args = argparse.ArgumentParser()
 args.add_argument('--refresh', action='store_true')
 args.add_argument('--summary-only', action='store_true', help='Regenerate summary charts and gallery, retaining existing bar charts')
+args.add_argument('--gallery-only', action='store_true', help='Refresh gallery, metadata and archive, retaining existing figures')
 args.add_argument('--mode', choices=['all','normalized','raw','rows'], default='all')
 args = args.parse_args()
 snapshot = OUT / 'valu-2026-source.json'
@@ -152,6 +153,7 @@ def footer(fig, lang, key=None):
     fig.text(.955,.026,label,ha='right',size=10,color='#516572',url=source)
 
 for mode,lang,li in [(mode,lang,li) for mode in ['normalized','raw','rows'] if args.mode in ['all',mode] for lang,li in [('es',2),('en',3)]]:
+    if args.gallery_only:continue
     raw=mode=='raw'; row_mode=mode=='rows'; percentage=raw or row_mode
     def plot_values(keys):return values(keys) if raw else normalized_values(keys,1 if row_mode else 0)[1]
     suffix='-vote-share' if raw else '-row-normalized' if row_mode else ''
@@ -233,6 +235,17 @@ porcentajes entre los grupos mostrados de la misma variable.
 Los grupos se tratan sin ponderarlos por su tamaño. Por tanto, NO describe
 la composición demográfica del electorado de cada partido. Tampoco mezcla
 los grupos de distintas variables dentro de un mismo denominador.
+La composición que tiene como denominador todos los votantes de un partido
+requiere recuentos conjuntos ponderados: 100 × votantes del grupo y del
+partido / total de votantes del partido. No se obtiene normalizando estas
+columnas. Faltan las bases ponderadas compatibles para calcularla en 2026.
+Los tamaños muestrales de origen del PDF no se usan como sustituto: no se
+confirma que sean las bases ponderadas de los porcentajes. Además, las
+categorías familiares pueden solaparse. Las variables incompletas precisan
+categorías restantes y sin respuesta para representar el total del partido.
+Consulta de disponibilidad (17/09/2026): la colección de microdatos de VALU
+en https://researchdata.se/sv/catalogue/collection/valu lista hasta 2024
+(elecciones europeas) y 2022 (parlamentarias); no se localizó VALU 2026.
 Las etiquetas se redondean a una cifra decimal por mayores restos para que
 las columnas impresas sumen exactamente 100.0. Puede haber ajustes de 0.1
 respecto al redondeo convencional. El color usa el mismo rango 0–100 de índice.
@@ -314,7 +327,7 @@ gallery='''<!doctype html><html lang="es"><meta charset="utf-8"><meta name="view
 <script>
 const data=__DATA__,groups=__GROUPS__,parties=__PARTIES__,notes=__NOTES__,definitions=__DEFINITIONS__,scaleNote=__SCALE_NOTE__,normalized=__NORMALIZED__,rowNormalized=__ROW_NORMALIZED__,rowNote=__ROW_NOTE__,extraGroups=__EXTRA_GROUPS__,seminarNotes=__SEMINAR_NOTES__,seminarSource=__SEMINAR_SOURCE__,titles=__TITLES__;
 const copy={es:{title:'Suecia 2026 · Cómo votaron los distintos grupos',intro:'Porcentaje de voto a cada partido dentro de cada grupo. Estimaciones nacionales de la encuesta SVT VALU; no son recuentos oficiales por grupo.',tabs:['Resumen básico',...titles.es],table:'Ver porcentajes en tabla',method:'Fuente y metodología',missing:'No se ha confirmado en estas fuentes un desglose del voto por renta o por confesión religiosa. La práctica religiosa mide asistencia, no identifica una religión.',zip:'Descargar todo · ZIP'},en:{title:'Sweden 2026 · How different groups voted',intro:'Party vote share within each group. National estimates from the SVT VALU voter survey, not official ballot counts by group.',tabs:['Basic overview',...titles.en],table:'View percentages in a table',method:'Source and methodology',missing:'These sources do not provide a confirmed vote breakdown by income or religious affiliation. Religious attendance measures participation, not which religion a voter follows.',zip:'Download all · ZIP'}};
-const metricCopy={es:{title:'Suecia 2026 · Apoyo relativo por grupo',intro:'Índice relativo: cada partido suma 100 dentro de cada bloque. No pondera el tamaño de los grupos ni representa la composición del electorado de cada partido.',rows:'Filas · suma 100',normalized:'Columnas · suma 100',raw:'% de voto original'},en:{title:'Sweden 2026 · Relative party support by group',intro:'Relative index: each party sums to 100 within each panel. It does not weight group sizes or describe the composition of each party’s electorate.',rows:'Rows · sum to 100',normalized:'Columns · sum to 100',raw:'Original vote share (%)'}};
+const metricCopy={es:{title:'Suecia 2026 · Apoyo relativo por grupo',intro:'Índice relativo: cada partido suma 100 dentro de cada bloque. No pondera el tamaño de los grupos ni representa la composición del electorado de cada partido.',rows:'Filas · suma 100',normalized:'Índice sin ponderar',raw:'% de voto original'},en:{title:'Sweden 2026 · Relative party support by group',intro:'Relative index: each party sums to 100 within each panel. It does not weight group sizes or describe the composition of each party’s electorate.',rows:'Rows · sum to 100',normalized:'Unweighted index',raw:'Original vote share (%)'}};
 let params=new URLSearchParams(location.search),lang=['en','sv'].includes(params.get('lang'))?'en':'es',mode=['raw','rows','normalized'].includes(params.get('mode'))?params.get('mode'):'rows',chart=['summary',...groups.map(g=>g[0])].includes(params.get('chart'))?params.get('chart'):'summary';
 function render(){
  const c=copy[lang],m=metricCopy[lang],raw=mode==='raw',rowMode=mode==='rows',keys=['summary',...groups.map(g=>g[0])];
@@ -339,7 +352,8 @@ function render(){
  document.getElementById('method').textContent=currentNotes+' '+scaleNote[lang]+(lang==='es'?' Índice = 100 × porcentaje del grupo / suma de porcentajes del partido dentro del bloque. Redondeo por mayores restos a una cifra decimal.':' Index = 100 × group vote share / sum of that party’s shares within the panel. Largest-remainder rounding to one decimal.');
  if(rowMode)document.getElementById('method').textContent=currentNotes+' '+rowNote[lang]+(lang==='es'?' Fórmula: 100 × porcentaje del partido / suma de los ocho partidos en el mismo grupo. Se parte de los datos originales y se redondea por mayores restos.':' Formula: 100 × party vote share / sum of the eight parties in the same group. Computed from original data with largest-remainder rounding.');
  if(raw)document.getElementById('method').textContent=currentNotes+(lang==='es'?' Porcentajes originales dentro de cada grupo, sin normalizar; se muestran ocho partidos.':' Original percentages within each group, without normalization; eight parties are shown.');
- document.getElementById('definition').textContent=extra?extra['definition_'+lang]:definitions[lang];document.getElementById('missing').textContent=c.missing;
+ document.getElementById('definition').textContent=extra?extra['definition_'+lang]:definitions[lang];
+ document.getElementById('missing').textContent=c.missing+' '+(lang==='es'?'La composición del electorado de cada partido requiere dividir sus votantes de cada grupo entre todos sus votantes, usando los pesos de la encuesta. Las fuentes consultadas de 2026 no proporcionan las bases ponderadas compatibles para hacerlo. Normalizar columnas no sustituye ese cálculo.':'The composition of each party’s electorate requires dividing its voters in each group by all its voters, using survey weights. The checked 2026 sources do not provide compatible weighted bases for this calculation. Column normalization cannot replace it.');
  let rows=[];
  for(const g of groups.filter((g,i)=>chart==='summary'?i<4:g[0]===chart))g[1].forEach((key,i)=>rows.push('<tr data-group="'+g[0]+'"><th scope="row">'+g[lang==='es'?2:3][i]+'</th>'+parties.map((p,j)=>'<td>'+(raw?data.rows.find(r=>r.party.toUpperCase()===p)[key]*100:(rowMode?rowNormalized:normalized)[g[0]].display[i][j]).toFixed(1)+(raw||rowMode?'%':'')+'</td>').join('')+'</tr>'));
  document.getElementById('table').innerHTML='<table><caption>'+m[mode]+'</caption><thead><tr><th>'+(lang==='es'?'Grupo':'Group')+'</th>'+parties.map(p=>'<th scope="col">'+p+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table>';
