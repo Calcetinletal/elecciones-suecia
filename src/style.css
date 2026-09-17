@@ -480,7 +480,7 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  #main:has(.cartogram-workspace)>#controls{flex:none}#main:has(.cartogram-workspace)>#workspace{flex:1;min-height:0}
  #controls:has(.release-notice)+#workspace .cartogram-workspace,.cartogram-workspace{height:100%;min-height:0;grid-template-columns:minmax(0,1fr) 300px}
  #app:has(.cartogram-workspace)>.site-header{padding:7px 20px}
- #controls:has(+ #workspace .cartogram-workspace) .toolbar{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr)) 60px 90px;padding:6px 20px;gap:8px}
+ #controls:has(+ #workspace .cartogram-workspace) .toolbar{display:grid;grid-template-columns:100px repeat(5,minmax(0,1fr)) 60px 90px;padding:6px 20px;gap:8px}
  #controls:has(+ #workspace .cartogram-workspace) .toolbar label,#controls:has(+ #workspace .cartogram-workspace) .toolbar .search-label{min-width:0}
  #controls:has(+ #workspace .cartogram-workspace) .toolbar select,#controls:has(+ #workspace .cartogram-workspace) .toolbar input{min-height:34px;padding:6px 22px 6px 8px}
  #controls:has(+ #workspace .cartogram-workspace) .toolbar .icon-button{height:34px}
