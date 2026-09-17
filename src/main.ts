@@ -120,7 +120,7 @@ async function render(){
   if(!cartogram){workspace.innerHTML=cartogramWorkspace();renderPanel();try{
    if(!geometry)geometry=await compressedJSON<GeoData>(`${import.meta.env.BASE_URL}data/${entry.geometry}`);
    const {VoterCartogram}=await import('./maps/cartogram');if(version!==renderVersion)return;
-   cartogram=new VoterCartogram(document.querySelector<HTMLElement>('.cartogram-area')!,geometry,rows,state,id=>selectDistrict(id,false),mode=>{state.cartogramMode=mode;writeState(state);renderPanel();});
+   cartogram=new VoterCartogram(document.querySelector<HTMLElement>('.cartogram-area')!,geometry,rows,state,id=>selectDistrict(id,false),mode=>{state.cartogramMode=mode;writeState(state);renderPanel();},layout=>{state.cartogramLayout=layout;writeState(state);renderPanel();});
   }catch(error){workspace.innerHTML=`<section class="empty"><h2>No se pudo abrir el mapa</h2><p>${e(String(error))}</p></section>`;return;}}
   renderPanel();return;
  }

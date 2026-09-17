@@ -13,8 +13,13 @@ test('cartogram preserves all district votes, changes representation and restore
  const all=expected(2026);await expect(stage).toHaveAttribute('data-node-count',String(all.count));await expect(stage).toHaveAttribute('data-vote-total',String(all.votes));await expect(page.locator('.cartogram-results')).toHaveAttribute('data-vote-total',String(all.votes));
  expect(Number(await stage.getAttribute('data-max-overlap'))).toBeLessThan(.001);
  expect(Number(await stage.getAttribute('data-layout-span'))).toBeLessThan(1500);
+ await expect(stage).toHaveAttribute('data-layout','compact');
  for(const mode of ['geography','voters','shares']){await page.locator(`[data-cartogram-mode="${mode}"]`).click();await expect(stage).toHaveAttribute('data-mode',mode);await expect(stage).toHaveAttribute('data-animating','false',{timeout:20000});await expect(stage).toHaveAttribute('data-vote-total',String(all.votes));await page.screenshot({path:'.tools/cartogram-'+mode+'.png'});}
+ expect(Number(await stage.getAttribute('data-circle-area-fraction'))).toBeGreaterThan(.5);
+ await page.locator('#cartogram-expand').click();await expect(page.locator('.cartogram-expanded')).toBeVisible();await page.screenshot({path:'.tools/cartogram-expanded.png'});await page.keyboard.press('Escape');await expect(page.locator('.cartogram-expanded')).toHaveCount(0);
  await page.locator('#search').fill('Stockholm');await page.locator('#search').press('Enter');await expect(stage).toHaveAttribute('data-ready','true',{timeout:60000});await expect(stage).toHaveAttribute('data-node-count',String(expected(2026,'0180').count));
+ await page.locator('[data-cartogram-layout="geographic"]').click();await expect(stage).toHaveAttribute('data-ready','true',{timeout:60000});await expect(stage).toHaveAttribute('data-vote-total',String(expected(2026,'0180').votes));expect(Number(await stage.getAttribute('data-max-overlap'))).toBeLessThan(.001);
+ await page.locator('[data-cartogram-layout="compact"]').click();await expect(stage).toHaveAttribute('data-layout','compact');
  await page.locator('#municipality').selectOption('');await expect(stage).toHaveAttribute('data-node-count',String(all.count),{timeout:60000});await expect(page.locator('#county')).toHaveValue('');
  await page.locator('#year').selectOption('2022');await expect(page.locator('.cartogram-stage')).toHaveAttribute('data-vote-total',String(expected(2022).votes),{timeout:90000});await expect(page.locator('.cartogram-stage')).toHaveAttribute('data-node-count',String(expected(2022).count));
  expect(errors).toEqual([]);
