@@ -1,6 +1,6 @@
 # SVT VALU 2026: gráficos de grupos de votantes
 
-Lámina resumen y cuatro gráficos de barras, en español e inglés, PNG/PDF/SVG.
+Lámina resumen de cuatro variables y diez gráficos de barras, en español e inglés, PNG/PDF/SVG.
 Fuente: https://www.svt.se/nyheter/sa-rostade-olika-valjargrupper-gr3b30
 Datos exactos del widget público de SVT, almacenados en valu-2026-source.json.
 El JSON conserva URL de bundle, fecha de descarga UTC y SHA-256 del bundle.
@@ -31,7 +31,7 @@ original. El JSON valu-2026-row-normalized.json guarda valores exactos y
 redondeados y el SHA-256 de la misma fuente.
 
 Los gráficos cuyo nombre termina en -vote-share conservan los porcentajes
-de voto originales, sin transformar. La galería permite alternar ambos modos.
+de voto originales, sin transformar. La galería permite alternar los tres modos.
 Estos porcentajes originales son dentro de cada grupo, no la composición
 del electorado de cada partido. No se rellenan otros partidos ni se fuerzan
 sus filas a sumar 100%. El color de estas láminas originales usa 0–50%.
@@ -50,7 +50,30 @@ ni suponer que las filas de origen permiten reconstruir grupos excluyentes.
 Las categorías ocupacionales agrupan niveles directivos; empresarios y
 agricultores se publican juntos. No representan todas las situaciones laborales.
 
-Renta y religión: no se incorporan al no haberse confirmado tablas comparables
-del voto de septiembre de 2026; no se mezclan con simpatía política preelectoral.
+Informe ampliado de SVT (15/09/2026): se añaden situación laboral, práctica
+religiosa, estudios, sector público/privado, sindicatos y ocupación detallada.
+Fuente: https://omoss.svt.se/download/18.c7d6c981a0a583535d1535/1789484134179/Valu%202026%20seminarium%20260915.pdf
+La transcripción reproducible está en scripts/data/valu-2026-seminar.json,
+copiada a la galería. Conserva etiquetas suecas, porcentajes originales de
+los nueve grupos de partidos (incluido Otros), páginas y SHA-256 del PDF.
+Se verificó visualmente contra las páginas 22, 23, 24 y 34. No se reemplazan
+los datos originales del widget: cada gráfico identifica su propia fuente.
+El informe está ponderado al resultado provisional de la noche electoral
+(p. 1), y publica porcentajes enteros que pueden sumar algo más o menos de
+100. Los modos normalizados operan sobre esos valores redondeados, sin
+atribuirles mayor precisión estadística. --refresh solo actualiza el widget;
+la transcripción del informe requiere una revisión explícita de la fuente.
+
+Práctica religiosa significa frecuencia de asistencia a servicios/reuniones
+de una iglesia o comunidad religiosa; no identifica confesiones. Nunca no
+significa necesariamente ateísmo. No se infiere religión a partir del origen.
+Situación laboral no incluye una fila específica de jubilados. Sindicatos
+solo muestra LO/TCO/SACO; no incluye no afiliados. El sector público se
+muestra como total, sin sumar sus subcategorías solapadas. Estas selecciones
+no representan necesariamente a toda la población, y normalizar columnas
+no permite reconstruir la composición del electorado.
+
+No se ha confirmado en estas fuentes un desglose del voto por renta o por
+confesión religiosa. No se mezcla con simpatía política preelectoral.
 
 Firma: Creado por @Calcetinletal · https://x.com/Calcetinletal

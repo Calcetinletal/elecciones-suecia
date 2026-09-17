@@ -1,0 +1,475 @@
+{
+  "source": "https://omoss.svt.se/download/18.c7d6c981a0a583535d1535/1789484134179/Valu%202026%20seminarium%20260915.pdf",
+  "release": "https://omoss.svt.se/arkiv/nyhetsarkiv/2026-09-15-svts-vallokalsundersokning---valu-2026.html",
+  "published": "2026-09-15",
+  "checked": "2026-09-17",
+  "pdf_sha256": "591d9c04d9010675a54088671f8a9b45954bb5fa6a9cd1dbbe4d7b361c4413c2",
+  "sample_total": 13709,
+  "weighting": "Weighted to the preliminary election-night result for 2026 (report page 1).",
+  "unit": "Published integer percentages of party vote within each group; totals are approximately 100 due to rounding.",
+  "transcription": "Manually transcribed from the official PDF; original Swedish labels and party order retained. Page numbers refer to printed pages.",
+  "parties": [
+    "V",
+    "S",
+    "MP",
+    "C",
+    "L",
+    "KD",
+    "M",
+    "SD",
+    "Other"
+  ],
+  "groups": [
+    {
+      "key": "employment",
+      "title_es": "Situación laboral",
+      "title_en": "Employment status",
+      "page": 22,
+      "definition_es": "Ocupados incluye trabajo por cuenta propia. Prestaciones: sjuk-/aktivitetsersättning, por enfermedad o incapacidad. Son las cuatro situaciones publicadas; no incluyen una fila específica de jubilados.",
+      "definition_en": "Employed includes self-employment. Benefits: Swedish sickness/activity compensation. These are the four published statuses; there is no separate retired category.",
+      "rows": [
+        {
+          "key": "employed",
+          "label_sv": "Förvärvsarbetande",
+          "label_es": "Ocupados",
+          "label_en": "Employed",
+          "percentages": [
+            8,
+            25,
+            7,
+            8,
+            6,
+            7,
+            21,
+            18,
+            2
+          ]
+        },
+        {
+          "key": "unemployed",
+          "label_sv": "Arbetslös",
+          "label_es": "Desempleados",
+          "label_en": "Unemployed",
+          "percentages": [
+            14,
+            27,
+            7,
+            5,
+            4,
+            3,
+            14,
+            22,
+            3
+          ]
+        },
+        {
+          "key": "sickness_benefits",
+          "label_sv": "Sjuk/aktivitetsersättning",
+          "label_es": "Prestaciones por enfermedad o incapacidad",
+          "label_en": "Sickness / disability benefits",
+          "percentages": [
+            16,
+            29,
+            3,
+            3,
+            5,
+            4,
+            12,
+            25,
+            2
+          ]
+        },
+        {
+          "key": "students",
+          "label_sv": "Studerande",
+          "label_es": "Estudiantes",
+          "label_en": "Students",
+          "percentages": [
+            16,
+            24,
+            11,
+            7,
+            3,
+            5,
+            20,
+            12,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "key": "religious-attendance",
+      "title_es": "Práctica religiosa",
+      "title_en": "Religious attendance",
+      "page": 34,
+      "definition_es": "Frecuencia de asistencia a servicios o reuniones en una iglesia o comunidad religiosa. No identifica la religión ni la afiliación: «Nunca» no equivale necesariamente a ateísmo.",
+      "definition_en": "Frequency of attending services or meetings at a church or religious community. This is not religious affiliation: “Never” does not necessarily mean atheist.",
+      "rows": [
+        {
+          "key": "monthly",
+          "label_sv": "minst en gång i månaden",
+          "label_es": "Al menos una vez al mes",
+          "label_en": "At least monthly",
+          "percentages": [
+            9,
+            28,
+            6,
+            9,
+            4,
+            14,
+            12,
+            15,
+            4
+          ]
+        },
+        {
+          "key": "yearly",
+          "label_sv": "några gånger om året",
+          "label_es": "Varias veces al año",
+          "label_en": "A few times a year",
+          "percentages": [
+            6,
+            28,
+            6,
+            9,
+            6,
+            9,
+            19,
+            17,
+            1
+          ]
+        },
+        {
+          "key": "less_often",
+          "label_sv": "mera sällan",
+          "label_es": "Con menor frecuencia",
+          "label_en": "Less often",
+          "percentages": [
+            5,
+            28,
+            5,
+            7,
+            6,
+            6,
+            22,
+            18,
+            1
+          ]
+        },
+        {
+          "key": "never",
+          "label_sv": "aldrig",
+          "label_es": "Nunca",
+          "label_en": "Never",
+          "percentages": [
+            10,
+            28,
+            7,
+            6,
+            5,
+            4,
+            20,
+            18,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "key": "education",
+      "title_es": "Estudios",
+      "title_en": "Education",
+      "page": 23,
+      "definition_es": "Categorías del sistema sueco. Universidad y doctorado incluyen estudios cursados o titulación; no implican necesariamente haber terminado el nivel.",
+      "definition_en": "Swedish education categories. University and doctoral categories include studies or qualifications, not necessarily a completed degree.",
+      "rows": [
+        {
+          "key": "no_compulsory",
+          "label_sv": "Ej grundskola / obligatorisk skola",
+          "label_es": "Sin enseñanza obligatoria",
+          "label_en": "No compulsory schooling",
+          "percentages": [
+            3,
+            36,
+            1,
+            4,
+            3,
+            2,
+            14,
+            34,
+            2
+          ]
+        },
+        {
+          "key": "compulsory",
+          "label_sv": "Grundskola / motsvarande obligatorisk skola",
+          "label_es": "Enseñanza obligatoria",
+          "label_en": "Compulsory education",
+          "percentages": [
+            8,
+            31,
+            2,
+            5,
+            2,
+            5,
+            18,
+            27,
+            1
+          ]
+        },
+        {
+          "key": "upper_secondary",
+          "label_sv": "Examen från gymnasium, folkhögskola eller motsvarande",
+          "label_es": "Secundaria superior o equivalente",
+          "label_en": "Upper secondary or equivalent",
+          "percentages": [
+            7,
+            26,
+            3,
+            5,
+            4,
+            6,
+            22,
+            26,
+            2
+          ]
+        },
+        {
+          "key": "postsecondary",
+          "label_sv": "Eftergymnasial utbildning, ej högskola",
+          "label_es": "Postsecundaria no universitaria",
+          "label_en": "Non-university postsecondary",
+          "percentages": [
+            7,
+            28,
+            3,
+            6,
+            5,
+            7,
+            20,
+            23,
+            2
+          ]
+        },
+        {
+          "key": "university",
+          "label_sv": "Studier/examen från högskola /universitet",
+          "label_es": "Estudios universitarios",
+          "label_en": "University studies / degree",
+          "percentages": [
+            9,
+            29,
+            9,
+            9,
+            7,
+            7,
+            20,
+            11,
+            1
+          ]
+        },
+        {
+          "key": "doctoral",
+          "label_sv": "Studier/examen från forskarutbildning",
+          "label_es": "Estudios de doctorado",
+          "label_en": "Doctoral studies / degree",
+          "percentages": [
+            13,
+            23,
+            15,
+            15,
+            9,
+            3,
+            13,
+            6,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "key": "sector",
+      "title_es": "Sector laboral",
+      "title_en": "Employment sector",
+      "page": 24,
+      "definition_es": "Sector de empleo público o privado, según la tabla de SVT. Se usa el total público para evitar contar dos veces sus subcategorías.",
+      "definition_en": "Public or private employment sector, as published by SVT. The public-sector total is used without adding its overlapping subcategories.",
+      "rows": [
+        {
+          "key": "public",
+          "label_sv": "Offentlig",
+          "label_es": "Sector público",
+          "label_en": "Public sector",
+          "percentages": [
+            10,
+            35,
+            7,
+            6,
+            5,
+            6,
+            16,
+            15,
+            1
+          ]
+        },
+        {
+          "key": "private",
+          "label_sv": "Privat",
+          "label_es": "Sector privado",
+          "label_en": "Private sector",
+          "percentages": [
+            6,
+            23,
+            5,
+            8,
+            6,
+            6,
+            23,
+            20,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "key": "unions",
+      "title_es": "Sindicatos",
+      "title_en": "Trade unions",
+      "page": 22,
+      "definition_es": "Votantes de las confederaciones sindicales LO, TCO y SACO. La tabla no incluye a no afiliados ni a todos los sindicatos.",
+      "definition_en": "Voters in the LO, TCO and SACO trade-union confederations. The table does not include non-members or every union.",
+      "rows": [
+        {
+          "key": "lo",
+          "label_sv": "LO",
+          "label_es": "LO",
+          "label_en": "LO",
+          "percentages": [
+            9,
+            38,
+            3,
+            3,
+            2,
+            6,
+            13,
+            24,
+            2
+          ]
+        },
+        {
+          "key": "tco",
+          "label_sv": "TCO",
+          "label_es": "TCO",
+          "label_en": "TCO",
+          "percentages": [
+            8,
+            34,
+            7,
+            8,
+            6,
+            7,
+            18,
+            10,
+            1
+          ]
+        },
+        {
+          "key": "saco",
+          "label_sv": "SACO",
+          "label_es": "SACO",
+          "label_en": "SACO",
+          "percentages": [
+            10,
+            30,
+            12,
+            11,
+            7,
+            6,
+            15,
+            7,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "key": "occupation-detail",
+      "title_es": "Ocupación detallada",
+      "title_en": "Detailed occupation",
+      "page": 22,
+      "definition_es": "Desglose del informe ampliado: trabajadores manuales, empleados no manuales, agricultores y empresarios por separado. No clasifica la situación laboral.",
+      "definition_en": "Extended report: manual workers, white-collar employees, farmers and business owners shown separately. This is not employment status.",
+      "rows": [
+        {
+          "key": "manual",
+          "label_sv": "Arbetare",
+          "label_es": "Trabajadores manuales",
+          "label_en": "Manual workers",
+          "percentages": [
+            10,
+            31,
+            4,
+            4,
+            3,
+            6,
+            15,
+            25,
+            2
+          ]
+        },
+        {
+          "key": "white_collar",
+          "label_sv": "Tjänsteman",
+          "label_es": "Empleados no manuales",
+          "label_en": "White-collar employees",
+          "percentages": [
+            7,
+            28,
+            7,
+            9,
+            7,
+            7,
+            22,
+            12,
+            1
+          ]
+        },
+        {
+          "key": "farmers",
+          "label_sv": "Jordbrukare",
+          "label_es": "Agricultores",
+          "label_en": "Farmers",
+          "percentages": [
+            7,
+            17,
+            1,
+            29,
+            4,
+            10,
+            11,
+            20,
+            0
+          ]
+        },
+        {
+          "key": "owners",
+          "label_sv": "Företagare",
+          "label_es": "Empresarios",
+          "label_en": "Business owners",
+          "percentages": [
+            6,
+            15,
+            6,
+            10,
+            8,
+            6,
+            24,
+            23,
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}
