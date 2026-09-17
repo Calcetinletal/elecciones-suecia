@@ -21,6 +21,15 @@ respecto al redondeo convencional. El color usa el mismo rango 0–100 de índic
 El JSON normalizado incluye índices exactos y etiquetas redondeadas, fórmula
 y SHA-256 del archivo de datos originales. Los índices no son z-scores.
 
+Los gráficos cuyo nombre termina en -row-normalized normalizan por filas:
+100 × porcentaje del partido / suma de los ocho partidos dentro del grupo.
+Cada fila suma 100.0, con redondeo por mayores restos a una cifra decimal.
+Se excluye a «Otros»: el denominador son los ocho partidos mostrados, no
+todos los votos. Se parte de los porcentajes originales, nunca del índice
+normalizado por columnas. La intensidad usa la escala 0–50%, como la versión
+original. El JSON valu-2026-row-normalized.json guarda valores exactos y
+redondeados y el SHA-256 de la misma fuente.
+
 Los gráficos cuyo nombre termina en -vote-share conservan los porcentajes
 de voto originales, sin transformar. La galería permite alternar ambos modos.
 Estos porcentajes originales son dentro de cada grupo, no la composición
