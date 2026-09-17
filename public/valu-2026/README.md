@@ -34,7 +34,7 @@ y SHA-256 del archivo de datos originales. Los índices no son z-scores.
 
 Los gráficos cuyo nombre termina en -row-normalized normalizan por filas:
 100 × porcentaje del partido / suma de los ocho partidos dentro del grupo.
-Cada fila suma 100.0, con redondeo por mayores restos a una cifra decimal.
+Los ocho partidos suman 100.0 en cada grupo, con redondeo por mayores restos a una cifra decimal.
 Se excluye a «Otros»: el denominador son los ocho partidos mostrados, no
 todos los votos. Se parte de los porcentajes originales, nunca del índice
 normalizado por columnas. La intensidad usa la escala 0–50%, como la versión

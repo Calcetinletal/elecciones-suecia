@@ -129,8 +129,8 @@ row_normalized={g[0]:dict(keys=g[1],exact=normalized_values(g[1],1)[0].tolist(),
     interpretation='Vote share renormalized among the eight displayed parties; other parties are excluded.',
     rounding='Largest remainder to one decimal; displayed rows sum to exactly 100.0.',groups=row_normalized),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 row_note={
- 'es':'Porcentajes recalculados entre los ocho partidos mostrados; se excluye a «Otros». Cada fila suma 100%.',
- 'en':'Vote shares rescaled among the eight displayed parties; other parties are excluded. Each row sums to 100%.'}
+ 'es':'Porcentajes recalculados entre los ocho partidos mostrados; se excluye a «Otros». Los ocho partidos suman 100% en cada grupo.',
+ 'en':'Vote shares rescaled among the eight displayed parties; other parties are excluded. The eight parties sum to 100% within each group.'}
 scale_note = {
  'es': 'Índice relativo sin ponderar el tamaño de los grupos. No representa la composición del electorado de cada partido.',
  'en': 'Relative index without weighting group sizes. It does not describe the composition of each party’s electorate.'}
@@ -161,8 +161,8 @@ for mode,lang,li in [(mode,lang,li) for mode in ['normalized','raw','rows'] if a
     heading=('Cómo votaron los distintos grupos' if lang=='es' else 'How different groups voted') if raw else ('Apoyo relativo por grupo' if lang=='es' else 'Relative party support by group')
     subtitle=('SUECIA 2026 · % de voto a cada partido dentro del grupo' if lang=='es' else 'SWEDEN 2026 · Party vote share within each group (%)') if raw else ('SUECIA 2026 · Cada columna suma 100 dentro de su bloque' if lang=='es' else 'SWEDEN 2026 · Each column sums to 100 within its panel')
     if row_mode:
-        heading='Voto por grupo · normalizado por filas' if lang=='es' else 'Vote by group · row-normalized'
-        subtitle='SUECIA 2026 · Cada fila suma 100% entre los ocho partidos' if lang=='es' else 'SWEDEN 2026 · Each row sums to 100% across the eight parties'
+        heading='Voto por grupo · ocho partidos' if lang=='es' else 'Vote by group · eight parties'
+        subtitle='SUECIA 2026 · Los ocho partidos suman 100% en cada grupo' if lang=='es' else 'SWEDEN 2026 · The eight parties sum to 100% within each group'
     fig.text(.045,.951,heading,size=27,weight='bold',color='#15394c')
     fig.text(.045,.913,subtitle,size=14,color='#516572')
     fig.text(.045,.885,('Porcentajes originales de SVT · Ocho partidos; las filas pueden no sumar 100%.' if lang=='es' else 'Original SVT vote shares · Eight parties; rows may not sum to 100%.') if raw else row_note[lang] if row_mode else scale_note[lang],size=11,color='#516572')
@@ -198,7 +198,7 @@ for mode,lang,li in [(mode,lang,li) for mode in ['normalized','raw','rows'] if a
         fig.subplots_adjust(left=.065,right=.965,top=.71 if key in extra_groups else .76,bottom=.29,wspace=.16,hspace=.7)
         fig.text(.045,.92,f'Sweden 2026 · {titles[lang][idx]}' if lang=='en' else f'Suecia 2026 · {titles[lang][idx]}',size=25,weight='bold',color='#15394c')
         sub=('Party vote share within each group (%) · SVT VALU' if lang=='en' else '% de voto a cada partido dentro del grupo · SVT VALU') if raw else ('Relative index · Each party sums to 100 across the groups shown' if lang=='en' else 'Índice relativo · Cada partido suma 100 entre los grupos mostrados')
-        if row_mode:sub='Row-normalized vote share · Eight parties sum to 100% in each group' if lang=='en' else 'Voto normalizado por filas · Los ocho partidos suman 100% en cada grupo'
+        if row_mode:sub='Vote within each group · The eight parties sum to 100%' if lang=='en' else 'Voto dentro de cada grupo · Los ocho partidos suman 100%'
         fig.text(.045,.865,sub,size=13,color='#516572')
         if not raw:fig.text(.045,.815,row_note[lang] if row_mode else scale_note[lang],size=10,color='#516572')
         xmax=np.ceil((a.max()+4)/5)*5
@@ -254,7 +254,7 @@ y SHA-256 del archivo de datos originales. Los índices no son z-scores.
 
 Los gráficos cuyo nombre termina en -row-normalized normalizan por filas:
 100 × porcentaje del partido / suma de los ocho partidos dentro del grupo.
-Cada fila suma 100.0, con redondeo por mayores restos a una cifra decimal.
+Los ocho partidos suman 100.0 en cada grupo, con redondeo por mayores restos a una cifra decimal.
 Se excluye a «Otros»: el denominador son los ocho partidos mostrados, no
 todos los votos. Se parte de los porcentajes originales, nunca del índice
 normalizado por columnas. La intensidad usa la escala 0–50%, como la versión
@@ -327,7 +327,7 @@ gallery='''<!doctype html><html lang="es"><meta charset="utf-8"><meta name="view
 <script>
 const data=__DATA__,groups=__GROUPS__,parties=__PARTIES__,notes=__NOTES__,definitions=__DEFINITIONS__,scaleNote=__SCALE_NOTE__,normalized=__NORMALIZED__,rowNormalized=__ROW_NORMALIZED__,rowNote=__ROW_NOTE__,extraGroups=__EXTRA_GROUPS__,seminarNotes=__SEMINAR_NOTES__,seminarSource=__SEMINAR_SOURCE__,titles=__TITLES__;
 const copy={es:{title:'Suecia 2026 · Cómo votaron los distintos grupos',intro:'Porcentaje de voto a cada partido dentro de cada grupo. Estimaciones nacionales de la encuesta SVT VALU; no son recuentos oficiales por grupo.',tabs:['Resumen básico',...titles.es],table:'Ver porcentajes en tabla',method:'Fuente y metodología',missing:'No se ha confirmado en estas fuentes un desglose del voto por renta o por confesión religiosa. La práctica religiosa mide asistencia, no identifica una religión.',zip:'Descargar todo · ZIP'},en:{title:'Sweden 2026 · How different groups voted',intro:'Party vote share within each group. National estimates from the SVT VALU voter survey, not official ballot counts by group.',tabs:['Basic overview',...titles.en],table:'View percentages in a table',method:'Source and methodology',missing:'These sources do not provide a confirmed vote breakdown by income or religious affiliation. Religious attendance measures participation, not which religion a voter follows.',zip:'Download all · ZIP'}};
-const metricCopy={es:{title:'Suecia 2026 · Apoyo relativo por grupo',intro:'Índice relativo: cada partido suma 100 dentro de cada bloque. No pondera el tamaño de los grupos ni representa la composición del electorado de cada partido.',rows:'Filas · suma 100',normalized:'Índice sin ponderar',raw:'% de voto original'},en:{title:'Sweden 2026 · Relative party support by group',intro:'Relative index: each party sums to 100 within each panel. It does not weight group sizes or describe the composition of each party’s electorate.',rows:'Rows · sum to 100',normalized:'Unweighted index',raw:'Original vote share (%)'}};
+const metricCopy={es:{title:'Suecia 2026 · Apoyo relativo por grupo',intro:'Índice relativo: cada partido suma 100 dentro de cada bloque. No pondera el tamaño de los grupos ni representa la composición del electorado de cada partido.',rows:'Por grupo · 100%',normalized:'Índice sin ponderar',raw:'% de voto original'},en:{title:'Sweden 2026 · Relative party support by group',intro:'Relative index: each party sums to 100 within each panel. It does not weight group sizes or describe the composition of each party’s electorate.',rows:'By group · 100%',normalized:'Unweighted index',raw:'Original vote share (%)'}};
 let params=new URLSearchParams(location.search),lang=['en','sv'].includes(params.get('lang'))?'en':'es',mode=['raw','rows','normalized'].includes(params.get('mode'))?params.get('mode'):'rows',chart=['summary',...groups.map(g=>g[0])].includes(params.get('chart'))?params.get('chart'):'summary';
 function render(){
  const c=copy[lang],m=metricCopy[lang],raw=mode==='raw',rowMode=mode==='rows',keys=['summary',...groups.map(g=>g[0])];
@@ -337,16 +337,16 @@ function render(){
  sourceLink.href=extra?seminarSource+'#page='+extra.page:'https://www.svt.se/nyheter/sa-rostade-olika-valjargrupper-gr3b30';
  sourceLink.textContent=extra?(lang==='es'?'Informe SVT · 15 sep 2026 · página ':'SVT report · 15 Sep 2026 · page ')+extra.page:(lang==='es'?'Gráfica interactiva de SVT':'SVT interactive chart');
  document.documentElement.lang=lang;
- document.getElementById('title').textContent=rowMode?(lang==='es'?'Suecia 2026 · Voto normalizado por filas':'Sweden 2026 · Row-normalized vote shares'):raw?c.title:m.title;
+ document.getElementById('title').textContent=rowMode?(lang==='es'?'Suecia 2026 · Voto dentro de cada grupo':'Sweden 2026 · Vote within each group'):raw?c.title:m.title;
  document.getElementById('intro').textContent=rowMode?rowNote[lang]:raw?c.intro:m.intro;
  document.getElementById('charts').innerHTML=keys.map((k,i)=>`<button data-chart="${k}" aria-pressed="${chart===k}">${c.tabs[i]}</button>`).join('');
  document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
  document.querySelectorAll('[data-mode]').forEach(b=>{b.setAttribute('aria-pressed',b.dataset.mode===mode);b.textContent=m[b.dataset.mode]});
  const stem=`VALU-2026-${chart}-${lang}${raw?'-vote-share':rowMode?'-row-normalized':''}`,img=document.getElementById('plot');
- img.src=stem+'.png?v=expanded2026';img.alt=c.tabs[keys.indexOf(chart)]+' · '+(rowMode?rowNote[lang]:raw?c.intro:m.intro);
+ img.src=stem+'.png?v=group100';img.alt=c.tabs[keys.indexOf(chart)]+' · '+(rowMode?rowNote[lang]:raw?c.intro:m.intro);
  img.style.aspectRatio=chart==='summary'?'1.6':'auto';img.removeAttribute('height');
- for(const ext of ['png','pdf','svg'])document.getElementById(ext).href=stem+'.'+ext+'?v=expanded2026';
- document.getElementById('zip').textContent=c.zip;document.getElementById('zip').href='VALU-2026-charts.zip?v=expanded2026';
+ for(const ext of ['png','pdf','svg'])document.getElementById(ext).href=stem+'.'+ext+'?v=group100';
+ document.getElementById('zip').textContent=c.zip;document.getElementById('zip').href='VALU-2026-charts.zip?v=group100';
  document.getElementById('tabletitle').textContent=lang==='es'?'Ver valores en tabla':'View values in a table';
  document.getElementById('methodtitle').textContent=c.method;
  document.getElementById('method').textContent=currentNotes+' '+scaleNote[lang]+(lang==='es'?' Índice = 100 × porcentaje del grupo / suma de porcentajes del partido dentro del bloque. Redondeo por mayores restos a una cifra decimal.':' Index = 100 × group vote share / sum of that party’s shares within the panel. Largest-remainder rounding to one decimal.');
