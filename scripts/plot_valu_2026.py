@@ -20,6 +20,8 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgb
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import PercentFormatter, MultipleLocator
+from matplotlib.lines import Line2D
+import matplotlib.patheffects as path_effects
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -136,6 +138,41 @@ scale_note = {
  'en': 'Relative index without weighting group sizes. It does not describe the composition of each party’s electorate.'}
 notes={k:v.replace(' Ocho partidos; no se renormaliza a 100%.','').replace(' Eight parties shown; shares are not rescaled to 100%.','') for k,v in notes.items()}
 
+national_path = ROOT / 'scripts/data/valu-2026-national-result.json'
+national = json.loads(national_path.read_text(encoding='utf-8'))
+shutil.copy2(national_path, OUT / national_path.name)
+national_votes = np.array([national['party_votes'][p] for p in parties])
+assert national_votes.sum()+national['other_votes']==national['valid_votes']
+national_raw = 100*national_votes/national['valid_votes']
+national_rows = 100*national_votes/national_votes.sum()
+def baseline_values(keys, mode):
+    if mode=='raw': return national_raw
+    if mode=='rows': return national_rows
+    # The reference is not another group and never changes the denominator.
+    return 100*national_raw/values(keys).sum(axis=0)
+baselines = {mode:{g[0]:baseline_values(g[1],mode).tolist() for g in groups} for mode in ['raw','rows','normalized']}
+(OUT/'valu-2026-national-comparison.json').write_text(json.dumps(dict(
+    national_snapshot_sha256=hashlib.sha256(national_path.read_bytes()).hexdigest(),
+    parties=parties,values=baselines,formulas={
+        'raw':'100 * national party votes / all national valid votes',
+        'rows':'100 * national party votes / national votes for the eight displayed parties',
+        'normalized':'100 * national raw vote share / sum of that party raw group vote shares within this variable'},
+    interpretation='Descriptive national reference, not survey reweighting or a significance test. The reference is not included in group normalization.'
+),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+national_date = datetime.datetime.fromisoformat(national['source_updated_at']).strftime('%d/%m/%Y %H:%M')
+star_labels = {'es':'Resultado nacional', 'en':'National result'}
+star_notes = {lang:{mode:(
+    ('★ Resultado nacional' if lang=='es' else '★ National result')+
+    (' · ocho partidos = 100%' if lang=='es' else ' · eight parties = 100%') if mode=='rows' else
+    ('★ Resultado nacional · misma escala de índice' if lang=='es' else '★ National result · same index scale') if mode=='normalized' else
+    ('★ Resultado nacional · % de votos válidos' if lang=='es' else '★ National result · % of valid votes')
+    )+' · Valmyndigheten · '+national_date+' CEST · '+('provisional' if lang=='es' else 'preliminary')
+    for mode in ['raw','rows','normalized']} for lang in ['es','en']}
+
+def star_legend(fig, lang, mode, y):
+    handle=Line2D([],[],linestyle='none',marker='*',markersize=13,markerfacecolor='#ffe08a',markeredgecolor='#17384a',markeredgewidth=1)
+    fig.legend([handle],[star_notes[lang][mode].replace('★ ','')],loc='center left',bbox_to_anchor=(.041,y),frameon=False,fontsize=9.5,labelcolor='#17384a',handletextpad=.5)
+
 def save(fig, stem):
     for ext in ['png','pdf','svg']:
         target=OUT / f'{stem}.{ext}'
@@ -166,11 +203,12 @@ for mode,lang,li in [(mode,lang,li) for mode in ['normalized','raw','rows'] if a
     fig.text(.045,.951,heading,size=27,weight='bold',color='#15394c')
     fig.text(.045,.913,subtitle,size=14,color='#516572')
     fig.text(.045,.885,('Porcentajes originales de SVT · Ocho partidos; las filas pueden no sumar 100%.' if lang=='es' else 'Original SVT vote shares · Eight parties; rows may not sum to 100%.') if raw else row_note[lang] if row_mode else scale_note[lang],size=11,color='#516572')
-    layouts=[(.045,.635,.435,.21),(.54,.555,.415,.29),(.045,.29,.435,.25),(.54,.225,.415,.25)]
+    star_legend(fig,lang,mode,.856)
+    layouts=[(.045,.565,.435,.235),(.54,.565,.415,.235),(.045,.235,.435,.235),(.54,.235,.415,.235)]
     for idx,(group,rect) in enumerate(zip(groups,layouts)):
         key,keys,_,_=group
         a=plot_values(keys); labels=group[li]; intensity=np.minimum(a/(50 if percentage else 100),1)
-        ax=fig.add_axes(rect); ax.set_xlim(-3.4,8); ax.set_ylim(len(keys)+.2,-.95); ax.axis('off')
+        ax=fig.add_axes(rect); ax.set_xlim(-3.4,8); ax.set_ylim(len(keys)+1.15,-.95); ax.axis('off')
         ax.text(-3.4,-1.12,titles[lang][idx],size=17,weight='bold',color='#15394c')
         for j,(p,c) in enumerate(zip(parties,colors)):
             ax.text(j+.5,-.5,p,ha='center',va='center',size=13,weight='bold',color=c)
@@ -186,6 +224,10 @@ for mode,lang,li in [(mode,lang,li) for mode in ['normalized','raw','rows'] if a
                 ax.add_patch(Rectangle((j+.035,i+.045),.93,.91,facecolor=bg,edgecolor='white',linewidth=1))
                 lum=np.dot(bg,[.2126,.7152,.0722])
                 ax.text(j+.5,i+.5,f'{a[i,j]:.1f}',ha='center',va='center',size=14,weight='bold',color='white' if lum<.5 else '#143447')
+        ax.plot([0,8],[len(keys)+.1]*2,color='#b5c5d0',linewidth=1)
+        ax.text(-.18,len(keys)+.65,'★ '+star_labels[lang],ha='right',va='center',size=11,weight='bold',color='#17384a')
+        for j,v in enumerate(baseline_values(keys,mode)):
+            ax.text(j+.5,len(keys)+.65,f'{v:.1f}',ha='center',va='center',size=13,weight='bold',color='#17384a')
     fig.text(.045,.158,definitions[lang],size=10,color='#516572',linespacing=1.5)
     fig.text(.045,.086,notes[lang],size=10,color='#516572',linespacing=1.5)
     footer(fig,lang); save(fig,f'VALU-2026-summary-{lang}{suffix}')
@@ -193,28 +235,32 @@ for mode,lang,li in [(mode,lang,li) for mode in ['normalized','raw','rows'] if a
     for idx,group in enumerate(groups):
         key,keys,_,_=group; a=plot_values(keys); labels=group[li]
         two_rows=len(keys)>4
-        fig,axes=plt.subplots(2 if two_rows else 1,3 if two_rows else len(keys),figsize=(14 if two_rows else max(11,len(keys)*3.8),11 if two_rows else 7.8),sharex=True,sharey=True,facecolor='#f4f7fa')
+        fig,axes=plt.subplots(2 if two_rows else 1,3 if two_rows else len(keys),figsize=(14 if two_rows else max(11,len(keys)*3.8),13 if two_rows else 7.8),sharex=True,sharey=True,facecolor='#f4f7fa')
         axes=np.atleast_1d(axes).ravel()
-        fig.subplots_adjust(left=.065,right=.965,top=.71 if key in extra_groups else .76,bottom=.29,wspace=.16,hspace=.7)
+        fig.subplots_adjust(left=.065,right=.965,top=.70 if two_rows else .68,bottom=.23 if two_rows else .29,wspace=.16,hspace=.42)
         fig.text(.045,.92,f'Sweden 2026 · {titles[lang][idx]}' if lang=='en' else f'Suecia 2026 · {titles[lang][idx]}',size=25,weight='bold',color='#15394c')
         sub=('Party vote share within each group (%) · SVT VALU' if lang=='en' else '% de voto a cada partido dentro del grupo · SVT VALU') if raw else ('Relative index · Each party sums to 100 across the groups shown' if lang=='en' else 'Índice relativo · Cada partido suma 100 entre los grupos mostrados')
         if row_mode:sub='Vote within each group · The eight parties sum to 100%' if lang=='en' else 'Voto dentro de cada grupo · Los ocho partidos suman 100%'
         fig.text(.045,.865,sub,size=13,color='#516572')
         if not raw:fig.text(.045,.815,row_note[lang] if row_mode else scale_note[lang],size=10,color='#516572')
-        xmax=np.ceil((a.max()+4)/5)*5
+        star_legend(fig,lang,mode,.775)
+        reference=baseline_values(keys,mode)
+        xmax=np.ceil((max(a.max(),reference.max())+5)/5)*5
         for i,(ax,label) in enumerate(zip(axes,labels)):
             ax.set_facecolor('#f4f7fa'); ax.barh(range(8),a[i],color=colors,height=.64,zorder=3)
+            ax.scatter(reference,np.arange(8)+.25,marker='*',s=95 if two_rows else 115,facecolor='#ffe08a',edgecolor='#17384a',linewidth=.8,zorder=5,
+                path_effects=[path_effects.withStroke(linewidth=2.4,foreground='white')])
             ax.set_title(textwrap.fill(label,26),size=13,pad=16)
             ax.set_yticks(range(8),parties,size=12,weight='bold'); ax.set_ylim(7.7,-.7); ax.set_xlim(0,xmax)
             ax.xaxis.set_major_locator(MultipleLocator(10))
             if percentage:ax.xaxis.set_major_formatter(PercentFormatter(100,decimals=0))
             ax.grid(axis='x',color='#dae3eb',zorder=0); ax.tick_params(axis='both',length=0,labelcolor='#516572')
             for spine in ax.spines.values():spine.set_visible(False)
-            for j,v in enumerate(a[i]):ax.text(v+.55,j,f'{v:.1f}'+('%' if percentage else ''),va='center',size=12,weight='bold',color='#17384a')
+            for j,v in enumerate(a[i]):ax.text(v+.55,j-.27,f'{v:.1f}'+('%' if percentage else ''),va='center',size=11,weight='bold',color='#17384a',zorder=6)
         if key=='background':fig.text(.045,.195,definitions[lang].split(' Ocupaciones:')[0].split(' Occupational')[0],size=9.5,color='#516572')
         if key=='occupation':fig.text(.045,.195,'SVT combina roles directivos con su categoría laboral, y empresarios con agricultores.' if lang=='es' else 'SVT combines managerial roles with their occupational category, and business owners with farmers.',size=10,color='#516572')
         if key in extra_groups:
-            fig.text(.045,.195,textwrap.fill(extra_groups[key]['definition_'+lang],140),size=9.5,color='#516572',linespacing=1.5)
+            fig.text(.045,.16 if two_rows else .195,textwrap.fill(extra_groups[key]['definition_'+lang],140),size=9.5,color='#516572',linespacing=1.5)
         fig.text(.045,.10,chart_notes(key,lang),size=9.5,color='#516572',linespacing=1.5)
         footer(fig,lang,key); save(fig,f'VALU-2026-{key}-{lang}{suffix}')
 
@@ -227,6 +273,26 @@ El JSON conserva URL de bundle, fecha de descarga UTC y SHA-256 del bundle.
 
 Reproducir: .venv/bin/python scripts/plot_valu_2026.py
 Actualizar desde SVT: añadir --refresh. Esto puede cambiar las ponderaciones.
+
+★ Referencia nacional: Valmyndigheten, escrutinio provisional del Riksdag.
+El archivo valu-2026-national-result.json conserva votos, fecha, procedencia
+y SHA-256 del ZIP oficial, con firmas verificadas. Incluye unidades de recogida,
+también el voto tardío y del extranjero. No es la suma de distritos del mapa.
+Actualizar explícitamente: python3 scripts/update_valu_national.py; después
+regenerar los gráficos. La descarga no cambia los pesos de la encuesta SVT.
+Las fechas de la encuesta y del recuento son diferentes: la comparación es
+descriptiva, no una prueba de significación ni una nueva ponderación.
+Escalas de la estrella:
+- Original: 100 × votos nacionales del partido / votos válidos nacionales.
+- Por grupo 100%: 100 × votos del partido / votos de los ocho partidos.
+- Índice: 100 × porcentaje nacional original / suma de los porcentajes
+  originales del partido en los grupos mostrados de esa variable.
+La referencia no se añade al denominador ni a los grupos de la encuesta.
+valu-2026-national-comparison.json conserva las tres escalas exactas.
+En barras, una barra que supera la estrella indica más apoyo dentro de ese
+grupo que en el conjunto nacional, con las escalas indicadas. En el resumen,
+la última fila de cada bloque contiene las referencias nacionales.
+
 
 Los gráficos principales muestran un índice relativo: cada columna (partido)
 suma 100 dentro de cada variable (sexo, edad, origen u ocupación).
@@ -321,16 +387,20 @@ for p in OUT.iterdir():
 gallery='''<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sweden 2026 · Voter groups · VALU</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:#17384a;font:16px system-ui,sans-serif}header,main,footer{max-width:1450px;margin:auto;padding:16px 24px}header{display:flex;align-items:center;gap:15px;flex-wrap:wrap}header a{color:inherit}h1{font-size:clamp(23px,3vw,34px);margin:0}p{line-height:1.55}nav{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}button,.download{border:1px solid #c4d3df;border-radius:9px;background:white;color:#17384a;padding:10px 14px;font:inherit;cursor:pointer;text-decoration:none}button[aria-pressed=true]{background:#17384a;color:white}.lang{margin-left:auto}figure{margin:0}img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #dce5ed}.downloads{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}summary{cursor:pointer;padding:12px 0;font-weight:600}a{color:#176393}footer{border-top:1px solid #dce5ed;font-size:14px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{padding:10px;border-bottom:1px solid #dce5ed;text-align:right}th:first-child{text-align:left}small{color:#526977}.notice{max-width:1000px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #daab24;outline-offset:3px}@media(max-width:600px){header,main,footer{padding:14px}nav button{padding:8px 10px;font-size:14px}}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:#17384a;font:16px system-ui,sans-serif}header,main,footer{max-width:1450px;margin:auto;padding:16px 24px}header{display:flex;align-items:center;gap:15px;flex-wrap:wrap}header a{color:inherit}h1{font-size:clamp(23px,3vw,34px);margin:0}p{line-height:1.55}nav{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}button,.download{border:1px solid #c4d3df;border-radius:9px;background:white;color:#17384a;padding:10px 14px;font:inherit;cursor:pointer;text-decoration:none}button[aria-pressed=true]{background:#17384a;color:white}.lang{margin-left:auto}figure{margin:0}img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #dce5ed}.downloads{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}summary{cursor:pointer;padding:12px 0;font-weight:600}a{color:#176393}footer{border-top:1px solid #dce5ed;font-size:14px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{padding:10px;border-bottom:1px solid #dce5ed;text-align:right}th:first-child{text-align:left}tfoot{background:#fff2c8;font-weight:700}#nationallegend{background:#fff2c8;border-radius:9px;padding:12px 16px}small{color:#526977}.notice{max-width:1000px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #daab24;outline-offset:3px}@media(max-width:600px){header,main,footer{padding:14px}nav button{padding:8px 10px;font-size:14px}}
 </style><header><a href="../">← Atlas</a><a href="https://x.com/Calcetinletal">Creado por @Calcetinletal</a><div class="lang"><button data-lang="es">🇪🇸 Español</button> <button data-lang="en">🇬🇧 English</button></div></header>
-<main><h1 id="title"></h1><p id="intro" class="notice"></p><nav id="modes" aria-label="Metric"><button data-mode="rows"></button><button data-mode="normalized"></button><button data-mode="raw"></button></nav><nav id="charts" aria-label="Charts"></nav><p id="groupdefinition" class="notice"></p><p><a id="chartsource" target="_blank" rel="noopener"></a></p><figure><img id="plot" width="3040" height="1900" alt=""></figure><div class="downloads"><a class="download" id="png">PNG</a><a class="download" id="pdf">PDF</a><a class="download" id="svg">SVG</a><a class="download" id="zip" href="VALU-2026-charts.zip">ZIP</a></div><details><summary id="tabletitle"></summary><div class="tablewrap" id="table"></div></details><details><summary id="methodtitle"></summary><p id="method"></p><p id="definition"></p><p id="missing"></p><p><a href="valu-2026-source.json">JSON</a> · <a href="valu-2026-seminar.json">JSON · informe ampliado</a> · <a href="README.md">README</a> · <a href="https://www.svt.se/nyheter/sa-rostade-olika-valjargrupper-gr3b30">SVT VALU 2026</a></p></details></main><footer>SVT VALU 2026 · <a href="https://x.com/Calcetinletal">@Calcetinletal</a></footer>
+<main><h1 id="title"></h1><p id="intro" class="notice"></p><nav id="modes" aria-label="Metric"><button data-mode="rows"></button><button data-mode="normalized"></button><button data-mode="raw"></button></nav><nav id="charts" aria-label="Charts"></nav><p id="groupdefinition" class="notice"></p><p><a id="chartsource" target="_blank" rel="noopener"></a></p><p id="nationallegend" class="notice"></p><figure><img id="plot" width="3040" height="1900" alt=""></figure><div class="downloads"><a class="download" id="png">PNG</a><a class="download" id="pdf">PDF</a><a class="download" id="svg">SVG</a><a class="download" id="zip" href="VALU-2026-charts.zip">ZIP</a></div><details><summary id="tabletitle"></summary><div class="tablewrap" id="table"></div></details><details><summary id="methodtitle"></summary><p id="method"></p><p id="nationalmethod"></p><p id="definition"></p><p id="missing"></p><p><a href="valu-2026-source.json">JSON</a> · <a href="valu-2026-seminar.json">JSON · informe ampliado</a> · <a href="valu-2026-national-result.json">JSON · ★ National</a> · <a href="valu-2026-national-comparison.json">JSON · ★ Scales</a> · <a href="README.md">README</a> · <a href="https://www.svt.se/nyheter/sa-rostade-olika-valjargrupper-gr3b30">SVT VALU 2026</a></p></details></main><footer>SVT VALU 2026 · <a href="https://x.com/Calcetinletal">@Calcetinletal</a></footer>
 <script>
-const data=__DATA__,groups=__GROUPS__,parties=__PARTIES__,notes=__NOTES__,definitions=__DEFINITIONS__,scaleNote=__SCALE_NOTE__,normalized=__NORMALIZED__,rowNormalized=__ROW_NORMALIZED__,rowNote=__ROW_NOTE__,extraGroups=__EXTRA_GROUPS__,seminarNotes=__SEMINAR_NOTES__,seminarSource=__SEMINAR_SOURCE__,titles=__TITLES__;
+const data=__DATA__,groups=__GROUPS__,parties=__PARTIES__,notes=__NOTES__,definitions=__DEFINITIONS__,scaleNote=__SCALE_NOTE__,normalized=__NORMALIZED__,rowNormalized=__ROW_NORMALIZED__,rowNote=__ROW_NOTE__,extraGroups=__EXTRA_GROUPS__,seminarNotes=__SEMINAR_NOTES__,seminarSource=__SEMINAR_SOURCE__,titles=__TITLES__,baselines=__BASELINES__,national=__NATIONAL__,starNotes=__STAR_NOTES__;
 const copy={es:{title:'Suecia 2026 · Cómo votaron los distintos grupos',intro:'Porcentaje de voto a cada partido dentro de cada grupo. Estimaciones nacionales de la encuesta SVT VALU; no son recuentos oficiales por grupo.',tabs:['Resumen básico',...titles.es],table:'Ver porcentajes en tabla',method:'Fuente y metodología',missing:'No se ha confirmado en estas fuentes un desglose del voto por renta o por confesión religiosa. La práctica religiosa mide asistencia, no identifica una religión.',zip:'Descargar todo · ZIP'},en:{title:'Sweden 2026 · How different groups voted',intro:'Party vote share within each group. National estimates from the SVT VALU voter survey, not official ballot counts by group.',tabs:['Basic overview',...titles.en],table:'View percentages in a table',method:'Source and methodology',missing:'These sources do not provide a confirmed vote breakdown by income or religious affiliation. Religious attendance measures participation, not which religion a voter follows.',zip:'Download all · ZIP'}};
 const metricCopy={es:{title:'Suecia 2026 · Apoyo relativo por grupo',intro:'Índice relativo: cada partido suma 100 dentro de cada bloque. No pondera el tamaño de los grupos ni representa la composición del electorado de cada partido.',rows:'Por grupo · 100%',normalized:'Índice sin ponderar',raw:'% de voto original'},en:{title:'Sweden 2026 · Relative party support by group',intro:'Relative index: each party sums to 100 within each panel. It does not weight group sizes or describe the composition of each party’s electorate.',rows:'By group · 100%',normalized:'Unweighted index',raw:'Original vote share (%)'}};
 let params=new URLSearchParams(location.search),lang=['en','sv'].includes(params.get('lang'))?'en':'es',mode=['raw','rows','normalized'].includes(params.get('mode'))?params.get('mode'):'rows',chart=['summary',...groups.map(g=>g[0])].includes(params.get('chart'))?params.get('chart'):'summary';
 function render(){
  const c=copy[lang],m=metricCopy[lang],raw=mode==='raw',rowMode=mode==='rows',keys=['summary',...groups.map(g=>g[0])];
+ document.getElementById('nationallegend').textContent=starNotes[lang][mode]+' '+(chart==='summary'?(lang==='es'?'Compara cada valor con la fila ★ de su bloque.':'Compare each value with the ★ row in its panel.'):(lang==='es'?'La barra supera la estrella: más apoyo que en el conjunto nacional.':'Bar beyond the star: stronger support than nationally.'));
+ const nationalMethod=document.getElementById('nationalmethod');
+ nationalMethod.textContent=(lang==='es'?'★ Referencia oficial de Valmyndigheten, incluidos los votos de recogida y del extranjero. Comparación descriptiva con una encuesta ponderada en otra fecha; no modifica sus pesos ni indica significación estadística. ':'★ Official Valmyndigheten reference, including collection and overseas votes. Descriptive comparison with a survey weighted at an earlier date; it neither changes survey weights nor indicates statistical significance. ')+(mode==='normalized'?(lang==='es'?'Estrella = 100 × porcentaje nacional original / suma de los porcentajes originales del partido en los grupos mostrados. No se añade al denominador. ':'Star = 100 × original national share / sum of the party’s original shares across displayed groups. The reference is not added to the denominator. '):mode==='rows'?(lang==='es'?'La referencia nacional se recalcula entre los mismos ocho partidos. ':'The national reference is rescaled among the same eight parties. '):'');
+ const nationalLink=document.createElement('a');nationalLink.href=national.source_page;nationalLink.textContent='Valmyndigheten · '+national.source_updated_at.replace('T',' ')+' (Europe/Stockholm)';nationalMethod.append(nationalLink);
  const extra=extraGroups[chart],currentNotes=extra?seminarNotes[lang]:notes[lang];
  document.getElementById('groupdefinition').textContent=extra?extra['definition_'+lang]:chart==='background'?definitions[lang]:'';
  const sourceLink=document.getElementById('chartsource');
@@ -343,10 +413,10 @@ function render(){
  document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
  document.querySelectorAll('[data-mode]').forEach(b=>{b.setAttribute('aria-pressed',b.dataset.mode===mode);b.textContent=m[b.dataset.mode]});
  const stem=`VALU-2026-${chart}-${lang}${raw?'-vote-share':rowMode?'-row-normalized':''}`,img=document.getElementById('plot');
- img.src=stem+'.png?v=group100';img.alt=c.tabs[keys.indexOf(chart)]+' · '+(rowMode?rowNote[lang]:raw?c.intro:m.intro);
+ img.src=stem+'.png?v=national-stars-20260917';img.alt=c.tabs[keys.indexOf(chart)]+' · '+(rowMode?rowNote[lang]:raw?c.intro:m.intro)+' · '+starNotes[lang][mode];
  img.style.aspectRatio=chart==='summary'?'1.6':'auto';img.removeAttribute('height');
- for(const ext of ['png','pdf','svg'])document.getElementById(ext).href=stem+'.'+ext+'?v=group100';
- document.getElementById('zip').textContent=c.zip;document.getElementById('zip').href='VALU-2026-charts.zip?v=group100';
+ for(const ext of ['png','pdf','svg'])document.getElementById(ext).href=stem+'.'+ext+'?v=national-stars-20260917';
+ document.getElementById('zip').textContent=c.zip;document.getElementById('zip').href='VALU-2026-charts.zip?v=national-stars-20260917';
  document.getElementById('tabletitle').textContent=lang==='es'?'Ver valores en tabla':'View values in a table';
  document.getElementById('methodtitle').textContent=c.method;
  document.getElementById('method').textContent=currentNotes+' '+scaleNote[lang]+(lang==='es'?' Índice = 100 × porcentaje del grupo / suma de porcentajes del partido dentro del bloque. Redondeo por mayores restos a una cifra decimal.':' Index = 100 × group vote share / sum of that party’s shares within the panel. Largest-remainder rounding to one decimal.');
@@ -355,11 +425,13 @@ function render(){
  document.getElementById('definition').textContent=extra?extra['definition_'+lang]:definitions[lang];
  document.getElementById('missing').textContent=c.missing+' '+(lang==='es'?'La composición del electorado de cada partido requiere dividir sus votantes de cada grupo entre todos sus votantes, usando los pesos de la encuesta. Las fuentes consultadas de 2026 no proporcionan las bases ponderadas compatibles para hacerlo. Normalizar columnas no sustituye ese cálculo.':'The composition of each party’s electorate requires dividing its voters in each group by all its voters, using survey weights. The checked 2026 sources do not provide compatible weighted bases for this calculation. Column normalization cannot replace it.');
  let rows=[];
+ const selectedGroups=groups.filter((g,i)=>chart==='summary'?i<4:g[0]===chart);
+ const refs=(chart==='summary'&&mode==='normalized'?selectedGroups:[selectedGroups[0]]).map(g=>'<tr><th scope="row">★ '+(lang==='es'?'Resultado nacional':'National result')+(chart==='summary'&&mode==='normalized'?' · '+titles[lang][groups.indexOf(g)]:'')+'</th>'+baselines[mode][g[0]].map(v=>'<td>'+v.toFixed(1)+(raw||rowMode?'%':'')+'</td>').join('')+'</tr>').join('');
  for(const g of groups.filter((g,i)=>chart==='summary'?i<4:g[0]===chart))g[1].forEach((key,i)=>rows.push('<tr data-group="'+g[0]+'"><th scope="row">'+g[lang==='es'?2:3][i]+'</th>'+parties.map((p,j)=>'<td>'+(raw?data.rows.find(r=>r.party.toUpperCase()===p)[key]*100:(rowMode?rowNormalized:normalized)[g[0]].display[i][j]).toFixed(1)+(raw||rowMode?'%':'')+'</td>').join('')+'</tr>'));
- document.getElementById('table').innerHTML='<table><caption>'+m[mode]+'</caption><thead><tr><th>'+(lang==='es'?'Grupo':'Group')+'</th>'+parties.map(p=>'<th scope="col">'+p+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table>';
+ document.getElementById('table').innerHTML='<table><caption>'+m[mode]+'</caption><thead><tr><th>'+(lang==='es'?'Grupo':'Group')+'</th>'+parties.map(p=>'<th scope="col">'+p+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody><tfoot>'+refs+'</tfoot></table>';
  history.replaceState(null,'','?lang='+lang+'&chart='+chart+'&mode='+mode);
 }
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.lang)lang=b.dataset.lang;if(b.dataset.chart)chart=b.dataset.chart;if(b.dataset.mode)mode=b.dataset.mode;render()});render();
 </script></html>'''
-for key,value in [('DATA',data),('GROUPS',groups),('PARTIES',parties),('NOTES',notes),('DEFINITIONS',definitions),('SCALE_NOTE',scale_note),('NORMALIZED',normalized),('ROW_NORMALIZED',row_normalized),('ROW_NOTE',row_note),('EXTRA_GROUPS',extra_groups),('SEMINAR_NOTES',seminar_notes),('SEMINAR_SOURCE',seminar['source']),('TITLES',titles)]:gallery=gallery.replace('__'+key+'__',json.dumps(value,ensure_ascii=False))
+for key,value in [('DATA',data),('GROUPS',groups),('PARTIES',parties),('NOTES',notes),('DEFINITIONS',definitions),('SCALE_NOTE',scale_note),('NORMALIZED',normalized),('ROW_NORMALIZED',row_normalized),('ROW_NOTE',row_note),('EXTRA_GROUPS',extra_groups),('SEMINAR_NOTES',seminar_notes),('SEMINAR_SOURCE',seminar['source']),('TITLES',titles),('BASELINES',baselines),('NATIONAL',national),('STAR_NOTES',star_notes)]:gallery=gallery.replace('__'+key+'__',json.dumps(value,ensure_ascii=False))
 (PUBLIC/'index.html').write_text(gallery,encoding='utf-8')

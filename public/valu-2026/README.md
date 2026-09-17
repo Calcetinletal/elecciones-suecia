@@ -8,6 +8,26 @@ El JSON conserva URL de bundle, fecha de descarga UTC y SHA-256 del bundle.
 Reproducir: .venv/bin/python scripts/plot_valu_2026.py
 Actualizar desde SVT: añadir --refresh. Esto puede cambiar las ponderaciones.
 
+★ Referencia nacional: Valmyndigheten, escrutinio provisional del Riksdag.
+El archivo valu-2026-national-result.json conserva votos, fecha, procedencia
+y SHA-256 del ZIP oficial, con firmas verificadas. Incluye unidades de recogida,
+también el voto tardío y del extranjero. No es la suma de distritos del mapa.
+Actualizar explícitamente: python3 scripts/update_valu_national.py; después
+regenerar los gráficos. La descarga no cambia los pesos de la encuesta SVT.
+Las fechas de la encuesta y del recuento son diferentes: la comparación es
+descriptiva, no una prueba de significación ni una nueva ponderación.
+Escalas de la estrella:
+- Original: 100 × votos nacionales del partido / votos válidos nacionales.
+- Por grupo 100%: 100 × votos del partido / votos de los ocho partidos.
+- Índice: 100 × porcentaje nacional original / suma de los porcentajes
+  originales del partido en los grupos mostrados de esa variable.
+La referencia no se añade al denominador ni a los grupos de la encuesta.
+valu-2026-national-comparison.json conserva las tres escalas exactas.
+En barras, una barra que supera la estrella indica más apoyo dentro de ese
+grupo que en el conjunto nacional, con las escalas indicadas. En el resumen,
+la última fila de cada bloque contiene las referencias nacionales.
+
+
 Los gráficos principales muestran un índice relativo: cada columna (partido)
 suma 100 dentro de cada variable (sexo, edad, origen u ocupación).
 Fórmula: 100 × porcentaje de voto al partido en el grupo / suma de esos

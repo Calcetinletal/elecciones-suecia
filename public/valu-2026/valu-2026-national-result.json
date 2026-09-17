@@ -1,0 +1,26 @@
+{
+  "source": "https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip",
+  "source_page": "https://resultat.val.se/val2026/RD?r=P",
+  "retrieved_utc": "2026-09-17T15:49:37.380169+00:00",
+  "source_updated_at": "2026-09-17T17:22:11",
+  "source_timezone": "Europe/Stockholm",
+  "source_sha256": "06c9cb1ff8bc3cfb0d5ef84815dda4413a72b06877c01ac3b9c41cc9da399b8f",
+  "signatures_verified": true,
+  "election_year": 2026,
+  "status": "provisional",
+  "reported_units": 6626,
+  "total_units": 6626,
+  "valid_votes": 6735629,
+  "other_votes": 106440,
+  "party_votes": {
+    "M": 1336810,
+    "C": 474548,
+    "L": 359845,
+    "KD": 415870,
+    "S": 1886565,
+    "V": 565614,
+    "MP": 413097,
+    "SD": 1176840
+  },
+  "scope": "National Riksdag result, including reporting collection units; denominator: valid votes"
+}
