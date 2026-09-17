@@ -522,3 +522,6 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
  .cartogram-key{padding:7px 10px;gap:7px}.cartogram-size-key{flex-direction:column;gap:3px;font-size:9px}.cartogram-credit{padding:6px 10px;font-size:9px}
  .cartogram-workspace .side-panel{max-height:none;margin-top:0}.cartogram-workspace #panel-content{padding:15px}.cartogram-hover{width:195px;left:6px;top:6px}
 }
+
+/* Keep the voter-group charts visible among the primary atlas sections. */
+.site-header nav .voter-groups-link{white-space:nowrap;font-weight:650;color:#226481}

@@ -849,3 +849,6 @@ Cada sector representa sus votos por partido.|||Each slice shows its votes by pa
 Área proporcional a los votos válidos; posiciones geográficas aproximadas.|||Area proportional to valid votes; approximate geographic locations.|||Area proportionell mot giltiga röster; ungefärliga geografiska lägen.
 Pulsa para ver los distritos|||Click to see the districts|||Klicka för att se valdistrikten
 El área, no el radio, es proporcional a los votos válidos. Los círculos mantienen posiciones geográficas aproximadas y se separan para evitar solapamientos.|||Area, not radius, is proportional to valid votes. Circles keep approximate geographic positions and are separated to avoid overlaps.|||Arean, inte radien, är proportionell mot giltiga röster. Cirklarna behåller ungefärliga geografiska lägen och flyttas isär för att undvika överlappning.
+
+Grupos de voto|||Voter groups|||Väljargrupper
+Gráficas por sexo, edad, origen y ocupación · encuesta VALU|||Charts by sex, age, background and occupation · VALU survey|||Diagram efter kön, ålder, bakgrund och yrke · VALU-undersökningen
