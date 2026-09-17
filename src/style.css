@@ -474,15 +474,30 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 .cartogram-vote-table{width:100%;border-collapse:collapse;margin:0 0 8px}.cartogram-vote-table td,.cartogram-vote-table th{padding:5px 4px;font-size:12px;border-bottom:1px solid #edf1f3;text-align:right;font-variant-numeric:tabular-nums}
 .cartogram-vote-table th:first-child{text-align:left}.cartogram-vote-table .party-badge{height:22px;width:22px;font-size:10px}.cartogram-vote-table thead th{font-size:10px;color:#6b7f8c;font-weight:500}
 .cartogram-method{margin-top:12px;font-size:11px}.cartogram-method summary{cursor:pointer;font-weight:650}.cartogram-method p{font-size:11px;line-height:1.45;margin:8px 0}
-.cartogram-layout-toggle{display:inline-flex;margin-left:auto;border:1px solid #cbdbe3;border-radius:6px;overflow:hidden}
-.cartogram-layout-toggle[hidden]{display:none}.cartogram-layout-toggle button{border:0;border-radius:0;background:transparent;font-size:11px}
-.cartogram-controls .cartogram-layout-toggle+button{margin-left:0!important}
 .cartogram-heading{padding:8px 16px 3px}.cartogram-heading p{display:none}
 .cartogram-key{min-height:38px;padding:4px 16px}.cartogram-key .legend-notes{display:none}
 #cartogram-color-key>b{display:inline;margin-right:10px}#cartogram-color-key .party-legend{display:inline-flex;vertical-align:middle}
 .cartogram-stage{background:#f8fbfd}
 .cartogram-heading>div{flex:1}.cartogram-heading #cartogram-expand{font-size:20px;line-height:1;padding:5px 9px;background:#fff;border-color:#cbdbe3}
 .cartogram-area.cartogram-expanded{position:fixed;inset:10px;z-index:1000;height:auto!important;border:1px solid #cadbe4;border-radius:10px;overflow:hidden;box-shadow:0 0 0 100vmax #16334299,0 12px 45px #16334244}
+.cartogram-comparison{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0;background:#fff}
+.cartogram-reference{position:relative;min-height:0;box-shadow:inset -1px 0 #e3ebef}
+#cartogram-reference-canvas{position:absolute;inset:0;width:100%;height:100%;cursor:pointer}
+.cartogram-comparison .cartogram-stage{background:#fff}
+.cartogram-pane-title{position:absolute;top:4px;left:12px;z-index:1;pointer-events:none;font-size:11px;letter-spacing:.02em;font-weight:650;color:#526c7a}
+#controls:has(+ #workspace .cartogram-workspace) .sub-toolbar{position:relative;align-items:center;padding:3px 16px;gap:8px}
+#controls:has(+ #workspace .cartogram-workspace) #socio-history-menu,#controls:has(+ #workspace .cartogram-workspace) .election-modes{display:none}
+.cartogram-filters>summary{cursor:pointer;white-space:nowrap;background:#f0f6fa;border:1px solid #cbdce6;border-radius:5px;padding:7px 10px;font-size:12px;color:#1d4e66;font-weight:650}
+#controls:has(+ #workspace .cartogram-workspace) .cartogram-filters .toolbar{position:absolute;left:8px;right:8px;top:100%;z-index:35;background:#fff;padding:16px;box-shadow:0 6px 24px #1d3f542b;border:1px solid #d5e3ea;border-radius:7px}
+.cartogram-filters:not([open]) .toolbar{display:none!important}
+.cartogram-heading{gap:8px;padding:8px 12px 3px}.cartogram-heading>div:first-child{min-width:110px;max-width:280px}
+.cartogram-heading h2{font-size:17px}.cartogram-heading .cartogram-controls{flex:0 0 auto;padding:0;gap:4px}.cartogram-heading .cartogram-controls button{font-size:11px;padding:6px 8px}
+.cartogram-heading .cartogram-controls #cartogram-reset{display:none}
+.cartogram-explanation{margin:3px 0 5px;font-size:10px;line-height:1.25}
+.cartogram-unit{width:145px;flex-shrink:0}.cartogram-unit select{font-size:11px;min-height:30px;margin:0;padding:5px 20px 5px 6px}
+.cartogram-heading .cartogram-controls button{background:#fff;border-color:#d5e2e9}.cartogram-heading .cartogram-controls button[aria-pressed=true]{background:#193e56;color:#fff;border-color:#193e56}
+.cartogram-municipal-hover{padding:10px}.cartogram-municipal-hover>b{display:block;font-size:14px}.cartogram-municipal-hover small{display:block;font-size:10px;margin:5px 0}.cartogram-municipal-hover>div{display:flex;align-items:center;flex-wrap:wrap;gap:5px;font-size:11px}.cartogram-municipal-hover strong{margin-right:5px}
+@media(min-width:1200px){#app:has(.cartogram-workspace) .brand-lockup{display:flex;align-items:center;gap:12px}#app:has(.cartogram-workspace) .brand h1{font-size:16px}#app:has(.cartogram-workspace) .brand h1 span{font-size:14px}#app:has(.cartogram-workspace) .creator-signature{margin:0;font-size:10px}}
 @media(min-width:761px){
  #app:has(.cartogram-workspace){height:100dvh;display:flex;flex-direction:column;overflow:hidden}
  #app:has(.cartogram-workspace)>#main{display:flex;flex-direction:column;flex:1;min-height:0}
@@ -497,6 +512,10 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 }
 @media(min-width:761px) and (max-width:1366px){#controls .election-modes{display:none}}
 @media(max-width:760px){
+ .cartogram-heading{flex-wrap:wrap}.cartogram-heading>div:first-child{flex-basis:100%;max-width:none}.cartogram-heading .cartogram-controls{order:5;flex-basis:100%}.cartogram-heading .cartogram-unit{width:125px;margin-right:auto}
+ .cartogram-comparison{grid-template-columns:1fr}.cartogram-reference{display:none}
+ #controls:has(+ #workspace .cartogram-workspace) .sub-toolbar{display:flex;flex-wrap:wrap}
+ #controls:has(+ #workspace .cartogram-workspace) .view-tabs{width:100%}
  .cartogram-workspace{display:flex;flex-direction:column;height:auto;min-height:0}.cartogram-area{height:650px;min-height:0}.cartogram-stage{min-height:300px}
  .cartogram-heading{padding:10px}.cartogram-heading h2{font-size:16px}.cartogram-heading p{font-size:11px}.cartogram-heading button{font-size:10px;padding:7px}
  .cartogram-controls{padding:4px 10px;gap:4px}.cartogram-controls button{font-size:10px;padding:6px}.cartogram-explanation{padding:0 10px;font-size:10px}

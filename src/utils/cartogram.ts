@@ -24,15 +24,6 @@ export function maximumOverlap(nodes:CartogramNode[]){
   const key=`${gx},${gy}`,cell=grid.get(key)??[];cell.push(n);grid.set(key,cell);
  }return overlap;
 }
-/** Screen-filling shelf layout; input order is preserved and every vote retains one area scale. */
-export function compactCartogram(input:CartogramNode[],aspect:number):CartogramNode[]{
- if(!input.length)return [];
- const gap=Math.max(...input.map(n=>n.r))*.12,diameter=Math.max(...input.map(n=>2*n.r));
- const place=(width:number)=>{let x=0,y=0,rowHeight=0;return input.map(n=>{const d=2*n.r;if(x&&x+d>width){x=0;y+=rowHeight+gap;rowHeight=0;}const node={...n,x:x+n.r,y:y+n.r};x+=d+gap;rowHeight=Math.max(rowHeight,d);return node;});};
- let lo=diameter,hi=Math.max(diameter,input.reduce((a,n)=>a+2*n.r+gap,0));
- for(let i=0;i<24;i++){const width=(lo+hi)/2,nodes=place(width),height=Math.max(...nodes.map(n=>n.y+n.r));if(width/height>aspect)hi=width;else lo=width;}
- return place(hi);
-}
 /** Deterministic Dorling layout, calculated off the main browser thread. */
 export function layoutCartogram(input:CartogramNode[]){
  const nodes=input.map(p=>({...p}));if(nodes.length<2)return nodes;

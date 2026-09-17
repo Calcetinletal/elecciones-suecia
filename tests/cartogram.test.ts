@@ -1,14 +1,8 @@
 import {describe,it,expect} from 'vitest';
-import {compactCartogram,makeCartogramNodes,layoutCartogram,maximumOverlap,voteSlices} from '../src/utils/cartogram';
+import {makeCartogramNodes,layoutCartogram,maximumOverlap,voteSlices} from '../src/utils/cartogram';
 import {readState,routeUrl} from '../src/utils/state';
 import type {District} from '../src/types';
 describe('vote-area cartogram',()=>{
- it('fills landscape and portrait layouts without overlaps or changing district vote areas',()=>{
-  const nodes=makeCartogramNodes(Array.from({length:1200},(_,i)=>({id:String(i),x:i%30,y:Math.floor(i/30),votes:100+(i*17)%2000})));
-  for(const aspect of [.7,3]){const placed=compactCartogram(nodes,aspect);expect(maximumOverlap(placed)).toBeLessThan(.001);expect(placed.map(n=>[n.id,n.r,n.votes,n.anchorX,n.anchorY])).toEqual(nodes.map(n=>[n.id,n.r,n.votes,n.anchorX,n.anchorY]));
-   const w=Math.max(...placed.map(n=>n.x+n.r)),h=Math.max(...placed.map(n=>n.y+n.r));expect(w/h).toBeGreaterThan(aspect*.85);expect(w/h).toBeLessThan(aspect*1.15);
-  }
- });
  it('encodes counts in area, never in radius, and excludes absent/zero weights',()=>{
   const nodes=makeCartogramNodes([{id:'a',x:0,y:0,votes:100},{id:'b',x:0,y:0,votes:400},{id:'z',x:0,y:0,votes:0},{id:'n',x:0,y:0,votes:NaN}]);
   expect(nodes).toHaveLength(2);expect(nodes[1].r/nodes[0].r).toBeCloseTo(2);expect(nodes.reduce((n,p)=>n+Math.PI*p.r*p.r,0)).toBeCloseTo(180000);

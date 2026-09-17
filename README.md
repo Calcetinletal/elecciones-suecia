@@ -392,3 +392,15 @@ npm run build
 ```
 Auditoría y cobertura: `public/data/history/socio/provenance.json`.
 Los originales permanecen en la caché inmutable `data/raw/scb/socio_history/2026-09-16/`.
+
+## Cartograma geográfico de votos
+
+La vista `?view=cartogram` compara la superficie con círculos en posiciones geográficas aproximadas. Abre el país por municipios; `cartogramUnit=district` permite usar los distritos. Los municipios suman los votos de los distritos territoriales mostrados, sin promediar porcentajes ni añadir las unidades de recogida sin geometría. El área, no el radio, representa los votos válidos. «Todos los votos» conserva el reparto por partido dentro de cada círculo.
+
+Los contornos municipales de cada edición se regeneran desde sus propios distritos oficiales, con simplificación de 50 m para la visualización:
+
+```sh
+python scripts/build_cartogram_geography.py
+```
+
+El paso se incluye al final de `make_data.py`; debe repetirse si se actualizan las geometrías electorales. Cada `public/data/{2022,2026}/municipalities.geojson.gz` incluye el año y SHA-256 de su geometría de origen. Las pruebas verifican estas huellas y la conservación de todos los totales por partido.
