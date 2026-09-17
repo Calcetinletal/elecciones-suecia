@@ -5,6 +5,7 @@ export function electionSelection(s:State){const metric=s.view==='compare'?s.ele
 export function comparisonElectionKey(s:State){return s.electionMetric==='party'?`pct_${s.party}`:s.electionMetric;}
 export function comparisonElectionLabel(s:State){return dominantOptions.find(([key])=>key===s.electionMetric)?.[1]??`Voto ${partyLabel(s.party)}`;}
 export function selectElection(s:State,selection:string){
+ if(s.view==='cartogram')s.cartogramMode='voters';
  const dominant=dominantOptions.some(([key])=>key===selection);
  if(!dominant)s.party=normalizeParties(selection);
  if(s.view==='compare')s.electionMetric=dominant?selection:'party';

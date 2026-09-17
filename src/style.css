@@ -444,3 +444,53 @@ html[lang=en] .map[aria-busy=true]::after{content:"Loading map…"}html[lang=sv]
 .map-variable-help>div{position:absolute;z-index:12;right:0;bottom:calc(100% + 6px);max-height:180px;overflow:auto;width:min(290px,calc(100vw - 45px));padding:12px;background:#fff;border:1px solid #cadce4;border-radius:8px;box-shadow:0 5px 20px #23435933;color:#294452;font-size:12px;white-space:normal}
 .map-variable-help p{margin:6px 0;line-height:1.45}.map-variable-help small{font-size:10px}
 .map-slot:has(.map-variable-help[open]){z-index:5}
+
+.view-tabs .cartogram-entry{border:1px solid #d6ad68;background:#fff6e6;color:#845817;font-weight:700;white-space:nowrap;padding:9px 10px}
+.view-tabs .cartogram-entry[aria-pressed=true]{background:#98631f;color:white}
+.cartogram-area{display:flex;flex-direction:column;min-width:0;min-height:0;background:#f0f5f7}
+.cartogram-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px 6px}
+.cartogram-heading h2{font-size:19px;margin:0 0 4px;letter-spacing:-.025em}.cartogram-heading p{font-size:12px;margin:0;color:#607785;line-height:1.35}
+.cartogram-heading button{font-size:12px;white-space:nowrap;border-color:#c9ab77;background:#fff8ed}
+.cartogram-controls{display:flex;gap:5px;padding:5px 16px;flex-wrap:wrap}.cartogram-controls button{font-size:12px;padding:6px 10px}
+.cartogram-controls button[aria-pressed=true]{background:#193e56;color:white;border-color:#193e56}.cartogram-controls #cartogram-reset{margin-left:auto}
+.cartogram-explanation{font-size:11px;line-height:1.35;color:#486775;padding:0 16px;margin:4px 0 6px}
+.cartogram-stage{position:relative;flex:1;min-height:160px;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#fff,#eff5f7)}
+#cartogram-canvas{width:100%;height:100%;position:absolute;inset:0;touch-action:none;cursor:grab}
+.cartogram-status:not(:empty){position:absolute;left:16px;bottom:12px;padding:7px 10px;background:#fffdf2;border:1px solid #dac498;border-radius:6px;font-size:12px;pointer-events:none}
+.cartogram-hover{position:absolute;left:10px;top:10px;width:224px;background:#fff;border:1px solid #d5e1e7;border-radius:8px;box-shadow:0 5px 18px #1a36451c;pointer-events:none;z-index:3}
+.cartogram-hover[hidden]{display:none}.cartogram-hover .hover-card{margin:0}.cartogram-hover .hover-card footer{font-size:9px}
+.cartogram-zoom{position:absolute;right:12px;top:10px;display:grid;gap:3px}.cartogram-zoom button{padding:4px 10px;font-size:18px}
+.cartogram-key{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#fff;padding:7px 16px;border-top:1px solid #dce5e9;flex:none;min-height:50px}
+#cartogram-color-key{flex:1;min-width:0;font-size:11px}#cartogram-color-key>b{display:block;font-size:11px;margin-bottom:4px}
+#cartogram-color-key .party-legend{gap:7px}#cartogram-color-key .party-badge{width:20px;height:20px;flex-basis:20px;font-size:9px}
+#cartogram-color-key .scale{height:7px;margin:4px 0;max-width:440px}#cartogram-color-key .scale-labels{max-width:440px;font-size:10px}
+#cartogram-color-key .legend-notes{font-size:10px;margin-top:3px}#cartogram-color-key .legend-notes small{display:block;max-width:580px;font-size:10px;line-height:1.4;margin-top:5px}
+.cartogram-size-key{display:flex;align-items:center;gap:7px;font-size:10px;white-space:nowrap}
+.cartogram-credit{display:flex;justify-content:space-between;gap:10px;font-size:10px;line-height:1.3;padding:5px 16px;color:#637987;background:#f8fafb;flex-wrap:wrap}
+.cartogram-results>header{display:flex;justify-content:space-between;align-items:center;gap:8px}.cartogram-results h2{font-size:19px;margin:4px 0 10px}.cartogram-results .eyebrow{font-size:10px;letter-spacing:.03em}
+.cartogram-vote-total{display:flex;align-items:baseline;gap:9px;padding:9px 0 6px}.cartogram-vote-total strong{font-size:25px;color:#204b60}.cartogram-vote-total span{font-size:11px}
+.cartogram-result-note{font-size:10px;line-height:1.4;color:#647987;margin:5px 0 8px}
+.cartogram-vote-bar{display:flex;height:11px;border-radius:3px;overflow:hidden;margin:10px 0 7px}.cartogram-vote-bar i{min-width:0}
+.cartogram-vote-table{width:100%;border-collapse:collapse;margin:0 0 8px}.cartogram-vote-table td,.cartogram-vote-table th{padding:5px 4px;font-size:12px;border-bottom:1px solid #edf1f3;text-align:right;font-variant-numeric:tabular-nums}
+.cartogram-vote-table th:first-child{text-align:left}.cartogram-vote-table .party-badge{height:22px;width:22px;font-size:10px}.cartogram-vote-table thead th{font-size:10px;color:#6b7f8c;font-weight:500}
+.cartogram-method{margin-top:12px;font-size:11px}.cartogram-method summary{cursor:pointer;font-weight:650}.cartogram-method p{font-size:11px;line-height:1.45;margin:8px 0}
+@media(min-width:761px){
+ #app:has(.cartogram-workspace){height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+ #app:has(.cartogram-workspace)>#main{display:flex;flex-direction:column;flex:1;min-height:0}
+ #main:has(.cartogram-workspace)>#controls{flex:none}#main:has(.cartogram-workspace)>#workspace{flex:1;min-height:0}
+ #controls:has(.release-notice)+#workspace .cartogram-workspace,.cartogram-workspace{height:100%;min-height:0;grid-template-columns:minmax(0,1fr) 300px}
+ #app:has(.cartogram-workspace)>.site-header{padding:7px 20px}
+ #controls:has(+ #workspace .cartogram-workspace) .toolbar{display:grid;grid-template-columns:84px repeat(5,minmax(0,1fr)) 60px 90px;padding:6px 20px;gap:8px}
+ #controls:has(+ #workspace .cartogram-workspace) .toolbar label,#controls:has(+ #workspace .cartogram-workspace) .toolbar .search-label{min-width:0}
+ #controls:has(+ #workspace .cartogram-workspace) .toolbar select,#controls:has(+ #workspace .cartogram-workspace) .toolbar input{min-height:34px;padding:6px 22px 6px 8px}
+ #controls:has(+ #workspace .cartogram-workspace) .toolbar .icon-button{height:34px}
+ .cartogram-workspace #panel-content{padding:12px 16px}.cartogram-workspace .side-panel{overflow:auto}
+}
+@media(min-width:761px) and (max-width:1366px){#controls .election-modes{display:none}}
+@media(max-width:760px){
+ .cartogram-workspace{display:flex;flex-direction:column;height:auto;min-height:0}.cartogram-area{height:650px;min-height:0}.cartogram-stage{min-height:300px}
+ .cartogram-heading{padding:10px}.cartogram-heading h2{font-size:16px}.cartogram-heading p{font-size:11px}.cartogram-heading button{font-size:10px;padding:7px}
+ .cartogram-controls{padding:4px 10px;gap:4px}.cartogram-controls button{font-size:10px;padding:6px}.cartogram-explanation{padding:0 10px;font-size:10px}
+ .cartogram-key{padding:7px 10px;gap:7px}.cartogram-size-key{flex-direction:column;gap:3px;font-size:9px}.cartogram-credit{padding:6px 10px;font-size:9px}
+ .cartogram-workspace .side-panel{max-height:none;margin-top:0}.cartogram-workspace #panel-content{padding:15px}.cartogram-hover{width:195px;left:6px;top:6px}
+}
